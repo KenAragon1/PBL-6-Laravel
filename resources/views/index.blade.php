@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="shortcut icon" href="#">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <style>
@@ -217,7 +218,7 @@
                     <button class="btn btn-danger" data-bs-dismiss="modal">
                         Tutup Keranjang
                     </button>
-                    <a href="" class="btn btn-success">Checkouta</a>
+                    <a href="{{ url('/checkout') }}" class="btn btn-success">Checkout</a>
                 </div>
             </div>
         </div>

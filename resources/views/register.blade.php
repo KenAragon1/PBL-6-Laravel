@@ -5,6 +5,13 @@
     <div class="container bg-white w-50 my-5 p-5 shadow-sm">
         <h1 class="text-success text-center mb-3">Register</h1>
         <form method="post">
+            <!-- Jenis Pengguna -->
+            <div class="form mb-4">
+                <select name="role" id="role" class="form-select" aria-label="Default select example">
+                <option selected>-- Pilih Jenis Pengguna --</option>
+                <option value="pembeli">Pembeli</option>
+                <option value="penjual">Penjual</option></select>
+            </div>
             <!-- Email input -->
             <div class="form-outline mb-4">
                 <label class="form-label" for="email">Email</label>

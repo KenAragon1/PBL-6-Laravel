@@ -1,7 +1,7 @@
 @extends('templates.nav-footer')
 
 @section('content')
-    <div class="container bg-white w-50 my-5 p-5 shadow-sm">
+    <div class="container bg-white my-5 p-5 shadow-sm" style="width:30rem;">
         <h1 class="text-success text-center mb-3">Login</h1>
         <form method="post">
             <!-- Email input -->
