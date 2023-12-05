@@ -65,11 +65,11 @@
             <div class="mb-3">
                 <div class="col-md-12">
                     <input type="radio" class="btn-check" name="metode-pemabayaran" id="cod" autocomplete="off"
-                        onclick="pembayaran('cod')" />
+                        onfocus="pembayaran('cod')" />
                     <label class="btn btn-outline-success mr-1" for="cod">COD</label>
-                    <input type="radio" class="btn-check" name="metode-pemabayaran" id="kartu-kredit" autocomplete="off"
-                        onfocus="pembayaran('kartu-kredit')" />
-                    <label class="btn btn-outline-success mx-1" for="kartu-kredit">Kartu Kredit</label>
+                    <input type="radio" class="btn-check" name="metode-pemabayaran" id="transfer-bank" autocomplete="off"
+                        onfocus="pembayaran('transfer-bank')" />
+                    <label class="btn btn-outline-success mx-1" for="transfer-bank">Transfer bank</label>
 
                 </div>
             </div>

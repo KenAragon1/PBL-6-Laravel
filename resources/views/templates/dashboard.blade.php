@@ -45,32 +45,9 @@
                         Produk
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#table"></use>
-                        </svg>
-                        Aksesoris
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#grid"></use>
-                        </svg>
-                        Printer
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#people-circle"></use>
-                        </svg>
-                        Rakit PC
-                    </a>
-                </li>
+
             </ul>
-            
+
 
 
         </div>
@@ -106,7 +83,7 @@
         </ul>
     </footer>
 
-    
+
 </body>
 
 </html>
