@@ -49,4 +49,8 @@ Route::get('/dashboard/produk', function () {
     return view('admin-produk');
 });
 
+Route::get('/keranjang', function () {
+    return view('keranjang');
+});
+
 
