@@ -1,7 +1,7 @@
 @extends('templates.nav-footer')
 
 @section('content')
-    <div class="container bg-white my-5 p-5 shadow-sm" style="width:30rem;">
+    <div class="container bg-white my-5 p-5 shadow rounded-5" style="width:30rem;">
         <h1 class="text-success text-center mb-3">Login</h1>
         @if(session()->has('error'))
             <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">

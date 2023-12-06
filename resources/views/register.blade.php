@@ -2,7 +2,7 @@
 
 @section('content')
     </nav>
-    <div class="container bg-white w-50 my-5 p-5 shadow-sm">
+    <div class="container bg-white w-50 my-5 p-5 shadow rounded-5">
         @if(session()->has('errReg'))
             <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
                 <strong>{{ session('errReg') }}</strong>
@@ -11,7 +11,7 @@
             </div>
         @endif
         <h1 class="text-success text-center mb-3">Register</h1>
-        <form method="post" action="/register">
+        <form method="post" action="/register" class="row">
             @csrf
             <!-- Jenis Pengguna -->
             <div class="form mb-4">
@@ -38,9 +38,13 @@
                 <input type="text" id="username" class="form-control" name="username" required/>
             </div>
             {{-- No HP input --}}
-            <div class="form-outline mb-4">
+            <div class="form-outline mb-4 col-2">
+                <label class="form-label" for="nohp">IDN</label>
+                <input type="text" id="nohp" class="form-control" value="+62" readonly/>
+            </div>
+            <div class="form-outline mb-4 col-10">
                 <label class="form-label" for="nohp">No HP</label>
-                <input type="number" id="nohp" class="form-control" name="nohp" required/>
+                <input type="number" id="nohp" class="form-control" name="nohp" placeholder="Cth - 831xxxxxxxxx" required/>
             </div>
             <!-- Password input -->
             <div class="form-outline mb-4">

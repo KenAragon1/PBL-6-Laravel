@@ -42,6 +42,7 @@ class sesiController extends Controller
         ]);
 
         $valid['password'] = bcrypt($valid['password']);
+        $valid['nohp'] = "+62".$valid['nohp'];
         $valid['id_pengguna'] = rand(100000000,999999999);
 
         if (User::create($valid)) {
