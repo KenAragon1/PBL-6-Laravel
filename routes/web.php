@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\sesiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,13 @@ Route::get('/produk-detail', function () {
     return view('produk-detail');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', [sesiController::class, 'halLogin']);
+Route::post('/login', [sesiController::class, 'login']);
+
+Route::get('/register', [sesiController::class, 'halRegist']);
+Route::post('/register', [sesiController::class, 'register']);
+
+Route::get('/logout', [sesiController::class, 'logout']);
 
 Route::get('/signin', function () {
     return view('signIn');

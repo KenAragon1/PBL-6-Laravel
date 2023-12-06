@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Home Page</title>
     <link rel="shortcut icon" href="#">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
@@ -23,6 +23,7 @@
 </head>
 
 <body>
+    
     <nav class="navbar navbar-expand bg-white sticky-top border-bottom">
         <div class="container align-items-center">
             <div class="d-flex align-items-center">
@@ -39,15 +40,23 @@
                     <i class="bi bi-search"></i>
                 </button>
             </form>
-            <div class="nav">
+            <div class="nav ">
                 <!-- button keranjang -->
-                <a href="{{ url('/keranjang') }}" class="btn btn-outline-success fs-5">
+                <a href="{{ url('/keranjang') }}" class="btn btn-outline-success fs-5 mx-2">
                     <i class="bi bi-cart-fill"></i>
                 </a>
-                <!-- button login -->
-                <a href="{{ url('/login') }}" class="btn btn-outline-success fs-5 js-login-btn">
-                    Login
+                @auth
+                <a href="/profil-user" class="navbar-brand text-success fs-5 mx-2">
+                    <strong><u>Hai, {{ Auth::user()->nama }}</u></strong>
                 </a>
+                {{-- icon profile --}}
+                <a class="btn  btn-outline-success fs-5" href="/logout">Logout</a>
+                @else
+                <!-- button login -->
+                    <a href="/login" class="btn btn-outline-success fs-5 js-login-btn">
+                        Login
+                    </a>
+                @endauth
 
             </div>
         </div>
@@ -107,7 +116,12 @@
 
         </div>
     </nav>
-
+    @if(session()->has('sukses'))
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            Selamat Datang, <strong>{{ Auth::user()->nama }}!</strong> Anda berhasil login.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div id="carouselExampleFade" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
         <div class="carousel-inner" style="height: 100vh">
             <div class="carousel-item active">
@@ -152,7 +166,7 @@
                     <use xlink:href="#bootstrap"></use>
                 </svg>
             </a>
-            <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
+            <span class="mb-3 mb-md-0 text-muted">Copyright© 2023 PBL 6th Team, Polibatam</span>
         </div>
 
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">

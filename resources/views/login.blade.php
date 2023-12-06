@@ -3,16 +3,31 @@
 @section('content')
     <div class="container bg-white my-5 p-5 shadow-sm" style="width:30rem;">
         <h1 class="text-success text-center mb-3">Login</h1>
-        <form method="post">
+        @if(session()->has('error'))
+            <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                <strong>{{ session('error') }}</strong> Username atau Password salah!
+                
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+        @if(session()->has('sukses'))
+            <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                <strong>{{ session('sukses') }}</strong> Anda berhasil registrasi, silahkan login.
+                
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+        <form method="post" action="/login">
+            @csrf
             <!-- Email input -->
             <div class="form-outline mb-4">
-                <label class="form-label" for="email">Email</label>
-                <input type="email" id="email" class="form-control" />
+                <label class="form-label" for="username">Username</label>
+                <input type="text" id="username" name="username" class="form-control" required/>
             </div>
             <!-- Password input -->
             <div class="form-outline mb-4">
                 <label class="form-label" for="password">Password</label>
-                <input type="password" id="password" class="form-control" />
+                <input type="password" id="password" name="password" class="form-control" required/>
             </div>
             <!-- 2 column grid layout for inline styling -->
             <div class="row mb-4">
@@ -31,10 +46,10 @@
                 </div>
             </div>
             <!-- Submit button -->
-            <button type="button" class="btn btn-success btn-block mb-4" style="width: 100%">
+            <button type="submit" class="btn btn-success btn-block mb-4" style="width: 100%">
                 Login
             </button>
-            <p>Belum Punya Akun? <a href="{{ url('/register')}}">Register</a></p>
+            <p>Belum Punya Akun? <a href="/register">Register</a></p>
         </form>
     </div>
 @stop
