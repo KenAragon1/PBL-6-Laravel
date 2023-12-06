@@ -3,14 +3,14 @@
 @section('content')
     </nav>
     <div class="container bg-white w-50 my-5 p-5 shadow-sm">
-        <h1 class="text-success text-center mb-3">Register</h1>
-        @if(session()->has('error'))
+        @if(session()->has('errReg'))
             <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                <strong>{{ session('error') }}</strong>
+                <strong>{{ session('errReg') }}</strong>
                 
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
+        <h1 class="text-success text-center mb-3">Register</h1>
         <form method="post" action="/register">
             @csrf
             <!-- Jenis Pengguna -->

@@ -45,13 +45,10 @@ class sesiController extends Controller
         $valid['id_pengguna'] = rand(100000000,999999999);
 
         if (User::create($valid)) {
-            return redirect('/login')->with('sukses', 'Registration Successfully.');    
-        } else {
-            return redirect('/register')->with('error', 'Registration Failed.');    
-        }
+            return redirect('/login')->with('sukses', 'Registrasi Berhasil.');    
+        }       
+        return back()->with('errReg', 'Registration Failed.');    
         
-        
-
     }
 
     public function logout(){
