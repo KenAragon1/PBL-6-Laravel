@@ -20,10 +20,10 @@
         </div>
     </div>
 
-    <div class="container card mb-4 p-4 shadow">
+    <div class="container card mb-4 p-4 shadow" style="overflow: inherit">
         <h1>Deskripsi Produk</h1>
-        <p style="white-space: pre">
+        <div style="white-space: pre-line">
             {{ $produk->deskripsi }}
-        </p>
+        </div>
     </div>
 @stop

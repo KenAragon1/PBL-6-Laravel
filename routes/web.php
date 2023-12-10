@@ -51,12 +51,14 @@ Route::get('/dashboard', function () {
     return view('admin-dashboard');
 });
 
-Route::get('/dashboard/produk', function () {
-    return view('admin-produk');
-});
 
 Route::get('/keranjang', function () {
     return view('keranjang');
 });
+
+// admin
+Route::get('/dashboard/produk', [produkController::class, 'create']);
+Route::post('/dashboard/produk', [produkController::class, 'store']);
+
 
 
