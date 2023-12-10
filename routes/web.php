@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\sesiController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\produkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [produkController::class, 'index']);
 
-Route::get('/produk-detail', function () {
-    return view('produk-detail');
-});
+Route::get('/produk-detail/{id}', [produkController::class, 'show']);
 
 Route::get('/login', [sesiController::class, 'halLogin']);
 Route::post('/login', [sesiController::class, 'login']);
@@ -48,6 +45,10 @@ Route::get('/password-recovery', function () {
 
 Route::get('/profil-user', function () {
     return view('profil-user');
+});
+
+Route::get('/dashboard', function () {
+    return view('admin-dashboard');
 });
 
 Route::get('/dashboard/produk', function () {
