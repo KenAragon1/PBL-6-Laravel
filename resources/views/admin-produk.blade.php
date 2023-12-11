@@ -8,7 +8,7 @@
             @foreach ($produks as $produk)
                 <div class="card p-2 m-2 shadow" style="width: 15rem">
                     <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="stretched-link"></a>
-                    <img class="card-img-top" src="/assets/template-produk.png" alt="Card image cap" />
+                    <img class="card-img-top" src="{{ asset('images/foto-produk')}}/{{$produk->foto_produk}}" alt="Card image cap" />
                     <div class="card-body">
                         <h5 class="card-title">{{ $produk->nama_produk }}</h5>
                         <p class="text-success">Rp {{ $produk->harga }}</p>
@@ -25,7 +25,7 @@
                     <h1>Tambah Produk</h1>
                 </div>
                 <div class="modal-body">
-                    <form action="/dashboard/produk" method="post">
+                    <form action="/dashboard/produk" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-outline mb-4">
                             <label class="form-label" for="nama">Nama Produk</label>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="foto">Foto Produk</label>
-                            <input type="file" id="foto" class="form-control" />
+                            <input type="file" id="foto" name="foto_produk" class="form-control" />
                         </div>
                         <button class="btn btn-succes">Tambahkan Produk</button>
                     </form>

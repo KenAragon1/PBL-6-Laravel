@@ -30,12 +30,17 @@ class produkController extends Controller
     public function store(Request $request)
     {
         $valid = $request->validate([
+            'foto_produk'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'nama_produk'=> 'required',
             'kategori'=> 'required',
             'harga'=> 'required',
             'deskripsi'=> 'required',
         ]);
 
+        $image = $request->file('foto_produk');
+        $image->storeAs('foto-produk', $image->hashName());
+
+        $valid['foto_produk'] = $image->hashName();
         $valid['id_produk'] = rand(100000000,999999999);
         $valid['id_penjual'] = rand(100000000,999999999);
 
