@@ -3,6 +3,7 @@
 use App\Http\Controllers\sesiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\produkController;
+use App\Http\Controllers\profilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +44,9 @@ Route::get('/password-recovery', function () {
     return view('password-recovery');
 });
 
-Route::get('/profil-user', function () {
-    return view('profil-user');
-});
+Route::get('/profil_user/{id_pengguna}', [profilController::class, 'show']);
+// Route::post('/profil_user/edit/{id_pengguna}', [profilController::class, 'update']);
+Route::resourceS(['profil_user'=> profilController::class,]);
 
 Route::get('/dashboard', function () {
     return view('admin-dashboard');
@@ -55,6 +56,9 @@ Route::get('/dashboard', function () {
 Route::get('/keranjang', function () {
     return view('keranjang');
 });
+
+
+Route::get('/produk_pembeli', [produkController::class, 'produk_pembeli']);
 
 // admin
 Route::get('/dashboard/produk', [produkController::class, 'create']);

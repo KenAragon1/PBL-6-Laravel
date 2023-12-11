@@ -50,4 +50,11 @@ class produkController extends Controller
         return redirect('/');
 
     }
+
+    // halaman produk pembeli
+    public function produk_pembeli()
+    {
+        $produks = produk::all();
+        return view('produk-pembeli', compact('produks'));
+    }
 }
