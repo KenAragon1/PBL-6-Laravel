@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home Page</title>
     <link rel="shortcut icon" href="#">
+    {{-- fontawesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <style>
@@ -66,48 +69,26 @@
                 <svg class="bi me-2" width="40" height="32">
                     <use xlink:href="#bootstrap"></use>
                 </svg>
-                <span class="fs-4 text-success">Kategori</span>
+                <strong class="text-success" style="font-size: 2rem;">Menu</strong>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
+                <li>
                     <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#home"></use>
-                        </svg>
-                        Laptop
+                        <span><i class="fa-solid fa-gifts fa-2xl me-3"></i></span>   
+                        <span class="fs-5 bold">Produk</span>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#speedometer2"></use>
-                        </svg>
-                        Komponen Komputer
+                        <span><i class="fa-solid fa-store fa-2xl me-3"></i></span>   
+                        <span class="fs-5 bold">Kelola Produk</span>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#table"></use>
-                        </svg>
-                        Aksesoris
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#grid"></use>
-                        </svg>
-                        Printer
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#people-circle"></use>
-                        </svg>
-                        Rakit PC
+                        <span><i class="fa-solid fa-tags fa-2xl me-3"></i></span>   
+                        <span class="fs-5 bold">Kategori</span>
                     </a>
                 </li>
             </ul>
