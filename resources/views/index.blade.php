@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home Page</title>
+    <title>CC Store | Situs Jual Beli Terpercaya</title>
     <link rel="shortcut icon" href="#">
     {{-- fontawesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -22,11 +22,22 @@
         .js-side-bar.active {
             left: 0;
         }
+
+        .dropdown-item:hover {
+            background: #d4d4d4
+        }
+
+        @media (max-width: 490px) {
+            .card {
+                width: 10rem !important;
+                aspect-ratio: 1/1 ;
+            }
+        }
     </style>
 </head>
 
 <body>
-    
+
     <nav class="navbar navbar-expand bg-white sticky-top border-bottom">
         <div class="container align-items-center">
             <div class="d-flex align-items-center">
@@ -49,14 +60,37 @@
                     <i class="bi bi-cart-fill"></i>
                 </a>
                 @auth
-                <a href="/profil-user" class="navbar-brand text-success fs-5 mx-2">
-                    <strong><u>Hai, {{ Auth::user()->nama }}</u></strong>
-                </a>
-                {{-- icon profile --}}
-                <a class="btn  btn-outline-success fs-5" href="/logout">Logout</a>
+                    <a href="/profil-user" class="text-success fs-5 mx-2">
+                        <strong><u></u></strong>
+                    </a>
+                    {{-- icon profile --}}
+                    @if (Auth::user()->jenis_pengguna == 'Penjual')
+                        <div class="dropdown">
+                            <button class="btn text-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <u>Hai, {{ Auth::user()->nama }}</u>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                                <a class="dropdown-item" href="/profil-user">Profil</a>
+                                <a class="dropdown-item" href="/logout">Logout</a>
+                            </div>
+                        </div>
+                    @else
+                    <div class="dropdown">
+                        <button class="btn text-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <u>Hai, {{ Auth::user()->nama }}</u>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/profil-user">Profil</a>
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                        </div>
+                    </div>
+                    @endif
                 @else
-                <!-- button login -->
-                    <a href="/login" class="btn btn-outline-success fs-5 js-login-btn">
+                    <!-- button login -->
+                    <a href="/login" class="btn btn-outline-success js-login-btn">
                         Login
                     </a>
                 @endauth
@@ -97,7 +131,7 @@
 
         </div>
     </nav>
-    @if(session()->has('sukses'))
+    @if (session()->has('sukses'))
         <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
             Selamat Datang, <strong>{{ Auth::user()->nama }}!</strong> Anda berhasil login.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -115,32 +149,38 @@
                 <img src="/assets/banner3.jpg" class="d-block w-100" alt="ajg" />
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+            data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+            data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
     </div>
 
-    <div class="container">
+    <div class="container border-top p-3">
         <h1 class="text-center text-success">REKOMENDASI</h1>
-        <div class="row">
-            <div class="card p-2 m-2 shadow" style="width: 15rem">
-                <a href="{{ url('/produk-detail') }}" class="stretched-link"></a>
-                <img class="card-img-top" src="/assets/template-produk.png" alt="Card image cap" />
-                <div class="card-body">
-                    <h5 class="card-title">Asus TUF</h5>
-                    <p class="text-success">Rp 13.500.000</p>
+        <div class="row justify-content-around">
+            @foreach ($produks as $produk)
+                <div class="card p-2 m-2 shadow" style="width: 15rem">
+                    <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="stretched-link"></a>
+                    <img class="card-img-top" src="/assets/template-produk.png" alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $produk->nama_produk }}</h5>
+                        <p class="text-success">Rp {{ $produk->harga }}</p>
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 
 
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top bg-white shadow navbar navbar-fixed-bottom">
+
+    <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top bg-white shadow navbar navbar-fixed-bottom">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
                 <svg class="bi" width="30" height="24">

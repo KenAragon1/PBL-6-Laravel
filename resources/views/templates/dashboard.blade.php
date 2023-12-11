@@ -30,6 +30,14 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
+                    <a href="{{ url('/dashboard')}}" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#home"></use>
+                        </svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="#" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#home"></use>
@@ -38,7 +46,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link link-dark">
+                    <a href="{{ url('/dashboard/produk')}}" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#speedometer2"></use>
                         </svg>
