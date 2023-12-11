@@ -110,15 +110,15 @@
                 <li>
                     <a href="#" class="nav-link link-dark">
                         <span><i class="fa-solid fa-gifts fa-2xl me-3"></i></span>   
-                        <span class="fs-5 bold">Produk</span>
+                        <span class="fs-5 bold">Daftar Produk</span>
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="#" class="nav-link link-dark">
                         <span><i class="fa-solid fa-store fa-2xl me-3"></i></span>   
                         <span class="fs-5 bold">Kelola Produk</span>
                     </a>
-                </li>
+                </li> --}}
                 <li>
                     <a href="#" class="nav-link link-dark">
                         <span><i class="fa-solid fa-tags fa-2xl me-3"></i></span>   
