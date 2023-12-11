@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CC Store | Situs Jual Beli Terpercaya</title>
+    <title>CC Store | Daftar Produk</title>
     <link rel="shortcut icon" href="#">
     {{-- fontawesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -48,12 +48,12 @@
                     <strong>CC Store</strong>
                 </a>
             </div>
-            {{-- <form class="d-flex rounded my-0">
+            <form class="d-flex rounded my-0">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                 <button class="btn btn-outline-success" type="submit">
                     <i class="bi bi-search"></i>
                 </button>
-            </form> --}}
+            </form>
             <div class="nav ">
                 <!-- button keranjang -->
                 <a href="{{ url('/keranjang') }}" class="btn btn-outline-success fs-5 mx-2">
@@ -72,7 +72,7 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="/dashboard">Dashboard</a>
-                                <a class="dropdown-item" href="{{ url('/profil_user/'. Auth::user()->id_pengguna) }}">Profil</a>
+                                <a class="dropdown-item" href="/profil-user">Profil</a>
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </div>
@@ -82,9 +82,8 @@
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <u>Hai, {{ Auth::user()->nama }}</u>
                         </button>
-                        
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{ url('/profil_user/'. Auth::user()->id_pengguna) }}" >Profil</a>
+                            <a class="dropdown-item" href="/profil-user">Profil</a>
                             <a class="dropdown-item" href="/logout">Logout</a>
                         </div>
                     </div>
@@ -108,6 +107,12 @@
             </a>
             <hr>
             <ul class="nav nav-pills flex-column">
+                <li>
+                    <a href="/" class="nav-link link-dark">
+                        <span><i class="fa-solid fa-home fa-2xl me-3"></i></span>   
+                        <span class="fs-5 bold">Dashboard</span>
+                    </a>
+                </li>
                 <li>
                     <a href="/produk_pembeli" class="nav-link link-dark">
                         <span><i class="fa-solid fa-gifts fa-2xl me-3"></i></span>   
@@ -138,32 +143,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <div id="carouselExampleFade" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
-        <div class="carousel-inner" style="height: 100vh">
-            <div class="carousel-item active">
-                <img src="/assets/banner1.jpg" class="d-block w-100" alt="bgst" />
-            </div>
-            <div class="carousel-item">
-                <img src="/assets/banner2.jpg" class="d-block w-100" alt="kontol" />
-            </div>
-            <div class="carousel-item">
-                <img src="/assets/banner3.jpg" class="d-block w-100" alt="ajg" />
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+  
 
     <div class="container border-top p-3">
-        <h1 class="text-center text-success">REKOMENDASI</h1>
+        <h1 class="text-center text-success">DAFTAR PRODUK</h1>
         <div class="row justify-content-around">
             @foreach ($produks as $produk)
                 <div class="card p-2 m-2 shadow" style="width: 15rem">
