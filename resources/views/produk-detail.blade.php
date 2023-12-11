@@ -5,8 +5,8 @@
     <div class="container card mb-3 p-4 shadow">
         <div class="row gx-4 gx-lg-5">
             <div class="col-md-5 d-flex h-100">
-                <img class="card-img-top mb-5 mb-md-0 align-self-start sticky-top" src="/assets/template-produk.png"
-                    alt="..." style="z-index: 0" />
+                <img class="card-img-top mb-5 mb-md-0 align-self-start sticky-top"
+                    src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}" alt="..." style="z-index: 0" />
             </div>
             <div class="col-md-7">
                 <h2>{{ $produk->nama_produk }}</h2>

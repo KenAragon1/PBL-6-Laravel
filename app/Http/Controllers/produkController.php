@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\produk;
+use Illuminate\Support\Facades\File;
 
 class produkController extends Controller
 {
@@ -30,25 +31,77 @@ class produkController extends Controller
     public function store(Request $request)
     {
         $valid = $request->validate([
-            'foto_produk'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'nama_produk'=> 'required',
-            'kategori'=> 'required',
-            'harga'=> 'required',
-            'deskripsi'=> 'required',
+            'foto_produk' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'nama_produk' => 'required',
+            'kategori' => 'required',
+            'harga' => 'required',
+            'deskripsi' => 'required',
         ]);
 
         $image = $request->file('foto_produk');
         $image->storeAs('foto-produk', $image->hashName());
 
         $valid['foto_produk'] = $image->hashName();
-        $valid['id_produk'] = rand(100000000,999999999);
-        $valid['id_penjual'] = rand(100000000,999999999);
+        $valid['id_produk'] = rand(100000000, 999999999);
+        $valid['id_penjual'] = rand(100000000, 999999999);
 
-        if(produk::create($valid)){
-            return redirect('/dashboard/produk')->with('sukses', 'Tambah produk Berhasil.');  
+        if (produk::create($valid)) {
+            return redirect('/dashboard/produk')->with('sukses', 'Tambah produk Berhasil.');
         }
         return redirect('/');
 
+    }
+
+    public function edit(produk $produk, $id)
+    {
+        $produk = produk::find($id);
+        return view('admin-edit-produk', compact('produk'));
+    }
+
+    public function update(Request $request, produk $produk, $id)
+    {
+        $this->validate($request, [
+            'foto_produk' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'nama_produk' => 'required',
+            'kategori' => 'required',
+            'harga' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        $produk = Produk::findOrFail($id);
+
+        if ($request->hasFile('foto_produk')) {
+            $image = $request->file('foto_produk');
+            $image->storeAs('foto-produk', $image->hashName());
+
+            File::delete(public_path('images/foto-produk/' . $produk->foto_produk));
+
+            $produk->update([
+                'foto_produk' => $image->hashName(),
+                'nama_produk' => $request->nama_produk,
+                'kategori' => $request->kategori,
+                'harga' => $request->harga,
+                'deskripsi' => $request->deskripsi
+            ]);
+        } else {
+            $produk->update([
+                'nama_produk' => $request->nama_produk,
+                'kategori' => $request->kategori,
+                'harga' => $request->harga,
+                'deskripsi' => $request->deskripsi
+            ]);
+        }
+
+        return redirect('/dashboard/produk');
+
+    }
+
+    public function destroy(produk $produk, $id)
+    {
+        $produk = Produk::findOrFail($id);
+        File::delete(public_path('images/foto-produk/' . $produk->foto_produk));
+        $produk->delete();
+        return redirect('/dashboard/produk');
     }
 
     // halaman produk pembeli

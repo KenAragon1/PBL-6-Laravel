@@ -63,6 +63,10 @@ Route::get('/produk_pembeli', [produkController::class, 'produk_pembeli']);
 // admin
 Route::get('/dashboard/produk', [produkController::class, 'create']);
 Route::post('/dashboard/produk', [produkController::class, 'store']);
+Route::delete('/dashboard/produk/{id}', [produkController::class, 'destroy']);
+
+Route::get('/dashboard/produk/edit/{id}', [produkController::class, 'edit']);
+Route::put('/dashboard/produk/edit/{id}', [produkController::class, 'update']);
 
 
 

@@ -164,7 +164,7 @@
 
     <div class="container border-top p-3">
         <h1 class="text-center text-success">REKOMENDASI</h1>
-        <div class="row justify-content-around">
+        <div class="row justify-content-center">
             @foreach ($produks as $produk)
                 <div class="card p-2 m-2 shadow" style="width: 15rem">
                     <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="stretched-link"></a>

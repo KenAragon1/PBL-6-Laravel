@@ -7,11 +7,17 @@
         <div class="d-flex flex-wrap">
             @foreach ($produks as $produk)
                 <div class="card p-2 m-2 shadow" style="width: 15rem">
-                    <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="stretched-link"></a>
-                    <img class="card-img-top" src="{{ asset('images/foto-produk')}}/{{$produk->foto_produk}}" alt="Card image cap" />
+                    <img class="card-img-top" src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}"
+                        alt="Card image cap" />
                     <div class="card-body">
                         <h5 class="card-title">{{ $produk->nama_produk }}</h5>
                         <p class="text-success">Rp {{ $produk->harga }}</p>
+                        <a href="{{ url('dashboard/produk/edit/' . $produk->id_produk) }}" class="btn btn-success">Edit</a>
+                        <form action="{{url('/dashboard/produk/'.$produk->id_produk)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </form>
                     </div>
                 </div>
             @endforeach
