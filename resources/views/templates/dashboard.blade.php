@@ -13,6 +13,7 @@
     <nav class="navbar navbar-expand bg-white sticky-top border-bottom m-0">
         <div class="container">
             <div class="d-flex align-items-center">
+                <a href="{{url('/')}}" class="btn btn-outline-success"><i class="bi bi-house-door-fill"></i></a>
                 <a href="" class="navbar-brand text-success fs-4 mx-2">
                     <strong>CC Store</strong>
                 </a>

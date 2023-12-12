@@ -16,5 +16,6 @@ class produk extends Model
     protected $fillable = ['id_penjual', 'id_produk', 'nama_produk', 'kategori', 'harga', 'deskripsi', 'foto_produk'];
 
     public $timestamps = false;
+    
 
 }

@@ -110,4 +110,5 @@ class produkController extends Controller
         $produks = produk::all();
         return view('produk-pembeli', compact('produks'));
     }
+
 }

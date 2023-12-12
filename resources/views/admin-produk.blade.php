@@ -54,7 +54,7 @@
                             <label class="form-label" for="foto">Foto Produk</label>
                             <input type="file" id="foto" name="foto_produk" class="form-control" />
                         </div>
-                        <button class="btn btn-succes">Tambahkan Produk</button>
+                        <button class="btn btn-success">Tambahkan Produk</button>
                     </form>
 
                 </div>

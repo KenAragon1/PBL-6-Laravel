@@ -7,7 +7,9 @@
     <title>CC Store | Situs Jual Beli Terpercaya</title>
     <link rel="shortcut icon" href="#">
     {{-- fontawesome --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
@@ -30,7 +32,7 @@
         @media (max-width: 490px) {
             .card {
                 width: 10rem !important;
-                aspect-ratio: 1/1 ;
+                aspect-ratio: 1/1;
             }
         }
     </style>
@@ -55,11 +57,13 @@
                 </button>
             </form> --}}
             <div class="nav ">
-                <!-- button keranjang -->
-                <a href="{{ url('/keranjang') }}" class="btn btn-outline-success fs-5 mx-2">
-                    <i class="bi bi-cart-fill"></i>
-                </a>
+
                 @auth
+                    <!-- button keranjang -->
+                    <a href="{{ url('/keranjang/' . Auth::user()->id_pengguna) }}"
+                        class="btn btn-outline-success fs-5 mx-2">
+                        <i class="bi bi-cart-fill"></i>
+                    </a>
                     <a href="/profil-user" class="text-success fs-5 mx-2">
                         <strong><u></u></strong>
                     </a>
@@ -72,22 +76,24 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="/dashboard">Dashboard</a>
-                                <a class="dropdown-item" href="{{ url('/profil_user/'. Auth::user()->id_pengguna) }}">Profil</a>
+                                <a class="dropdown-item"
+                                    href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </div>
                     @else
-                    <div class="dropdown">
-                        <button class="btn text-success dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <u>Hai, {{ Auth::user()->nama }}</u>
-                        </button>
-                        
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{ url('/profil_user/'. Auth::user()->id_pengguna) }}" >Profil</a>
-                            <a class="dropdown-item" href="/logout">Logout</a>
+                        <div class="dropdown">
+                            <button class="btn text-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <u>Hai, {{ Auth::user()->nama }}</u>
+                            </button>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item"
+                                    href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
+                                <a class="dropdown-item" href="/logout">Logout</a>
+                            </div>
                         </div>
-                    </div>
                     @endif
                 @else
                     <!-- button login -->
@@ -110,7 +116,7 @@
             <ul class="nav nav-pills flex-column">
                 <li>
                     <a href="/produk_pembeli" class="nav-link link-dark">
-                        <span><i class="fa-solid fa-gifts fa-2xl me-3"></i></span>   
+                        <span><i class="fa-solid fa-gifts fa-2xl me-3"></i></span>
                         <span class="fs-5 bold">Daftar Produk</span>
                     </a>
                 </li>
@@ -122,7 +128,7 @@
                 </li> --}}
                 <li>
                     <a href="#" class="nav-link link-dark">
-                        <span><i class="fa-solid fa-tags fa-2xl me-3"></i></span>   
+                        <span><i class="fa-solid fa-tags fa-2xl me-3"></i></span>
                         <span class="fs-5 bold">Kategori</span>
                     </a>
                 </li>
@@ -168,7 +174,8 @@
             @foreach ($produks as $produk)
                 <div class="card p-2 m-2 shadow" style="width: 15rem">
                     <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="stretched-link"></a>
-                    <img class="card-img-top" src="{{ asset('images/foto-produk')}}/{{$produk->foto_produk}}" alt="Card image cap" />
+                    <img class="card-img-top" src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}"
+                        alt="Card image cap" />
                     <div class="card-body">
                         <h5 class="card-title">{{ $produk->nama_produk }}</h5>
                         <p class="text-success">Rp {{ $produk->harga }}</p>

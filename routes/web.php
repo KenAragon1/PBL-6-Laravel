@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\cartController;
 use App\Http\Controllers\sesiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\produkController;
@@ -53,9 +54,8 @@ Route::get('/dashboard', function () {
 });
 
 
-Route::get('/keranjang', function () {
-    return view('keranjang');
-});
+Route::get('/keranjang/{id_pengguna}', [cartController::class, 'show']);
+Route::post('/keranjang/{id_pengguna}/{id_produk}', [cartController::class, 'addToCart']);
 
 
 Route::get('/produk_pembeli', [produkController::class, 'produk_pembeli']);
