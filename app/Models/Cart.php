@@ -11,9 +11,9 @@ class Cart extends Model
 
     protected $table = 'keranjang';
 
-    protected $primaryKey = 'id_pengguna';
+    protected $primaryKey = 'id_keranjang';
 
-    protected $fillable = ['id_pengguna', 'id_barang'];
+    protected $guarded = [''];
 
     public $timestamps = false;
 }

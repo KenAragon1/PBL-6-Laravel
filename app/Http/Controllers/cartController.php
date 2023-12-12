@@ -22,18 +22,21 @@ class cartController extends Controller
 
     }
 
-    public function addToCart(Request $request, $id_produk, $id_pengguna) {
+    public function addToCart(Request $request, $id_pengguna) {
         
         $valid = $request->validate([
+            'id_keranjang' => '',
             'id_pengguna' => 'required',
-            'id_produk' => 'required',
+            'id_produk' => 'required'
             
         ]);
 
-        $valid['id_produk'] = 123;
-
         if (Cart::create($valid)) {
-            return redirect('/keranjang/{id_pengguna}');
-        }
+            return redirect('/keranjang/'.$id_pengguna);
+        } else {
+            echo "Eror";
+        } 
+
+        
     }
 }

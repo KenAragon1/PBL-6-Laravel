@@ -24,7 +24,7 @@
 
             
         <div class="container align-items-center justify-content-center d-flex">
-            <img src="assets/user.png" alt=""
+            <img src="{{ asset('assets/user.png') }}" alt=""
                 class="rounded-circle mb-5 align-center-center profile-img" style="max-width: 20rem" />
         </div>
         <div class="container mb-5">

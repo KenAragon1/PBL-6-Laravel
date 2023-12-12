@@ -13,15 +13,17 @@
 
                 <h1 class="text-success p-2">Rp {{ $produk->harga }} ,-</h1>
                 @auth
-                    <form action="{{ url('/keranjang/' . Auth::user()->id_pengguna) . '/' . $produk->id_produk }}"
+                    <form action="{{ url('/keranjang/tambah/' . Auth::user()->id_pengguna)}}"
                         method="post" enctype="multipart/form-data">
                         @csrf
+                        <input type="text" name="id_keranjang" style="display: none" value="{{ rand(1,1000000) }}">
                         <input type="text" name="id_produk" style="display: none" value="{{ $produk->id_produk }}">
                         <input type="text" name="id_pengguna" style="display: none" value="{{ Auth::user()->id_pengguna }}">
                         <button type="submit" class="btn btn-success p-3">
                             Tambahkan ke keranjang
                         </button>
                     </form>
+                    {{-- <a href="{{ url('/keranjang/tambah/' . Auth::user()->id_pengguna). '/'. $produk->id_pro}}">Tambahkan ke keranjang</a> --}}
                 @endauth
                 <a href="{{ url('/checkout') }}" class="btn btn-success px-5 py-3">Beli Sekarang</a>
             </div>

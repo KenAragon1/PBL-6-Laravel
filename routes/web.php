@@ -55,12 +55,14 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/keranjang/{id_pengguna}', [cartController::class, 'show']);
-Route::post('/keranjang/{id_pengguna}/{id_produk}', [cartController::class, 'addToCart']);
+Route::post('/keranjang/tambah/{id_pengguna}', [cartController::class, 'addToCart']);
 
 
 Route::get('/produk_pembeli', [produkController::class, 'produk_pembeli']);
 
 // admin
+
+
 Route::get('/dashboard/produk', [produkController::class, 'create']);
 Route::post('/dashboard/produk', [produkController::class, 'store']);
 Route::delete('/dashboard/produk/{id}', [produkController::class, 'destroy']);
