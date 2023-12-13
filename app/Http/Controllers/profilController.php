@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+// use Intervention\Image\Facades\Image as Image;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class profilController extends Controller
 {
@@ -69,7 +71,7 @@ class profilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_pengguna)
+    public function update(Request $request, $id_pengguna, User $user)
     {
         $this->validate($request, [
             'nama' => 'required',
@@ -77,28 +79,45 @@ class profilController extends Controller
             'nohp' => 'required',
             'jenis_kelamin' => 'required',       
             'ttl' => 'required',       
-            'alamat' => 'required'
+            'alamat' => 'required',
+            'foto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         // $valid['nohp'] = "+62".$valid['nohp'];
 
-        $id = User::findOrFail($id_pengguna);
-        if($request->has('foto')){
+        $user = User::findOrFail($id_pengguna);
+        if($request->hasFile('foto')){
+            $image = $request->file('foto');
+            // $image = Image::make($image)->resize(300, 200)->encode();
+            $image->storeAs('foto', $image->hashName());
+
+            File::delete(public_path('images/foto/' . $user->foto));
+
+            $user->update([
+                'nama' => $request->nama,
+                'email' => $request->email,
+                'nohp' => $request->nohp,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'ttl' => $request->ttl,
+                'alamat' => $request->alamat,
+                'foto' => $image->hashName()
+            ]);
+            return back()->with('sukses', 'Berhasil Mengedit Data Profil.');  
 
         } else {
-            $data = [
+            $user->update([
                 'nama' => $request->nama,
                 'email' => $request->email,
                 'nohp' => $request->nohp,
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'ttl' => $request->ttl,
                 'alamat' => $request->alamat
-            ];
+            ]);
+            return back()->with('sukses', 'Berhasil Mengedit Data Profil.');  
+
         }
 
-        if($id->update($data)){
-            return back()->with('sukses', 'Berhasil Mengedit Data Profil.');  
-        }
+        
         return back()->with('error', "Gagal Mengedit Data!");
 
     }

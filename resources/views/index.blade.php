@@ -70,13 +70,13 @@
                     {{-- icon profile --}}
                     @if (Auth::user()->jenis_pengguna == 'Penjual')
                         <div class="dropdown">
-                            <button class="btn text-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                            <button class="btn text-success dropdown-toggle" type="button" id="pengguna"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <u>Hai, {{ Auth::user()->nama }}</u>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="/dashboard">Dashboard</a>
-                                <a class="dropdown-item"
+                                <a class="dropdown-item" id="profilBtn"
                                     href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
@@ -97,7 +97,7 @@
                     @endif
                 @else
                     <!-- button login -->
-                    <a href="/login" class="btn btn-outline-success js-login-btn">
+                    <a href="/login" id="tombolLogin" class="btn btn-outline-success js-login-btn">
                         Login
                     </a>
                 @endauth

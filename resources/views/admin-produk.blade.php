@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-9 mt-4 card container bg-white shadow border-0">
-        <a class="btn btn-success my-3" data-bs-toggle="modal" data-bs-target="#tambah-produk"><i
+        <a class="btn btn-success my-3" id="tambahProduk" data-bs-toggle="modal" data-bs-target="#tambah-produk"><i
                 class="bi bi-plus-circle-fill"></i> Tambah Produk</a>
         <div class="d-flex flex-wrap">
             @foreach ($produks as $produk)
