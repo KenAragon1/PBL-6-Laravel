@@ -3443,7 +3443,6 @@ class ComposerStaticInitccbd816a07b206f971042295b899d1ba
         'League\\Flysystem\\ChecksumProvider' => __DIR__ . '/..' . '/league/flysystem/src/ChecksumProvider.php',
         'League\\Flysystem\\Config' => __DIR__ . '/..' . '/league/flysystem/src/Config.php',
         'League\\Flysystem\\CorruptedPathDetected' => __DIR__ . '/..' . '/league/flysystem/src/CorruptedPathDetected.php',
-        'League\\Flysystem\\DecoratedAdapter' => __DIR__ . '/..' . '/league/flysystem/src/DecoratedAdapter.php',
         'League\\Flysystem\\DirectoryAttributes' => __DIR__ . '/..' . '/league/flysystem/src/DirectoryAttributes.php',
         'League\\Flysystem\\DirectoryListing' => __DIR__ . '/..' . '/league/flysystem/src/DirectoryListing.php',
         'League\\Flysystem\\FileAttributes' => __DIR__ . '/..' . '/league/flysystem/src/FileAttributes.php',

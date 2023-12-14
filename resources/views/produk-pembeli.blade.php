@@ -56,7 +56,7 @@
             </form>
             <div class="nav ">
                 <!-- button keranjang -->
-                <a href="{{ url('/keranjang') }}" class="btn btn-outline-success fs-5 mx-2">
+                <a href="{{ url('/keranjang/' . Auth::user()->id_pengguna) }}" class="btn btn-outline-success fs-5 mx-2">
                     <i class="bi bi-cart-fill"></i>
                 </a>
                 @auth
@@ -72,7 +72,7 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="/dashboard">Dashboard</a>
-                                <a class="dropdown-item" href="/profil-user">Profil</a>
+                                 <a class="dropdown-item" href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </div>
