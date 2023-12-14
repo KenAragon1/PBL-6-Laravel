@@ -16,4 +16,12 @@ class Cart extends Model
     protected $guarded = [''];
 
     public $timestamps = false;
+
+    public function produk()
+    {
+    return $this->belongsTo(produk::class);
+    }
+
+
+
 }
