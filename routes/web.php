@@ -46,16 +46,16 @@ Route::get('/produk_pembeli', [produkController::class, 'produk_pembeli'])->Midd
 
 Route::get('/dashboard', function () {
     return view('admin-dashboard');
-})->Middleware('auth');
+})->Middleware('jenisUser:Penjual');
 
-Route::get('/dashboard/produk', [produkController::class, 'create'])->Middleware('auth');
-Route::post('/dashboard/produk', [produkController::class, 'store'])->Middleware('auth');
-Route::delete('/dashboard/produk/{id}', [produkController::class, 'destroy'])->Middleware('auth');
+Route::get('/dashboard/produk', [produkController::class, 'create'])->Middleware('jenisUser:Penjual');
+Route::post('/dashboard/produk', [produkController::class, 'store'])->Middleware( 'jenisUser:Penjual');
+Route::delete('/dashboard/produk/{id}', [produkController::class, 'destroy'])->Middleware( 'jenisUser:Penjual');
 
-Route::get('/dashboard/produk/edit/{id}', [produkController::class, 'edit'])->Middleware('auth');
-Route::put('/dashboard/produk/edit/{id}', [produkController::class, 'update'])->Middleware('auth');
+Route::get('/dashboard/produk/edit/{id}', [produkController::class, 'edit'])->Middleware( 'jenisUser:Penjual');
+Route::put('/dashboard/produk/edit/{id}', [produkController::class, 'update'])->Middleware( 'jenisUser:Penjual');
 
-Route::get('/produk-detail/{id}', [produkController::class, 'show'])->Middleware('auth');
+Route::get('/produk-detail/{id}', [produkController::class, 'show'])->Middleware( 'jenisUser:Penjual');
 
 
 

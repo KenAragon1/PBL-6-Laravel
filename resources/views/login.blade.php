@@ -5,14 +5,14 @@
         <h1 class="text-success text-center mb-3">Login</h1>
         @if(session()->has('error'))
             <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                <strong>{{ session('error') }}</strong> Username atau Password salah!
+                <strong>{{ session('error') }}</strong> 
                 
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
         @if(session()->has('sukses'))
             <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-                <strong>{{ session('sukses') }}</strong> Anda berhasil registrasi, silahkan login.
+                <strong>{{ session('sukses') }}</strong> 
                 
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>

@@ -6,6 +6,7 @@ use Closure;
 use App\Models\User;
 use Dotenv\Util\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class jenisUser
@@ -17,20 +18,21 @@ class jenisUser
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, String $role): Response
+    public function handle(Request $request, Closure $next,$role)
     {
-            // $user = User::where('jenis_pengguna', $request->jenis_pengguna)->first();
-            // if($user->jenis_pengguna == 'Penjual' and $user->jenis_pengguna == 'Pembeli'){
-            //     return redirect('/');
-            // } else {
-            //     return redirect('/login');
-            // }
+        if(Auth::check()){
 
-        if($request->user()->hasRole($role)){
-            return redirect('/');
+            $user = Auth::user();
+                if ($user->jenis_pengguna == $role) {
+                    return $next($request);
+                } else {
+                    return redirect('/');
+    
+                }
         } else {
-            return redirect('/login');
+            return redirect('/login')->with('error', "Silahkan Login Terlebih Dahulu!");
         }
-        return $next($request);
+        
+
     }
 }

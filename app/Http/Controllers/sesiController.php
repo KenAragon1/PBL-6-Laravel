@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Stmt\Echo_;
 
 class sesiController extends Controller
 {
@@ -47,9 +48,10 @@ class sesiController extends Controller
 
         if (User::create($valid)) {
             return redirect('/login')->with('sukses', 'Registrasi Berhasil.');    
-        }       
-        return back()->with('errReg', 'Registration Failed.');    
-        
+        } else {
+
+            return redirect('/register')->with('errReg', 'Registration Failed.');    
+        }  
     }
 
     public function logout(){

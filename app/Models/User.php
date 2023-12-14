@@ -1,25 +1,33 @@
 <?php
 
 namespace App\Models;
-
+use Laravel\Sanctum\HasApiTokens;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
     
-
+    
+    
     protected $primaryKey = 'id_pengguna';
     protected $table = 'pengguna';
     protected $guarded   = [''];
     public $timestamps = false;
+    
+    
+    public function isPenjual()
+    {
+        if ($this->jenis_pengguna == 'Penjual'){
 
-
+            return true ;
+        }
+    }
     /**
      * The attributes that should be cast.
      *
@@ -36,5 +44,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
 
     ];
+    
     
 }
