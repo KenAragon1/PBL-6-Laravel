@@ -55,7 +55,7 @@ Route::delete('/dashboard/produk/{id}', [produkController::class, 'destroy'])->M
 Route::get('/dashboard/produk/edit/{id}', [produkController::class, 'edit'])->Middleware( 'jenisUser:Penjual');
 Route::put('/dashboard/produk/edit/{id}', [produkController::class, 'update'])->Middleware( 'jenisUser:Penjual');
 
-Route::get('/produk-detail/{id}', [produkController::class, 'show'])->Middleware( 'jenisUser:Penjual');
+Route::get('/produk-detail/{id}', [produkController::class, 'show'])->Middleware( 'auth');
 
 
 
