@@ -11,7 +11,7 @@
                         <input type="checkbox" name="" id="" />
                     </div>
                     <div class="col-md-2">
-                        <img src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}" class="img-fluid rounded-3" />
+                        <img src="{{ asset('images/foto-produk/'.$produk->foto_produk )}}" class="img-fluid rounded-3" />
                     </div>
                     <div class="col-md-3">
                         <p class="lead fw-normal mb-2">
@@ -24,7 +24,7 @@
                         <h5 class="mb-0">Rp {{$produk->harga}},-</h5>
                     </div>
                     <div class="col-md-2">
-                        <a href="checkout.html" class="btn btn-success">
+                        <a href="/checkout" class="btn btn-success">
                             <i class="bi bi-cart"></i>
                         </a>
                         <button class="btn btn-danger">

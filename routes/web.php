@@ -1,10 +1,12 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\sesiController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\produkController;
 use App\Http\Controllers\profilController;
+use App\Http\Controllers\checkoutController;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +21,7 @@ use App\Http\Controllers\profilController;
 
 Route::get('/', [produkController::class, 'index']);
 
-Route::get('/produk-detail/{id}', [produkController::class, 'show']);
-
-Route::get('/login', [sesiController::class, 'halLogin']);
+Route::get('/login', [sesiController::class, 'halLogin'])->name('login');
 Route::post('/login', [sesiController::class, 'login']);
 
 Route::get('/register', [sesiController::class, 'halRegist']);
@@ -29,46 +29,49 @@ Route::post('/register', [sesiController::class, 'register']);
 
 Route::get('/logout', [sesiController::class, 'logout']);
 
-Route::get('/signin', function () {
-    return view('signIn');
-});
-
-Route::get('/checkout', function () {
-    return view('checkout');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
-
 Route::get('/password-recovery', function () {
     return view('password-recovery');
 });
 
-Route::get('/profil_user/{id_pengguna}', [profilController::class, 'show']);
-// Route::post('/profil_user/edit/{id_pengguna}', [profilController::class, 'update']);
-Route::resourceS(['profil_user'=> profilController::class,]);
+Route::get('/profil_user/{id_pengguna}', [profilController::class, 'show'])->Middleware('auth');
+// for update profile
+Route::middleware(['auth'])->group(function () {
+    Route::resources(['profil_user'=> profilController::class,]);
+});
+
+Route::get('/produk_pembeli', [produkController::class, 'produk_pembeli'])->Middleware('auth');
+
+
+// ! PENJUAL
 
 Route::get('/dashboard', function () {
     return view('admin-dashboard');
-});
+})->Middleware('auth');
+
+Route::get('/dashboard/produk', [produkController::class, 'create'])->Middleware('auth');
+Route::post('/dashboard/produk', [produkController::class, 'store'])->Middleware('auth');
+Route::delete('/dashboard/produk/{id}', [produkController::class, 'destroy'])->Middleware('auth');
+
+Route::get('/dashboard/produk/edit/{id}', [produkController::class, 'edit'])->Middleware('auth');
+Route::put('/dashboard/produk/edit/{id}', [produkController::class, 'update'])->Middleware('auth');
+
+Route::get('/produk-detail/{id}', [produkController::class, 'show'])->Middleware('auth');
 
 
-Route::get('/keranjang/{id_pengguna}', [cartController::class, 'show']);
-Route::post('/keranjang/tambah/{id_pengguna}', [cartController::class, 'addToCart']);
+
+// ! PEMBELI
+
+Route::get('/checkout', [checkoutController::class, 'index'])->Middleware('auth');
+
+Route::get('/keranjang/{id_pengguna}', [cartController::class, 'show'])->Middleware('auth');
+Route::post('/keranjang/tambah/{id_pengguna}', [cartController::class, 'addToCart'])->Middleware('auth');
 
 
-Route::get('/produk_pembeli', [produkController::class, 'produk_pembeli']);
-
-// admin
 
 
-Route::get('/dashboard/produk', [produkController::class, 'create']);
-Route::post('/dashboard/produk', [produkController::class, 'store']);
-Route::delete('/dashboard/produk/{id}', [produkController::class, 'destroy']);
 
-Route::get('/dashboard/produk/edit/{id}', [produkController::class, 'edit']);
-Route::put('/dashboard/produk/edit/{id}', [produkController::class, 'update']);
+
+
 
 
 
