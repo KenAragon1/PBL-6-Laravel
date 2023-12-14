@@ -24,8 +24,8 @@
 
             
         <div class="container align-items-center justify-content-center d-flex">
-            <img src="{{ asset('assets/user.png') }}" alt=""
-                class="rounded-circle mb-5 align-center-center profile-img" style="max-width: 20rem" />
+            <img src="{{ asset('images/foto/'.$data->foto) }}" alt="Foto Profil"
+                class="rounded-circle mb-5 align-center-center profile-img" style="width: 400px; height:400px;" />
         </div>
         <div class="container mb-5">
             <div class="row">
@@ -96,8 +96,8 @@
 
         <div class="container">
             <a href="{{url('/')}}" class="btn btn-primary">Kembali</a>
-            <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal-edit">Password</a>
-            <a href="/profil_user/" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-edit">Edit Profil</a>
+            <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="">Password</a>
+            <a href="/profil_user/" id="editProfil" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-edit">Edit Profil</a>
             <a href="/logout" class="btn btn-danger">Log Out</a>
         </div>
     </div>
@@ -108,7 +108,7 @@
             <div class="modal-content">
                 <div class="modal-header">Edit Profil</div>
                 <div class="modal-body">
-                    <form action="{{ route('profil_user.update', Auth::user()->id_pengguna) }}" method="post">
+                    <form action="{{ route('profil_user.update', Auth::user()->id_pengguna) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         <div class="form-outline mb-2">
@@ -139,7 +139,11 @@
                             <label class="form-label" for="alamat">Alamat</label>
                             <textarea name="alamat" class="form-control"  cols="30" rows="5">{{ $data->alamat }}</textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block mb-4">
+                        <div class="form-outline mb-2">
+                            <label class="form-label" for="foto">Foto Profil</label>
+                            <input type="file" name="foto" class="form-control" value="{{ $data->nohp }}">
+                        </div>
+                        <button type="submit" id="ubahBtn" class="btn btn-primary btn-block mb-4">
                             Ubah
                         </button>
                     </form>

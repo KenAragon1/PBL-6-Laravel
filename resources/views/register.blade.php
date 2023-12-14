@@ -64,7 +64,7 @@
                 </div>
             </div>
             <!-- Submit button -->
-            <button type="submit" class="btn btn-success btn-block mb-4" style="width: 100%">
+            <button type="submit" id="tombolRegister" class="btn btn-success btn-block mb-4" style="width: 100%">
                 Register
             </button>
             <p>Sudah Punya Akun? <a href="{{ url('/login')}}">Login</a></p>
