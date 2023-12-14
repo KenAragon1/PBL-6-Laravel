@@ -65,18 +65,8 @@ Route::get('/checkout', [checkoutController::class, 'index'])->Middleware('auth'
 
 Route::get('/keranjang/{id_pengguna}', [cartController::class, 'show'])->Middleware('auth');
 Route::post('/keranjang/tambah/{id_pengguna}', [cartController::class, 'addToCart'])->Middleware('auth');
-
-
-
-
-
-
-<<<<<<< Updated upstream
-=======
-Route::get('/keranjang/{id_pengguna}', [cartController::class, 'show']);
-Route::post('/keranjang/tambah/{id_pengguna}', [cartController::class, 'addToCart']);
 Route::delete('/keranjang/{id_pengguna}/{id_produk}', [cartController::class, 'destroy']);
->>>>>>> Stashed changes
+
 
 
 
