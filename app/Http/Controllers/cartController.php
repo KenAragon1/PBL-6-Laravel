@@ -13,12 +13,21 @@ class cartController extends Controller
     public function show($id_pengguna)
     {
         // cari barang yang memiliki id pengguna user tertentu
-        $cart_produks = Cart::where('id_pengguna', $id_pengguna)->get();
+        // $cart_produks = Cart::where('id_pengguna', $id_pengguna)->get();
 
-        $produks = produk::find($cart_produks);
+        // $produks = produk::find($cart_produks);
 
-        return view('keranjang', compact('produks'));
+        // return view('keranjang', compact('produks'));
+
+        $cartWithProduks = Produk::join('keranjang', 'produk.id_produk', '=', 'keranjang.id_produk')
+        ->select('produk.*', 'keranjang.jumlah_produk', 'keranjang.id_pengguna')
+        ->where('keranjang.id_pengguna', $id_pengguna)
+        ->get();
+
+        return view('keranjang', compact('cartWithProduks'));
+
         
+
     }
 
     public function addToCart(Request $request, $id_pengguna)
@@ -27,15 +36,18 @@ class cartController extends Controller
         $valid = $request->validate([
             'id_keranjang' => '',
             'id_pengguna' => 'required',
-            'id_produk' => 'required'
-
+            'id_produk' => 'required',
+            'jumlah_produk' => 'required',
         ]);
+
 
         if (Cart::create($valid)) {
             return redirect('/keranjang/' . $id_pengguna);
         } else {
             echo "Eror";
         }
+
+        dd($valid);
 
 
     }
