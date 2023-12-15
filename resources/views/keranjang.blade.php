@@ -70,22 +70,5 @@
 
 
     </div>
-    <script>
-        var totalHarga = document.getElementById('totalHarga').innerText;
-        var id_keranjang =   document.getElementById('idCart').innerText;
-        $.ajax({
-    url: '/checkout/{'.id_keranjang.'}', 
-    type: 'POST', 
-    data: {
-        totalHarga : totalHarga,
-        idCart : id_keranjang, 
-    },
-    success: function(response) {
-        console.log('Data terkirim!', response);
-    },
-    error: function(xhr, status, error) {
-        console.error('Gagal mengirim data:', error);
-    }
-});
-    </script>
+    
 @endsection

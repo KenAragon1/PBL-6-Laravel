@@ -10,6 +10,12 @@
     <div class="container mb-4 shadow card p-4">
         <div class="row align-items-center">
             <div class=" col-10 text-start">
+                @if (session()->has('error'))
+                    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 <h3>Alamat Pengiriman</h3>
                 <p>
                     {{ Auth::user()->nama }}, ({{ Auth::user()->nohp }}) <br>
@@ -70,23 +76,36 @@
     <div class="container mb-5 shadow card p-4">
         <div class="row">
             <h2>Pembayaran</h2>
-            <div class="mb-3">
-                <div class="col-md-12">
-                    <input type="radio" class="btn-check" name="cod" id="cod" autocomplete="off"
-                        onfocus="pembayaran('cod')" />
-                    <label class="btn btn-outline-success mr-1" for="cod">COD</label>
-                    <input type="radio" class="btn-check" name="metode-pemabayaran" id="transfer-bank" autocomplete="off"
-                        onfocus="pembayaran('transfer-bank')" />
-                    <label class="btn btn-outline-success mx-1" for="transfer-bank">Transfer bank</label>
+            {{-- !FORM PEMESANAN --}}
+            <form action="/transaksi/pemesanan" method="post" >
+                @csrf
+                <div class="mb-3">
+                    <div class="col-md-12">
+                        <input type="text" name="id_produk" value="{{ $items[0]->id_produk }}"hidden>
+                        <input type="text" name="id_pengguna" value="{{ $items[0]->id_pengguna }}"hidden>
+                        <input type="text" name="id_keranjang" value="{{ $items[0]->id_keranjang }}"hidden>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="jenis_pembayaran" value="COD" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                            COD
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="jenis_pembayaran" value="TransferBank" id="flexRadioDefault2">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                            Transfer Bank
+                            </label>
+                        </div>
+                        <input type="date" name="estimasi_waktu" value="" id="" hidden>
 
+
+                    </div>
                 </div>
-            </div>
-            <div class="row mb-3" id="js-pembayaran" style="max-width: 40rem"></div>
+                <div class="row mb-3" id="js-pembayaran" style="max-width: 40rem"></div>
 
-            {{-- ! FORM PEMESANAN --}}
-            <form action="/pemesanan/"></form>
-            <a href="" class="btn btn-success p-3">Buat Pesanan</a>
-            
+                <button type="submit"  class="btn btn-success p-3 w-100">Buat Pesanan</button>
+            </form>
         </div>
     </div>
 
@@ -186,36 +205,6 @@
     `;
             }
 
-            if (metode === "kartu-kredit") {
-                metodeBayar.innerHTML = `
-    <h3 class="text-muted mt-3">Rincian Kartu</h3>
-    <div class="col-md-12">
-      <label for="">Nomor Kartu</label>
-      <input class="form-control" type="number" maxlength="19">
-    </div>
-    <div class="col-md-8">
-      <label for="">Tanggal Kadaluwarsa</label>
-      <input class="form-control" type="number" maxlength="19">
-    </div>
-    <div class="col-md-4">
-      <label for="">CCV</label>
-      <input class="form-control" type="number" maxlength="19">
-    </div>
-    <div class="col-md-12">
-      <label for="">Nama di Kartu</label>
-      <input class="form-control" type="text" maxlength="19">
-    </div>
-    
-    <h3 class="text-muted mt-3">Alamat Tagihan</h3>
-    <div class="col-md-12">
-      <label for="">Alamat</label>
-      <input class="form-control" type="text" maxlength="19">
-    </div>
-    <div class="col-md-12">
-      <label for="">Kode Pos</label>
-      <input class="form-control" type="number" maxlength="19">
-    </div>`;
-            }
             if (metode === "transfer-bank") {
                 metodeBayar.innerHTML = `
     <h3 class="text-muted mt-3">Pilih Bank</h3>

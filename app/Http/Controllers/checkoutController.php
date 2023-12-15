@@ -27,11 +27,7 @@ class checkoutController extends Controller
         return view('/checkout', compact('items'));   
     }
 
-    public function totalHarga(Request $request){
-        
-        return response()->json(['message' => 'Data diterima di Laravel!']);
-        // return route('/checkout/'.$id_keranjang);
-    }
+    
 
     public function alamat(Request $request, $id_pengguna){
         // $this->validate($request, [

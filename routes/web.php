@@ -6,6 +6,7 @@ use App\Http\Controllers\sesiController;
 use App\Http\Controllers\produkController;
 use App\Http\Controllers\profilController;
 use App\Http\Controllers\checkoutController;
+use App\Http\Controllers\transaksiController;
 use GuzzleHttp\Middleware;
 
 /*
@@ -71,6 +72,12 @@ Route::post('/checkout/totalharga/haha}', [checkoutController::class, 'totalHarg
 Route::get('/keranjang/{id_pengguna}', [cartController::class, 'show'])->Middleware('auth');
 Route::post('/keranjang/tambah/{id_pengguna}', [cartController::class, 'addToCart'])->Middleware('auth');
 Route::delete('/keranjang/{id_pengguna}/{id_produk}', [cartController::class, 'destroy'])->middleware('auth');
+
+Route::post('/transaksi/pemesanan', [transaksiController::class, 'store'])->middleware('auth');
+Route::post('/transaksi/pemesanan/bukti_pemesanan', function(){
+    echo "Silahkan Lengkapi Bukti Pembayaran";
+})->middleware('auth');
+
 
 
 
