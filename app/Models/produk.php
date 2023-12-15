@@ -13,14 +13,14 @@ class produk extends Model
 
     protected $primaryKey = 'id_produk';
 
-    protected $fillable = ['id_penjual', 'id_produk', 'nama_produk', 'kategori', 'harga', 'deskripsi', 'foto_produk'];
+    protected $guarded = [''];
 
     public $timestamps = false;
 
-    public function cart()
-    {
-    return $this->hasMany(Cart::class);
-    }
+    // public function cart()
+    // {
+    // return $this->belongsTo(Cart::class);
+    // }
     
 
 }

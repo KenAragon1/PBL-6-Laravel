@@ -21,13 +21,7 @@ class User extends Authenticatable
     public $timestamps = false;
     
     
-    public function isPenjual()
-    {
-        if ($this->jenis_pengguna == 'Penjual'){
-
-            return true ;
-        }
-    }
+    
     /**
      * The attributes that should be cast.
      *

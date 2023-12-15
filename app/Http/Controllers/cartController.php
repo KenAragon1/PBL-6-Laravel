@@ -2,20 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Cart;
 
 use App\Models\User;
 use App\Models\produk;
-use App\Models\Cart;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class cartController extends Controller
 {
     public function show($id_pengguna)
     {
         // cari barang yang memiliki id pengguna user tertentu
-        $cart_produks = Cart::where('id_pengguna', $id_pengguna)->get();
+        // $cart_produks = Cart::where('id_pengguna', $id_pengguna)->get();
 
-        $produks = produk::find($cart_produks);
+        // $produks = produk::find($cart_produks);
+        
+        // $produks = Cart::with('produk')->where('id_pengguna', $id_pengguna)->get();
+
+        $produks = DB::table('keranjang')
+            ->join('produk', 'keranjang.id_produk', '=', 'produk.id_produk')
+            ->select('keranjang.*', 'produk.*')
+            ->where('keranjang.id_pengguna', $id_pengguna)
+            ->get();
 
         return view('keranjang', compact('produks'));
         
@@ -44,6 +53,6 @@ class cartController extends Controller
     {
         $cart = Cart::where('id_pengguna', $id_pengguna)->where('id_produk', $id_produk)->get('id_keranjang');
         $cart->first()->delete();
-        return redirect('/');
+        return back()->with('sukses', 'Berhasil Hapus Data.');
     }
 }

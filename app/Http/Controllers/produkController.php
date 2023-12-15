@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\produk;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class produkController extends Controller
@@ -22,10 +23,14 @@ class produkController extends Controller
         return view('produk-detail', compact('produk'));
     }
 
-    public function create()
+    public function create($id_pengguna)
     {
-        $produks = produk::all();
+        
+        $produk =produk::where('id_pengguna', $id_pengguna)->get();
+        
+        $produks = produk::find($produk);
         return view('admin-produk', compact('produks'));
+
     }
 
     public function store(Request $request)
@@ -42,11 +47,11 @@ class produkController extends Controller
         $image->storeAs('foto-produk', $image->hashName());
 
         $valid['foto_produk'] = $image->hashName();
-        $valid['id_produk'] = rand(100000000, 999999999);
-        $valid['id_penjual'] = rand(100000000, 999999999);
+        $valid['id_produk'] = rand(10000, 99999);
+        $valid['id_pengguna'] = Auth::user()->id_pengguna;
 
         if (produk::create($valid)) {
-            return redirect('/dashboard/produk')->with('sukses', 'Tambah produk Berhasil.');
+            return redirect('/dashboard/produk/'.Auth::user()->id_pengguna)->with('sukses', 'Tambah produk Berhasil.');
         }
         return redirect('/');
 
