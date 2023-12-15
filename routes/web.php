@@ -50,7 +50,7 @@ Route::get('/dashboard', function () {
 })->Middleware('jenisUser:Penjual');
 
 // menampilkan produk yg dijual pembeli
-Route::get('/dashboard/produk/{id_pengguna}', [produkController::class, 'create'])->Middleware('jenisUser:Penjual');
+Route::get('/dashboard/produk/{id_pengguna}', [produkController::class, 'create'])->name('produk-penjual')->Middleware('jenisUser:Penjual');
 
 // menambahkan produk
 Route::post('/dashboard/produk', [produkController::class, 'store'])->Middleware( 'jenisUser:Penjual');
@@ -58,6 +58,11 @@ Route::delete('/dashboard/produk/{id}', [produkController::class, 'destroy'])->M
 
 Route::get('/dashboard/produk/edit/{id}', [produkController::class, 'edit'])->Middleware( 'jenisUser:Penjual');
 Route::put('/dashboard/produk/edit/{id}', [produkController::class, 'update'])->Middleware( 'jenisUser:Penjual');
+
+// Pesanan
+Route::get('/dashboard/pesanan/{id_pengguna}', function() {
+    return view('admin-pesanan');
+});
 
 
 
@@ -69,7 +74,7 @@ Route::get('/checkout/{id_keranjang}', [checkoutController::class, 'index'])->Mi
 Route::patch('/checkout/alamat/{id_pengguna}', [checkoutController::class, 'alamat'])->Middleware('auth');
 Route::post('/checkout/totalharga/haha}', [checkoutController::class, 'totalHarga'])->Middleware('auth');
 
-Route::get('/keranjang/{id_pengguna}', [cartController::class, 'show'])->Middleware('auth');
+Route::get('/keranjang/{id_pengguna}', [cartController::class, 'show'])->name('keranjang')->Middleware('auth');
 Route::post('/keranjang/tambah/{id_pengguna}', [cartController::class, 'addToCart'])->Middleware('auth');
 Route::delete('/keranjang/{id_pengguna}/{id_produk}', [cartController::class, 'destroy'])->middleware('auth');
 
@@ -78,6 +83,9 @@ Route::post('/transaksi/pemesanan/bukti_pemesanan', function(){
     echo "Silahkan Lengkapi Bukti Pembayaran";
 })->middleware('auth');
 
+Route::get('/pesanan/{id_pengguna}', function() {
+    return view('pesanan');
+});
 
 
 

@@ -25,7 +25,7 @@
             
         <div class="container align-items-center justify-content-center d-flex">
             <img src="{{ asset('images/foto/'.$data->foto) }}" alt="Foto Profil"
-                class="rounded-circle mb-5 align-center-center profile-img" style="width: 400px; height:400px;" />
+                class="rounded-circle mb-5 align-center-center profile-img" style="width: 400px; height:400px; aspect-ratio:1/1" />
         </div>
         <div class="container mb-5">
             <div class="row">
@@ -125,7 +125,7 @@
                         </div>
                         <div class="form-outline mb-2">
                             <label class="form-label" for="birth">Tanggal Lahir</label>
-                            <input type="date" name="ttl" class="form-control" value="{{ $data->ttl }}"/>
+                            <input type="date" name="ttl" class="form-control" value="{{ $data->ttl }}" required/>
                         </div>
                         <div class="form-outline mb-2">
                             <label class="form-label" for="email">Email</label>

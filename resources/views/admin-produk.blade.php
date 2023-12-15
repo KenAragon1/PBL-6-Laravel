@@ -1,22 +1,35 @@
 @extends('templates.dashboard')
 
 @section('content')
-    <div class="col-9 mt-4 card container bg-white shadow border-0">
+    <div class="col-9 mt-4 card container bg-white shadow border-0 mb-4">
+        @if (session()->has('sukses'))
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            <strong>{{ session('sukses') }}!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+        @if (session()->has('sukses1'))
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            <strong>{{ session('sukses1') }}!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         <a class="btn btn-success my-3" id="tambahProduk" data-bs-toggle="modal" data-bs-target="#tambah-produk"><i
                 class="bi bi-plus-circle-fill"></i> Tambah Produk</a>
         <div class="d-flex flex-wrap">
             @foreach ($produks as $produk)
                 <div class="card p-2 m-2 shadow" style="width: 15rem">
                     <img class="card-img-top" src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}"
-                        alt="Card image cap" />
+                        alt="Card image cap" style="aspect-ratio: 1/1;" />
                     <div class="card-body">
-                        <h5 class="card-title">{{ $produk->nama_produk }}</h5>
+                        <h5 class="card-title" style="width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ $produk->nama_produk }}</h5>
                         <p class="text-success">Rp {{ $produk->harga }}</p>
-                        <a href="{{ url('dashboard/produk/edit/' . $produk->id_produk) }}" class="btn btn-success">Edit</a>
+                        <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="btn btn-primary w-100 mb-2">Detail</a>
+                        <a href="{{ url('dashboard/produk/edit/' . $produk->id_produk) }}" class="btn btn-success w-100 mb-2">Edit</a>
                         <form action="{{url('/dashboard/produk/'.$produk->id_produk)}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Hapus</button>
+                            <button type="submit" class="btn btn-danger w-100">Hapus</button>
                         </form>
                     </div>
                 </div>

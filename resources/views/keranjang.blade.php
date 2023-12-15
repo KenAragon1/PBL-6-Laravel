@@ -1,7 +1,7 @@
 @extends('templates.nav-footer')
 
 @section('content')
-    <div class="container text-center w-75 bg-white card shadow p-4" style="min-height: 100vh;">
+    <div class="container text-center bg-white card shadow p-4" style="min-height: 100vh;">
         @if (session()->has('sukses'))
         <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
             <strong>{{ session('sukses') }}!</strong>
@@ -31,11 +31,11 @@
                     <input type="checkbox" name="" id="" />
                     <p id="idCart" style="display: none">{{ $produk->id_keranjang }}</p>
                     <img src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}"
-                        class="img-fluid rounded-3 mx-3" />
+                        class="img-fluid rounded-3 mx-1" />
                 </div>
                 <div class="col-3">
                     <p class="lead fw-normal mb-2">
-                        <a href="{{ url('/produk-detail') }}" class="">
+                        <a href="{{ url('/produk-detail') }}" class="" style="display:inline-block;width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
                             {{ $produk->nama_produk }}
                         </a>
                     </p>

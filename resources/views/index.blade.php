@@ -78,6 +78,8 @@
                                 <a class="dropdown-item" href="/dashboard">Dashboard</a>
                                 <a class="dropdown-item" id="profilBtn"
                                     href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
+                                <a class="dropdown-item" href="{{ url('/pesanan/' . Auth::user()->id_pengguna) }}">Pesanan</a>
+
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </div>
@@ -91,6 +93,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item"
                                     href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
+                                <a class="dropdown-item" href="{{ url('/pesanan/' . Auth::user()->id_pengguna) }}">Pesanan</a>
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </div>
@@ -175,7 +178,7 @@
                 <div class="card p-2 m-2 shadow" style="width: 15rem">
                     <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="stretched-link"></a>
                     <img class="card-img-top" src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}"
-                        alt="Card image cap" />
+                        alt="Card image cap" style="aspect-ratio:1/1;" />
                     <div class="card-body">
                         <h5 class="card-title">{{ $produk->nama_produk }}</h5>
                         <p class="text-success">Rp {{ $produk->harga }}</p>
