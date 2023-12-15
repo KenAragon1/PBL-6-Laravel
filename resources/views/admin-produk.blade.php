@@ -2,6 +2,18 @@
 
 @section('content')
     <div class="col-9 mt-4 card container bg-white shadow border-0 mb-4">
+        @if (session()->has('sukses'))
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            <strong>{{ session('sukses') }}!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+        @if (session()->has('sukses1'))
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            <strong>{{ session('sukses1') }}!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         <a class="btn btn-success my-3" id="tambahProduk" data-bs-toggle="modal" data-bs-target="#tambah-produk"><i
                 class="bi bi-plus-circle-fill"></i> Tambah Produk</a>
         <div class="d-flex flex-wrap">

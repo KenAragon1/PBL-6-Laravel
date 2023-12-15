@@ -97,7 +97,7 @@ class produkController extends Controller
             ]);
         }
 
-        return redirect('/dashboard/produk');
+        return redirect()->route('produk-penjual', Auth::user()->id_pengguna)->with('sukses1', 'Berhasil Edit Produk.');
 
     }
 
