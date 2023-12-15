@@ -24,7 +24,7 @@ class transaksiController extends Controller
             
         ]);
 
-        $data['id_keranjang'] = rand(1, 1000000);
+        $data['id_pemesanan'] = rand(1, 1000000);
         $data['tgl_pemesanan'] = Carbon::now()->format('l, d-F-Y , H:i:s');
         $data['estimasi_waktu'] = Carbon::now()->addDays(5);
 
