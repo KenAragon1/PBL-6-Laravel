@@ -58,6 +58,11 @@ Route::delete('/dashboard/produk/{id}', [produkController::class, 'destroy'])->M
 Route::get('/dashboard/produk/edit/{id}', [produkController::class, 'edit'])->Middleware( 'jenisUser:Penjual');
 Route::put('/dashboard/produk/edit/{id}', [produkController::class, 'update'])->Middleware( 'jenisUser:Penjual');
 
+// Pesanan
+Route::get('/dashboard/pesanan/{id_pengguna}', function() {
+    return view('admin-pesanan');
+});
+
 
 
 
@@ -71,6 +76,10 @@ Route::post('/checkout/totalharga/haha}', [checkoutController::class, 'totalHarg
 Route::get('/keranjang/{id_pengguna}', [cartController::class, 'show'])->name('keranjang')->Middleware('auth');
 Route::post('/keranjang/tambah/{id_pengguna}', [cartController::class, 'addToCart'])->Middleware('auth');
 Route::delete('/keranjang/{id_pengguna}/{id_produk}', [cartController::class, 'destroy'])->middleware('auth');
+
+Route::get('/pesanan/{id_pengguna}', function() {
+    return view('pesanan');
+});
 
 
 
