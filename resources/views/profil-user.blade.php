@@ -125,7 +125,7 @@
                         </div>
                         <div class="form-outline mb-2">
                             <label class="form-label" for="birth">Tanggal Lahir</label>
-                            <input type="date" name="ttl" class="form-control" value="{{ $data->ttl }}"/>
+                            <input type="date" name="ttl" class="form-control" value="{{ $data->ttl }}" required/>
                         </div>
                         <div class="form-outline mb-2">
                             <label class="form-label" for="email">Email</label>
