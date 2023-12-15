@@ -4,6 +4,9 @@
 
 
     {{-- toggle modal alamat --}}
+    <div class="d-flex justify-content-end mx-5 mb-3">
+        <a href="/keranjang/{{ Auth::user()->id_pengguna }}" class="btn btn-success ">Kembali</a>    
+    </div>
     <div class="container mb-4 shadow card p-4">
         <div class="row align-items-center">
             <div class=" col-10 text-start">
@@ -56,7 +59,7 @@
                     <h6>Rp {{ $items[0]->harga }},-</h6>
                 </div>
                 <div class="col-md-3 col-sm-3">
-                    <h6 class="">Rp 13.500.000,-</h6>
+                    <h6 class="">Rp {{ $items[0]->total_harga }},-</h6>
                 </div>
             </div>
             <!-- isi produk di pesan end -->
@@ -100,40 +103,40 @@
                             <div class="col-md-6">
                                 <label for="">Provinsi </label>
                                 <select name="provinsi" id="" class="form-control">
-                                    <option value="11">ACEH</option>
-                                    <option value="12">SUMATERA UTARA</option>
-                                    <option value="13">SUMATERA BARAT</option>
-                                    <option value="14">R I A U</option>
-                                    <option value="15">J A M B I</option>
-                                    <option value="16">SUMATERA SELATAN</option>
-                                    <option value="17">BENGKULU</option>
-                                    <option value="18">LAMPUNG</option>
-                                    <option value="19">KEPULAUAN BANGKA BELITUNG</option>
-                                    <option value="21">KEPULAUAN RIAU</option>
-                                    <option value="31">DKI JAKARTA</option>
-                                    <option value="32">JAWA BARAT</option>
-                                    <option value="33">JAWA TENGAH</option>
-                                    <option value="34">DI YOGYAKARTA</option>
-                                    <option value="35">JAWA TIMUR</option>
-                                    <option value="36">B A N T E N</option>
-                                    <option value="51">BALI</option>
-                                    <option value="52">NUSA TENGGARA BARAT</option>
-                                    <option value="53">NUSA TENGGARA TIMUR</option>
-                                    <option value="61">KALIMANTAN BARAT</option>
-                                    <option value="62">KALIMANTAN TENGAH</option>
-                                    <option value="63">KALIMANTAN SELATAN</option>
-                                    <option value="64">KALIMANTAN TIMUR</option>
-                                    <option value="71">SULAWESI UTARA</option>
-                                    <option value="73">SULAWESI SELATAN</option>
-                                    <option value="74">SULAWESI TENGGARA</option>
-                                    <option value="75">GORONTALO</option>
-                                    <option value="76">SULAWESI BARAT</option>
-                                    <option value="81">MALUKU</option>
-                                    <option value="82">MALUKU UTARA</option>
-                                    <option value="94">PAPUA</option>
-                                    <option value="91">PAPUA BARAT</option>
-                                    <option value="72">SULAWESI TENGAH</option>
-                                    <option value="65">KALIMANTAN UTARA</option>
+                                    <option value="ACEH">ACEH</option>
+                                        <option value="SUMATERA UTARA">SUMATERA UTARA</option>
+                                        <option value="SUMATERA BARAT">SUMATERA BARAT</option>
+                                        <option value="RIAU">RIAU</option>
+                                        <option value="JAMBI">JAMBI</option>
+                                        <option value="SUMATERA SELATAN">SUMATERA SELATAN</option>
+                                        <option value="BENGKULU">BENGKULU</option>
+                                        <option value="LAMPUNG">LAMPUNG</option>
+                                        <option value="KEPULAUAN BANGKA BELITUNG">KEPULAUAN BANGKA BELITUNG</option>
+                                        <option value="KEPULAUAN RIAU">KEPULAUAN RIAU</option>
+                                        <option value="DKI JAKARTA">DKI JAKARTA</option>
+                                        <option value="JAWA BARAT">JAWA BARAT</option>
+                                        <option value="JAWA TENGAH">JAWA TENGAH</option>
+                                        <option value="DI YOGYAKARTA">DI YOGYAKARTA</option>
+                                        <option value="JAWA TIMUR">JAWA TIMUR</option>
+                                        <option value="BANTEN">BANTEN</option>
+                                        <option value="BALI">BALI</option>
+                                        <option value="NUSA TENGGARA BARAT">NUSA TENGGARA BARAT</option>
+                                        <option value="NUSA TENGGARA TIMUR">NUSA TENGGARA TIMUR</option>
+                                        <option value="KALIMANTAN BARAT">KALIMANTAN BARAT</option>
+                                        <option value="KALIMANTAN TENGAH">KALIMANTAN TENGAH</option>
+                                        <option value="KALIMANTAN SELATAN">KALIMANTAN SELATAN</option>
+                                        <option value="KALIMANTAN TIMUR">KALIMANTAN TIMUR</option>
+                                        <option value="SULAWESI UTARA">SULAWESI UTARA</option>
+                                        <option value="SULAWESI SELATAN">SULAWESI SELATAN</option>
+                                        <option value="SULAWESI TENGGARA">SULAWESI TENGGARA</option>
+                                        <option value="GORONTALO">GORONTALO</option>
+                                        <option value="SULAWESI BARAT">SULAWESI BARAT</option>
+                                        <option value="MALUKU">MALUKU</option>
+                                        <option value="MALUKU UTARA">MALUKU UTARA</option>
+                                        <option value="PAPUA">PAPUA</option>
+                                        <option value="PAPUA BARAT">PAPUA BARAT</option>
+                                        <option value="SULAWESI TENGAH">SULAWESI TENGAH</option>
+                                        <option value="KALIMANTAN UTARA">KALIMANTAN UTARA</option>
                                 </select>
                             </div>
                             <div class="col-md-6">

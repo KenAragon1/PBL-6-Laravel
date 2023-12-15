@@ -13,11 +13,12 @@
     <nav class="navbar navbar-expand bg-white sticky-top border-bottom mb-3">
         <div class="container">
             <div class="d-flex align-items-center">
-                <a href="" class="navbar-brand text-success fs-4 mx-2">
+                <a href="/" class="navbar-brand text-success fs-4 mx-2">
                     <strong>CC Store</strong>
                 </a>
             </div>
         </div>
+        
     </nav>
     @yield('content')
 

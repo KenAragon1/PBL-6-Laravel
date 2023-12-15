@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class checkoutController extends Controller
 {
-    public function index($id_keranjang){
+    public function index(Request $request, $id_keranjang){
         
         // $item = Cart::where('id_keranjang', $id_keranjang );
         $items = DB::table('keranjang')
@@ -20,20 +20,28 @@ class checkoutController extends Controller
             ->select('keranjang.*', 'produk.*')
             ->where('keranjang.id_keranjang', $id_keranjang)
             ->get();
+            // dd($items);
+
 
         
         return view('/checkout', compact('items'));   
     }
 
+    public function totalHarga(Request $request){
+        
+        return response()->json(['message' => 'Data diterima di Laravel!']);
+        // return route('/checkout/'.$id_keranjang);
+    }
+
     public function alamat(Request $request, $id_pengguna){
-        $this->validate($request, [
-            'provinsi' => 'required',
-            'kota' => 'required',
-            'kecamatan' => 'required',
-            'kodepos' => 'required',
-            'detail1' => 'required',
-            'detail2' => 'required'
-        ]);
+        // $this->validate($request, [
+        //     'provinsi' => 'required',
+        //     'kota' => 'required',
+        //     'kecamatan' => 'required',
+        //     'kodepos' => 'required',
+        //     'detail1' => 'required',
+        //     'detail2' => 'required'
+        // ]);
 
         $user = User::findOrFail($id_pengguna);
         $user->update([
@@ -42,7 +50,7 @@ class checkoutController extends Controller
             ]);
         
 
-        return redirect('/checkout/'.$id_pengguna)->with('sukses', 'Alamat Baru Telah di Set.');
+        return back()->with('sukses', 'Alamat Baru Telah di Set.');
 
     }
 }

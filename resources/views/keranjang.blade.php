@@ -7,6 +7,7 @@
             <strong>{{ session('sukses') }}!</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+        @endif
         <div class="row border-bottom mb-3 text-muted px-3">
             <div class="col-5">
                 <p>Produk</p>
@@ -28,6 +29,7 @@
             <div class="mb-4 row d-flex align-items-center rounded p-3 border-bottom">
                 <div class="col-2 d-flex">
                     <input type="checkbox" name="" id="" />
+                    <p id="idCart" style="display: none">{{ $produk->id_keranjang }}</p>
                     <img src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}"
                         class="img-fluid rounded-3 mx-3" />
                 </div>
@@ -45,10 +47,10 @@
                     <p class="mb-0">{{ $produk->jumlah_produk }}</p>
                 </div>
                 <div class="col-2">
-                    <p class="mb-0">Rp {{ $produk->jumlah_produk * $produk->harga }},-</p>
+                    <p class="mb-0" id="totalharga">Rp {{ $produk->jumlah_produk * $produk->harga }},-</p>
                 </div>
-                <div class="col-2 d-flex justify-content-center">
-                    <a href="/checkout/{{ $produk->id_keranjang }}" class="btn btn-success">
+                <div class="col-2 d-flex justify-content-center ">
+                    <a href="/checkout/{{ $produk->id_keranjang }}" class="btn btn-success mx-2">
                         <i class="bi bi-cart"></i>
                     </a>
                     <form action="{{ url('keranjang/' . Auth::user()->id_pengguna . '/' . $produk->id_produk) }}"
@@ -59,7 +61,6 @@
                             <i class="bi bi-trash"></i>
                         </button>
                     </form>
-                    <a href="{{ url('keranjang/' . $produk->id_keranjang) }}"></a>
 
 
                 </div>
@@ -69,4 +70,22 @@
 
 
     </div>
+    <script>
+        var totalHarga = document.getElementById('totalHarga').innerText;
+        var id_keranjang =   document.getElementById('idCart').innerText;
+        $.ajax({
+    url: '/checkout/{'.id_keranjang.'}', 
+    type: 'POST', 
+    data: {
+        totalHarga : totalHarga,
+        idCart : id_keranjang, 
+    },
+    success: function(response) {
+        console.log('Data terkirim!', response);
+    },
+    error: function(xhr, status, error) {
+        console.error('Gagal mengirim data:', error);
+    }
+});
+    </script>
 @endsection

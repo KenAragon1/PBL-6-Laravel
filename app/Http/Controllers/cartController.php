@@ -21,7 +21,7 @@ class cartController extends Controller
         // return view('keranjang', compact('produks'));
 
         $cartWithProduks = Produk::join('keranjang', 'produk.id_produk', '=', 'keranjang.id_produk')
-        ->select('produk.*', 'keranjang.jumlah_produk', 'keranjang.id_pengguna')
+        ->select('produk.*', 'keranjang.*')
         ->where('keranjang.id_pengguna', $id_pengguna)
         ->get();
 
@@ -37,6 +37,7 @@ class cartController extends Controller
         $valid = $request->validate([
             'id_keranjang' => '',
             'id_pengguna' => 'required',
+            'harga' => 'required',
             'id_produk' => 'required',
             'jumlah_produk' => 'required',
         ]);

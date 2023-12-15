@@ -21,6 +21,7 @@
                                 <input type="text" name="id_keranjang" style="display: none" value="{{ rand(1, 1000000) }}">
                                 <input type="text" name="id_pengguna" style="display: none" value="{{ Auth::user()->id_pengguna }}">
                                 <input type="text" name="id_produk" style="display: none" value="{{ $produk->id_produk }}">
+                                <input type="text" name="harga" style="display: none" value="{{ $produk->harga }}">
                                 <input class="form-control w-25" type="number" name="jumlah_produk" value=1 min=1>
                                 <button type="submit" class="btn btn-success p-3 mx-3">
                                     Tambahkan ke keranjang

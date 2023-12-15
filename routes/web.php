@@ -66,6 +66,7 @@ Route::put('/dashboard/produk/edit/{id}', [produkController::class, 'update'])->
 Route::get('/produk-detail/{id}', [produkController::class, 'show'])->Middleware( 'auth');
 Route::get('/checkout/{id_keranjang}', [checkoutController::class, 'index'])->Middleware('auth');
 Route::patch('/checkout/alamat/{id_pengguna}', [checkoutController::class, 'alamat'])->Middleware('auth');
+Route::post('/checkout/totalharga/haha}', [checkoutController::class, 'totalHarga'])->Middleware('auth');
 
 Route::get('/keranjang/{id_pengguna}', [cartController::class, 'show'])->Middleware('auth');
 Route::post('/keranjang/tambah/{id_pengguna}', [cartController::class, 'addToCart'])->Middleware('auth');
