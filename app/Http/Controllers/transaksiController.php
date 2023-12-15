@@ -14,28 +14,41 @@ class transaksiController extends Controller
     public function store(Request $request){
         
         $data = $request->validate([
-            'id_keranjang' => '',
             'id_produk' => 'required',
             'id_pengguna'=>'required',
             'id_keranjang' => 'required',
             'jenis_pembayaran' => 'required',
-            'tgl_pemesanan' => '',
-            'estimasi_waktu' => '',
-            
         ]);
 
         $data['id_pemesanan'] = rand(1, 1000000);
         $data['tgl_pemesanan'] = Carbon::now()->format('l, d-F-Y , H:i:s');
         $data['estimasi_waktu'] = Carbon::now()->addDays(5);
+        
 
         if($data['jenis_pembayaran'] == 'COD'){
+            $data['status_pengiriman'] = 'Pesanan Akan dikirim';
             if(transaksi::create($data)){
-                return redirect('/')->with('sukses', 'Berhasil Membuat Pesanan');
+
+                return redirect('/pesanan')->with('sukses', 'Berhasil Membuat Pesanan');
             } else {
-                return redirect('/')->with('sukses', 'Gagal Membuat Pemesanan');
+                return back()->with('error', 'Gagal Membuat Pemesanan');
             }
         } else {
-            return redirect('/transaksi/pemesanan/bukti_pembayaran');
+            $data['status_pengiriman'] = 'Menunggu Pembayaran';
+            if(transaksi::create($data)){
+
+                return redirect('/pesanan')->with('warning', 'Berhasil Menambah Pesanan, Silahkan Lengkapi Bukti Pembayaran Sesuai Bank yang Telah Anda Pilih.');
+            } else {
+                return back()->with('error', 'Gagal Membuat Pemesanan');
+            }
         }
+    }
+
+
+    // ! DAFTAR PESANAN
+    public function daftarPesanan() { 
+
+        $data = transaksi::all();
+        return view('/pesanan', compact('data'));
     }
 }

@@ -12,4 +12,12 @@ class transaksi extends Model
     protected $primaryKey = 'id_pemesanan';
     protected $guarded = [''];
     public $timestamps = false;
+
+    public function cart(){
+        return $this->belongsTo(Cart::class, 'id_keranjang');
+    }
+    public function produk(){
+        return $this->belongsTo(produk::class, 'id_produk');
+    }
+    
 }

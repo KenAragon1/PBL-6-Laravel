@@ -22,6 +22,10 @@ class Cart extends Model
     return $this->belongsTo(produk::class);
     }
 
+    public function transaksi(){
+        return $this->hasMany(transaksi::class, 'id_transaksi');
+    }
+
 
 
 }

@@ -5,17 +5,24 @@
 
     {{-- toggle modal alamat --}}
     <div class="d-flex justify-content-end mx-5 mb-3">
-        <a href="/keranjang/{{ Auth::user()->id_pengguna }}" class="btn btn-success ">Kembali</a>    
+        <a href="/keranjang/{{ Auth::user()->id_pengguna }}" class="btn btn-success ">Kembali</a> 
+        @if (session()->has('error'))
+            <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif   
     </div>
     <div class="container mb-4 shadow card p-4">
         <div class="row align-items-center">
+            @if (session()->has('sukses'))
+                <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                    {{ session('sukses') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <div class=" col-10 text-start">
-                @if (session()->has('error'))
-                    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                        {{ session('error') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endif
+                
                 <h3>Alamat Pengiriman</h3>
                 <p>
                     {{ Auth::user()->nama }}, ({{ Auth::user()->nohp }}) <br>
@@ -86,13 +93,13 @@
                         <input type="text" name="id_keranjang" value="{{ $items[0]->id_keranjang }}"hidden>
                         
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="jenis_pembayaran" value="COD" id="flexRadioDefault1">
+                            <input class="form-check-input" type="radio" name="jenis_pembayaran" value="COD" required id="flexRadioDefault1">
                             <label class="form-check-label" for="flexRadioDefault1">
                             COD
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="jenis_pembayaran" value="TransferBank" id="flexRadioDefault2">
+                            <input class="form-check-input" type="radio" name="jenis_pembayaran" value="TransferBank" required id="flexRadioDefault2">
                             <label class="form-check-label" for="flexRadioDefault2">
                             Transfer Bank
                             </label>
