@@ -8,7 +8,7 @@
         <div class="row bg-white mt-3 border rounded shadow p-3">
             <h3 class="border-bottom p-2 text-center mb-3">Data Diri Penjual</h3>
             <div class="col-3">
-                <img src="{{ asset('images/foto/' . Auth::user()->foto) }}" alt="" class="img-fluid">
+                <img src="{{ asset('images/foto/' . Auth::user()->foto) }}" alt="" class="img-fluid" style="aspect-ratio:1/1;">
             </div>
             <div class="col-9">
                 <table>
