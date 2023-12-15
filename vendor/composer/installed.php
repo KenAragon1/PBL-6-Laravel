@@ -7,11 +7,8 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-<<<<<<< HEAD
-=======
         'reference' => 'e0fc3929008bdd516cb08c7dbe15c6773bbec8a4',
         'name' => 'laravel/laravel',
->>>>>>> 76bb99ad4a9efb937f53b6931d75652ca95167d2
         'dev' => true,
     ),
     'versions' => array(
@@ -25,21 +22,12 @@
             'dev_requirement' => false,
         ),
         'carbonphp/carbon-doctrine-types' => array(
-<<<<<<< HEAD
             'pretty_version' => '3.0.0',
             'version' => '3.0.0.0',
             'reference' => '49856fbc09fe91b5433381faec60e3620ad364ad',
             'type' => 'library',
             'install_path' => __DIR__ . '/../carbonphp/carbon-doctrine-types',
             'aliases' => array(),
-=======
-            'pretty_version' => '3.1.0',
-            'version' => '3.1.0.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../carbonphp/carbon-doctrine-types',
-            'aliases' => array(),
-            'reference' => 'a31d3358a2a5d6ae947df1691d1f321418a5f3d5',
->>>>>>> 76bb99ad4a9efb937f53b6931d75652ca95167d2
             'dev_requirement' => false,
         ),
         'cordoval/hamcrest-php' => array(
