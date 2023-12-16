@@ -75,7 +75,7 @@ Route::get('/checkout/{id_keranjang}', [checkoutController::class, 'index'])->Mi
 Route::patch('/checkout/alamat/{id_pengguna}', [checkoutController::class, 'alamat'])->Middleware('auth');
 
 Route::get('/keranjang', [cartController::class, 'show'])->name('keranjang')->Middleware('auth');
-Route::post('/keranjang/tambah', [cartController::class, 'addToCart'])->Middleware('auth');
+Route::post('/keranjang/tambah/{id_produk}', [cartController::class, 'addToCart'])->Middleware('auth');
 Route::get('/keranjang/edit/{id}', [cartController::class, 'editCart'])->Middleware('auth');
 Route::post('/keranjang/editCart/{id}', [cartController::class, 'updateCart'])->Middleware('auth');
 Route::delete('/keranjang/{id_pengguna}/{id_produk}', [cartController::class, 'destroy'])->middleware('auth');

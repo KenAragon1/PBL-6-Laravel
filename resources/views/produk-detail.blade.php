@@ -15,7 +15,7 @@
                 @auth
                     
                         <div class="d-flex">
-                            <form action="/keranjang/tambah" method="post"
+                            <form action="/keranjang/tambah/{{ $produk->id_produk }}" method="post"
                                 enctype="multipart/form-data" class="d-flex w-50">
                                 @csrf
                                 <input type="text" name="id_produk" style="display: none" value="{{ $produk->id_produk }}">

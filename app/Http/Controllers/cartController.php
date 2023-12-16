@@ -23,7 +23,7 @@ class cartController extends Controller
 
     }
 
-    public function addToCart(Request $request)
+    public function addToCart(Request $request, $id_produk)
     {
 
         $valid = $request->validate([
@@ -35,12 +35,21 @@ class cartController extends Controller
         $valid['id_pengguna'] = Auth::user()->id_pengguna;
         $valid['id_keranjang'] = rand(1, 1000000);
 
-        if (Cart::create($valid)) {
-            return redirect('/keranjang')->with('sukses', 'Berhasil Menambahkan Produk Ke Keranjang.');
+        $cekProdukCart = Cart::where('id_produk', $id_produk)->first();
+        if(!$cekProdukCart){
+            if (Cart::create($valid)) {
+                return redirect('/keranjang')->with('sukses', 'Berhasil Menambahkan Produk Ke Keranjang.');
+            } else {
+                return back()->with('error', 'Gagal Menambahkan Produk Ke Keranjang.');
+            }
         } else {
-            echo "Eror";
+            $cekProdukCart->jumlah_produk += $valid['jumlah_produk'];
+            $cekProdukCart->save();
+            return redirect('/keranjang')->with('sukses', 'Mengupdate Keranjang Dikarenakan Produk yang sama telah ada.');
+
         }
 
+        
         // dd($valid);
 
 
