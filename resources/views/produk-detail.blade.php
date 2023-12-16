@@ -25,7 +25,6 @@
                                     Tambahkan ke keranjang
                                 </button>
                             </form>
-                            <a href="{{ url('/checkout') }}" class="btn btn-success p-3">Beli Sekarang</a>
 
                         </div>
                     {{-- <a href="{{ url('/keranjang/tambah/' . Auth::user()->id_pengguna). '/'. $produk->id_pro}}">Tambahkan ke keranjang</a> --}}

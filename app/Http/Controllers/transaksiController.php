@@ -14,6 +14,7 @@ class transaksiController extends Controller
     public function store(Request $request){
         
         $data = $request->validate([
+            'id_pemesanan' => '',
             'id_produk' => 'required',
             'id_pengguna'=>'required',
             'id_keranjang' => 'required',

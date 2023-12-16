@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-3">
                     <p class="lead fw-normal mb-2">
-                        <a href="{{ url('/produk-detail') }}" class="" style="display:inline-block;width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                        <a href="{{ url('/produk-detail/'.$produk->id_produk) }}" class="text-start text-dark" style="display:inline-block;width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
                             {{ $produk->produk->nama_produk }}
                         </a>
                     </p>

@@ -64,6 +64,9 @@ Route::put('/dashboard/produk/edit/{id}', [produkController::class, 'update'])->
 Route::get('/dashboard/pesanan/{id_pengguna}', function() {
     return view('admin-pesanan');
 });
+Route::get('/dashboard/detail-pesanan', function() {
+    return view('admin-detail-pesanan');
+});
 
 
 
@@ -87,6 +90,11 @@ Route::get('/transaksi/pemesanan/bukti_pembayaran', function(){
 
 // kelola pemesanan pembeli
 Route::get('/pesanan', [transaksiController::class, 'daftarPesanan'])->middleware('auth');
+
+Route::get('/detail-pesanan', function() {
+    return view('detail-pesanan');
+});
+
 
 
 
