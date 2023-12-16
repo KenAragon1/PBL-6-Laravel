@@ -60,7 +60,7 @@
 
                 @auth
                     <!-- button keranjang -->
-                    <a href="{{ url('/keranjang/' . Auth::user()->id_pengguna) }}"
+                    <a href="/keranjang"
                         class="btn btn-outline-success fs-5 mx-2">
                         <i class="bi bi-cart-fill"></i>
                     </a>
@@ -93,7 +93,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item"
                                     href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
-                                <a class="dropdown-item" href="{{ url('/pesanan/' . Auth::user()->id_pengguna) }}">Pesanan</a>
+                                <a class="dropdown-item" href="{{ url('/pesanan')}}">Pesanan</a>
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </div>

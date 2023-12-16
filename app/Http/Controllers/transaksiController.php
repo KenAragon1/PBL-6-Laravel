@@ -48,7 +48,8 @@ class transaksiController extends Controller
     // ! DAFTAR PESANAN
     public function daftarPesanan() { 
 
-        $data = transaksi::all();
+        // $data = transaksi::all()->where('id', $id);
+        $data = transaksi::where('id_pengguna', Auth::user()->id_pengguna)->get();
         return view('/pesanan', compact('data'));
     }
 }

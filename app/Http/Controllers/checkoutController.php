@@ -20,9 +20,9 @@ class checkoutController extends Controller
             ->select('keranjang.*', 'produk.*')
             ->where('keranjang.id_keranjang', $id_keranjang)
             ->get();
-            // dd($items);
-
-
+        
+        // dd($items);
+        
         
         return view('/checkout', compact('items'));   
     }

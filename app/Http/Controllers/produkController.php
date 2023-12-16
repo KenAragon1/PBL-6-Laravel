@@ -26,7 +26,7 @@ class produkController extends Controller
     public function create($id_pengguna)
     {
         
-        $produk =produk::where('id_penjual', $id_pengguna)->get();
+        $produk =produk::where('id_pengguna', $id_pengguna)->get();
         
         $produks = produk::find($produk);
         return view('admin-produk', compact('produks'));
@@ -48,7 +48,7 @@ class produkController extends Controller
 
         $valid['foto_produk'] = $image->hashName();
         $valid['id_produk'] = rand(10000, 99999);
-        $valid['id_penjual'] = Auth::user()->id_pengguna;
+        $valid['id_pengguna'] = Auth::user()->id_pengguna;
 
         if (produk::create($valid)) {
             return redirect('/dashboard/produk/'.Auth::user()->id_pengguna)->with('sukses', 'Tambah produk Berhasil.');

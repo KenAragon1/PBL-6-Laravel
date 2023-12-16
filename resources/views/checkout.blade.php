@@ -89,7 +89,7 @@
                 <div class="mb-3">
                     <div class="col-md-12">
                         <input type="text" name="id_produk" value="{{ $items[0]->id_produk }}"hidden>
-                        <input type="text" name="id_pengguna" value="{{ $items[0]->id_pengguna }}"hidden>
+                        <input type="text" name="id_pengguna" value="{{ Auth::user()->id_pengguna }}"hidden>
                         <input type="text" name="id_keranjang" value="{{ $items[0]->id_keranjang }}"hidden>
                         
                         <div class="form-check">
