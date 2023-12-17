@@ -4,7 +4,7 @@
     <div class="container text-center bg-white card shadow p-4" style="min-height: 100vh;">
         @if (session()->has('sukses'))
         <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-            <strong>{{ session('sukses') }}!</strong>
+            <strong>{{ session('sukses') }}</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
@@ -28,15 +28,14 @@
         @foreach ($cartWithProduks as $produk)
             <div class="mb-4 row d-flex align-items-center rounded p-3 border-bottom">
                 <div class="col-2 d-flex">
-                    <input type="checkbox" name="" id="" />
                     <p id="idCart" style="display: none">{{ $produk->id_keranjang }}</p>
-                    <img src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}"
+                    <img src="{{ asset('images/foto-produk') }}/{{ $produk->produk->foto_produk }}"
                         class="img-fluid rounded-3 mx-1" />
                 </div>
                 <div class="col-3">
                     <p class="lead fw-normal mb-2">
                         <a href="{{ url('/produk-detail/'.$produk->id_produk) }}" class="text-start text-dark" style="display:inline-block;width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
-                            {{ $produk->nama_produk }}
+                            {{ $produk->produk->nama_produk }}
                         </a>
                     </p>
                 </div>
@@ -50,8 +49,11 @@
                     <p class="mb-0" id="totalharga">Rp {{ $produk->jumlah_produk * $produk->harga }},-</p>
                 </div>
                 <div class="col-2 d-flex justify-content-center ">
-                    <a href="/checkout/{{ $produk->id_keranjang }}" class="btn btn-success mx-2">
+                    <a href="/checkout/{{ $produk->id_keranjang }}" class="btn btn-success ">
                         <i class="bi bi-cart"></i>
+                    </a>
+                    <a href="/keranjang/edit/{{ $produk->id_keranjang }}" class="btn btn-warning mx-2">
+                        <i class="bi bi-pen"></i>
                     </a>
                     <form action="{{ url('keranjang/' . Auth::user()->id_pengguna . '/' . $produk->id_produk) }}"
                         method="POST">

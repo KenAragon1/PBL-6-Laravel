@@ -17,10 +17,10 @@ class produk extends Model
 
     public $timestamps = false;
 
-    // public function cart()
-    // {
-    // return $this->belongsTo(Cart::class);
-    // }
+    public function cart()
+    {
+    return $this->hasMany(Cart::class, 'id_keranjang');
+    }
     
 
 }
