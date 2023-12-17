@@ -29,13 +29,13 @@
             <div class="mb-4 row d-flex align-items-center rounded p-3 border-bottom">
                 <div class="col-2 d-flex">
                     <p id="idCart" style="display: none">{{ $produk->id_keranjang }}</p>
-                    <img src="{{ asset('images/foto-produk') }}/{{ $produk->produk->foto_produk }}"
+                    <img src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}"
                         class="img-fluid rounded-3 mx-1" />
                 </div>
                 <div class="col-3">
                     <p class="lead fw-normal mb-2">
                         <a href="{{ url('/produk-detail/'.$produk->id_produk) }}" class="text-start text-dark" style="display:inline-block;width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
-                            {{ $produk->produk->nama_produk }}
+                            {{ $produk->nama_produk }}
                         </a>
                     </p>
                 </div>
