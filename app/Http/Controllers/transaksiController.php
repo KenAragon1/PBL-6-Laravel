@@ -31,17 +31,17 @@ class transaksiController extends Controller
         if($data['jenis_pembayaran'] == 'COD'){
             $data['status_pengiriman'] = 'Pesanan Akan dikirim';
             if(transaksi::create($data)){
-                $keranjang = Cart::findOrFail($request->id_keranjang);
-                $keranjang->delete();
+                // $keranjang = Cart::findOrFail($request->id_keranjang);
+                // $keranjang->delete();
 
                 return redirect('/pesanan')->with('sukses', 'Berhasil Membuat Pesanan');
             } else {
                 return back()->with('error', 'Gagal Membuat Pemesanan');
             }
         } else {
-            $keranjang = Cart::findOrFail($request->id_keranjang);
-            $keranjang->delete();
-            
+            // $keranjang = Cart::findOrFail($request->id_keranjang);
+            // $keranjang->delete();
+
             $data['status_pengiriman'] = 'Menunggu Pembayaran';
             if(transaksi::create($data)){
 
