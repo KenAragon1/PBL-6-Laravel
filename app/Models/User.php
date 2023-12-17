@@ -21,7 +21,10 @@ class User extends Authenticatable
     public $timestamps = false;
     
     
-    
+    public function produk()
+    {
+    return $this->hasMany(produk::class, 'id_produk');
+    }
     /**
      * The attributes that should be cast.
      *

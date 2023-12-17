@@ -90,10 +90,9 @@ Route::get('/transaksi/pemesanan/bukti_pembayaran', function(){
 
 // kelola pemesanan pembeli
 Route::get('/pesanan', [transaksiController::class, 'daftarPesanan'])->middleware('auth');
-
-Route::get('/detail-pesanan', function() {
-    return view('detail-pesanan');
-});
+Route::get('/pesanan/bukti_pembayaran/{id}/{id_produk}', [transaksiController::class, 'buktiBayar'])->middleware('auth');
+Route::patch('/pesanan/uploadBukti/{id}', [transaksiController::class, 'uploadBukti'])->middleware('auth');
+Route::get('/detail_pesanan', [transaksiController::class, 'detailPesanan'])->middleware('auth');
 
 
 

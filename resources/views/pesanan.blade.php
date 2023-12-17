@@ -36,23 +36,22 @@
                         <td>{{ $d->cart->total_harga }}</td>
                         @if ($d->jenis_pembayaran == 'COD')
                         <td>Bayar Ditempat</td></td>
-                        @else
+                        @elseif($d->jenis_pembayaran == 'TransferBank')
                         <td>Belum Melakukan Pembayaran</td>
+                        @else
+                        <td>Sudah Melakukan Pembayaran</td>
                         @endif
                         <td>{{ $d->status_pengiriman }}</td>
                         <td>
                             
                             @if ($d->jenis_pembayaran == 'TransferBank' and $d->bukti_pembayaran == '')
-                            <button class="btn btn-primary">
-                                <a href="/pesanan/detail" class="text-light"><i class="bi bi-eye"></i></a>
-                            </button>
-                                <button class="btn btn-warning">
-                                    <a href="/pesanan/bukti_pembayaran/{{ $d->id_transaksi }}" class="text-light"><i class="bi bi-file-earmark-plus"></i></a>
-                                </button>
+                                <a href="/detail_pesanan" class="text-light btn btn-primary"><i class="bi bi-eye"></i></a>
+                                <a href="/pesanan/bukti_pembayaran/{{ $d->id_pemesanan }}/{{ $d->produk->id_produk }}" class="text-light btn btn-warning">
+                                    <i class="bi bi-file-earmark-plus"></i>
+                                </a>
+                                    
                             @else
-                            <button class="btn btn-primary">
-                                <a href="/pesanan/detail" class="text-light"><i class="bi bi-eye"></i></a>
-                            </button>
+                                <a href="/detail_pesanan" class="text-light btn btn-primary"><i class="bi bi-eye"></i></a>
                             @endif
                         </td>
                     </tr>

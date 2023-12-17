@@ -141,7 +141,7 @@
                         </div>
                         <div class="form-outline mb-2">
                             <label class="form-label" for="foto">Foto Profil</label>
-                            <input type="file" name="foto" class="form-control" value="{{ $data->nohp }}">
+                            <input type="file" name="foto" class="form-control" >
                         </div>
                         <button type="submit" id="ubahBtn" class="btn btn-primary btn-block mb-4">
                             Ubah

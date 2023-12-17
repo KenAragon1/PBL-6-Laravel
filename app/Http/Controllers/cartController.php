@@ -35,7 +35,8 @@ class cartController extends Controller
         $valid['id_pengguna'] = Auth::user()->id_pengguna;
         $valid['id_keranjang'] = rand(1, 1000000);
 
-        $cekProdukCart = Cart::where('id_produk', $id_produk)->first();
+        $cekProdukCart = Cart::where('id_produk', $id_produk)
+                                ->where('id_pengguna', Auth::user()->id_pengguna)->first();
         if(!$cekProdukCart){
             if (Cart::create($valid)) {
                 return redirect('/keranjang')->with('sukses', 'Berhasil Menambahkan Produk Ke Keranjang.');

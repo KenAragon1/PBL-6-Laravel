@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Cart;
+use App\Models\produk;
 use App\Models\transaksi;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Return_;
@@ -29,12 +31,17 @@ class transaksiController extends Controller
         if($data['jenis_pembayaran'] == 'COD'){
             $data['status_pengiriman'] = 'Pesanan Akan dikirim';
             if(transaksi::create($data)){
+                $keranjang = Cart::findOrFail($request->id_keranjang);
+                $keranjang->delete();
 
                 return redirect('/pesanan')->with('sukses', 'Berhasil Membuat Pesanan');
             } else {
                 return back()->with('error', 'Gagal Membuat Pemesanan');
             }
         } else {
+            $keranjang = Cart::findOrFail($request->id_keranjang);
+            $keranjang->delete();
+            
             $data['status_pengiriman'] = 'Menunggu Pembayaran';
             if(transaksi::create($data)){
 
@@ -43,8 +50,11 @@ class transaksiController extends Controller
                 return back()->with('error', 'Gagal Membuat Pemesanan');
             }
         }
+
+        
     }
 
+    
 
     // ! DAFTAR PESANAN
     public function daftarPesanan() { 
@@ -52,5 +62,42 @@ class transaksiController extends Controller
         // $data = transaksi::all()->where('id', $id);
         $data = transaksi::where('id_pengguna', Auth::user()->id_pengguna)->get();
         return view('/pesanan', compact('data'));
+    }
+
+    public function buktiBayar($id_pemesanan, $id_produk){
+
+        $data = transaksi::find($id_pemesanan);
+        $penjual = produk::find($id_produk);
+// dd($data);
+        return view('bukti_pembayaran', compact('data', 'penjual'));
+    }
+
+    public function uploadBukti(Request $request, $id_pemesanan){
+        $this->validate($request, [
+            'jenis_pembayaran' => 'required',
+            'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $id = transaksi::findOrFail($id_pemesanan);
+
+        if($request->hasFile('bukti_pembayaran')){
+
+            $bukti = $request->file('bukti_pembayaran');
+            // $bukti->hashName();
+            $bukti->storeAs('bukti_pembayaran', $bukti->hashName());
+    
+            $id->update([
+                'jenis_pembayaran' => 'Transfer Bank '.$request->jenis_pembayaran,
+                'bukti_pembayaran' => $bukti->hashName(),
+                'status_pengiriman' => 'Pesanan Akan Dikirim'
+            ]);
+    
+            return redirect('/pesanan')->with('sukses', 'Berhasil Mengupload Bukti Pembayaran.');
+        }
+    }
+
+    public function detailPesanan(){
+
+        return view('detail-pesanan');
     }
 }

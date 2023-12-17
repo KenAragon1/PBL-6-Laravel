@@ -33,7 +33,7 @@
                 <a href="" data-bs-toggle="modal" data-bs-target="#modal-alamat" class="stretched-link"></a>
             </div>
             <div class="col-2">
-                <button class="btn btn-success">Ubah Alamat</button>
+                <button class="btn btn-success" >Ubah Alamat</button>
             </div>
         </div>
     </div>
@@ -66,7 +66,7 @@
                     {{-- <p><span class="text-muted">Warna: </span>Hitam</p> --}}
                 </div>
                 <div class="col-md-2 col-sm-2">
-                    <p>1</p>
+                    <p>{{ $items[0]->jumlah_produk }}</p>
                 </div>
                 <div class="col-md-3 col-sm-3">
                     <h6>Rp {{ $items[0]->harga }},-</h6>
