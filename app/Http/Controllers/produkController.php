@@ -106,7 +106,7 @@ class produkController extends Controller
         $produk = Produk::findOrFail($id);
         File::delete(public_path('images/foto-produk/' . $produk->foto_produk));
         $produk->delete();
-        return redirect('/dashboard/produk');
+        return redirect()->route('produk-penjual', Auth::user()->id_pengguna);
     }
 
     // halaman produk pembeli

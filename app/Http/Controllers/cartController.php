@@ -14,12 +14,13 @@ class cartController extends Controller
 {
     public function show()
     {
-        
-        $cartWithProduks = Cart::where('id_pengguna', Auth::user()->id_pengguna)->get();
+       
+        $cartWithProduks = Produk::join('keranjang', 'produk.id_produk', '=', 'keranjang.id_produk')
+        ->select('produk.*', 'keranjang.*')
+        ->where('keranjang.id_pengguna', Auth::user()->id_pengguna)
+        ->get();
         // dd($cartWithProduks);
         return view('keranjang', compact('cartWithProduks'));
-
-        
 
     }
 
