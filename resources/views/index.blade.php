@@ -78,7 +78,7 @@
                                 <a class="dropdown-item" href="/dashboard">Dashboard</a>
                                 <a class="dropdown-item" id="profilBtn"
                                     href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
-                                <a class="dropdown-item" href="{{ url('/pesanan/' . Auth::user()->id_pengguna) }}">Pesanan</a>
+                                <a class="dropdown-item" href="{{ url('/pesanan') }}">Pesanan</a>
 
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
@@ -93,7 +93,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item"
                                     href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
-                                <a class="dropdown-item" href="{{ url('/pesanan/' . Auth::user()->id_pengguna) }}">Pesanan</a>
+                                <a class="dropdown-item" href="{{ url('/pesanan') }}">Pesanan</a>
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </div>

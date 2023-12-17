@@ -26,7 +26,7 @@
                         <p class="text-success">Rp {{ $produk->harga }}</p>
                         <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="btn btn-primary w-100 mb-2">Detail</a>
                         <a href="{{ url('dashboard/produk/edit/' . $produk->id_produk) }}" class="btn btn-success w-100 mb-2">Edit</a>
-                        <form action="{{url('/dashboard/produk/'.$produk->id_produk)}}" method="post">
+                        <form action="{{url('/dashboard/produk/delete/'.$produk->id_produk)}}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger w-100">Hapus</button>
@@ -44,7 +44,7 @@
                     <h1>Tambah Produk</h1>
                 </div>
                 <div class="modal-body">
-                    <form action="/dashboard/produk" method="post" enctype="multipart/form-data">
+                    <form action="/dashboard/produk/tambah" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-outline mb-4">
                             <label class="form-label" for="nama">Nama Produk</label>

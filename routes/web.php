@@ -54,8 +54,8 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard/produk/{id_pengguna}', [produkController::class, 'create'])->name('produk-penjual')->Middleware('jenisUser:Penjual');
 
 // menambahkan produk
-Route::post('/dashboard/produk', [produkController::class, 'store'])->Middleware( 'jenisUser:Penjual');
-Route::delete('/dashboard/produk/{id}', [produkController::class, 'destroy'])->Middleware( 'jenisUser:Penjual');
+Route::post('/dashboard/produk/tambah', [produkController::class, 'store'])->Middleware( 'jenisUser:Penjual');
+Route::delete('/dashboard/produk/delete/{id}', [produkController::class, 'destroy'])->Middleware( 'jenisUser:Penjual');
 
 Route::get('/dashboard/produk/edit/{id}', [produkController::class, 'edit'])->Middleware( 'jenisUser:Penjual');
 Route::put('/dashboard/produk/edit/{id}', [produkController::class, 'update'])->Middleware( 'jenisUser:Penjual');
