@@ -19,5 +19,8 @@ class transaksi extends Model
     public function produk(){
         return $this->belongsTo(produk::class, 'id_produk');
     }
+    public function pembeli(){
+        return $this->belongsTo(User::class, 'id_pengguna');
+    }
     
 }

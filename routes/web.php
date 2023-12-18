@@ -92,7 +92,7 @@ Route::get('/transaksi/pemesanan/bukti_pembayaran', function(){
 Route::get('/pesanan', [transaksiController::class, 'daftarPesanan'])->middleware('auth');
 Route::get('/pesanan/bukti_pembayaran/{id}/{id_produk}', [transaksiController::class, 'buktiBayar'])->middleware('auth');
 Route::patch('/pesanan/uploadBukti/{id}', [transaksiController::class, 'uploadBukti'])->middleware('auth');
-Route::get('/detail_pesanan', [transaksiController::class, 'detailPesanan'])->middleware('auth');
+Route::get('/detail_pesanan/{id_pemesanan}/{id_produk}', [transaksiController::class, 'detailPesanan'])->middleware('auth');
 
 
 

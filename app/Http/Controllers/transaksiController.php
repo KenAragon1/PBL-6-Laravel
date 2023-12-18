@@ -89,15 +89,19 @@ class transaksiController extends Controller
             $id->update([
                 'jenis_pembayaran' => 'Transfer Bank '.$request->jenis_pembayaran,
                 'bukti_pembayaran' => $bukti->hashName(),
-                'status_pengiriman' => 'Pesanan Akan Dikirim'
+                'status_pengiriman' => 'Pesanan Akan Dikirim',
+                'estimasi_waktu' => Carbon::now()->addDays(5)
             ]);
     
             return redirect('/pesanan')->with('sukses', 'Berhasil Mengupload Bukti Pembayaran.');
         }
     }
 
-    public function detailPesanan(){
+    public function detailPesanan($id_pemesanan, $id_produk){
+        $pesanan = transaksi::find($id_pemesanan);
+        $produk = produk::find($id_produk);
 
-        return view('detail-pesanan');
+        
+        return view('detail-pesanan', compact('pesanan', 'produk'));
     }
 }

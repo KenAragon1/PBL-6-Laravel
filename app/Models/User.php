@@ -25,6 +25,10 @@ class User extends Authenticatable
     {
     return $this->hasMany(produk::class, 'id_produk');
     }
+    public function transaksi()
+    {
+    return $this->hasMany(transaksi::class, 'id_pemesanan');
+    }
     /**
      * The attributes that should be cast.
      *

@@ -45,13 +45,13 @@
                         <td>
                             
                             @if ($d->jenis_pembayaran == 'TransferBank' and $d->bukti_pembayaran == '')
-                                <a href="/detail_pesanan" class="text-light btn btn-primary"><i class="bi bi-eye"></i></a>
+                                <a href="/detail_pesanan/{{ $d->id_pemesanan }}/{{ $d->produk->id_produk }}" class="text-light btn btn-primary"><i class="bi bi-eye"></i></a>
                                 <a href="/pesanan/bukti_pembayaran/{{ $d->id_pemesanan }}/{{ $d->produk->id_produk }}" class="text-light btn btn-warning">
                                     <i class="bi bi-file-earmark-plus"></i>
                                 </a>
                                     
                             @else
-                                <a href="/detail_pesanan" class="text-light btn btn-primary"><i class="bi bi-eye"></i></a>
+                                <a href="/detail_pesanan/{{ $d->id_pemesanan }}/{{ $d->produk->id_produk }}" class="text-light btn btn-primary"><i class="bi bi-eye"></i></a>
                             @endif
                         </td>
                     </tr>
