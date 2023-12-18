@@ -7,11 +7,14 @@
             <div class="col-4">
                 <h3 class="border-bottom py-2">Foto Produk</h3>
                 <img src="{{asset('images/foto-produk') }}/{{ $produk->foto_produk }}" alt="" class="img-fluid mb-5">
-                <h3 class="border-bottom py-2">Bukti Pembayaran</h3>    
-                @if ($pesanan->bukti_pembayaran=='')
+                @if ($pesanan->bukti_pembayaran=='' and $pesanan->jenis_pembayaran=='TransferBank')
+                    <h3 class="border-bottom py-2">Bukti Pembayaran</h3>    
                     <strong><h4>Belum Mengupload Bukti Pembayaran</h4></strong><br>
                     <a href="/pesanan/bukti_pembayaran/{{ $pesanan->id_pemesanan }}/{{ $produk->id_produk }}" class="btn btn-success">Upload Bukti</a>
+                    @elseif($pesanan->jenis_pembayaran=='COD')
+                    
                     @else    
+                    <h3 class="border-bottom py-2">Bukti Pembayaran</h3>    
                     <a href="/pesanan/bukti_pembayaran/{{ $pesanan->id_pemesanan }}/{{ $produk->id_produk }}" class="btn btn-success mb-3 ">Ubah Bukti</a>
                     <img src="{{asset('images/bukti_pembayaran') }}/{{ $pesanan->bukti_pembayaran }}" alt="" 
                     class="img-fluid" style="width: 400px; height: auto">
@@ -102,7 +105,7 @@
                     <tr>
                         <td>Status Pembayaran</td>
                         <td>:</td>
-                        @if ($pesanan->bukti_pembayaran=='')
+                        @if ($pesanan->bukti_pembayaran=='' and $pesanan->jenis_pembayaran=='TransferBank')
                             <td>Belum Melakukan Pembayaran</td>
                         @elseif($pesanan->jenis_pembayaran=='COD')
                             <td>Bayar Ditempat</td>
