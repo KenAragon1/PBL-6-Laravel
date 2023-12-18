@@ -24,7 +24,7 @@
                 </a>
             </div>
             <div class="d-flex justify-content-end text-success">
-                <strong>{{ Auth::user()->nama }}</strong>
+                <strong>Halo, {{ Auth::user()->nama }} 👋</strong>
             </div>
         </div>
     </nav>

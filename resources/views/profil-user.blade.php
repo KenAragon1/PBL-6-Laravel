@@ -25,7 +25,7 @@
             
         <div class="container align-items-center justify-content-center d-flex">
             <img src="{{ asset('images/foto/'.$data->foto) }}" alt="Foto Profil"
-                class="rounded-circle mb-5 align-center-center profile-img" style="width: 400px; height:400px; aspect-ratio:1/1" />
+                class="rounded-circle mb-5 align-center-center profile-img" style="width: 200px; height:200px; aspect-ratio:1/1" />
         </div>
         <div class="container mb-5">
             <div class="row">

@@ -45,26 +45,26 @@
                 </table>
             </div>
         </div>
-        <div class="row mt-3 p-3 justify-content-center">
+        <div class="row mt-2 p-2 justify-content-center">
             <h1 class="border-bottom text-muted text-center mb-4 p-2">Panduan</h1>
             <div class="border p-0 bg-white shadow m-4" style="width: 16rem;">
-                <img class="card-img-top img-fluid" src="../assets/helper.png" alt="Card image cap">
+                <img class="card-img-top img-fluid" src="../assets/g1.png" alt="Card image cap">
                 <div class="card-body p-4">
-                    <h5 class="card-title mb-2">Panduan Menggunakan Dashboard</h5>
+                    <h5 class="card-title mb-2">Panduan Pengelolaan Akun</h5>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
             <div class="border p-0 bg-white shadow m-4" style="width: 16rem;">
-                <img class="card-img-top img-fluid" src="../assets/helper.png" alt="Card image cap">
+                <img class="card-img-top img-fluid" src="../assets/g2.png" alt="Card image cap">
                 <div class="card-body p-4">
-                    <h5 class="card-title mb-2">Panduan Menggunakan Dashboard</h5>
+                    <h5 class="card-title mb-2">Panduan Membeli dan Menjual</h5>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
             <div class="border p-0 bg-white shadow m-4" style="width: 16rem;">
-                <img class="card-img-top img-fluid" src="../assets/helper.png" alt="Card image cap">
+                <img class="card-img-top img-fluid" src="../assets/g3.png" alt="Card image cap">
                 <div class="card-body p-4">
-                    <h5 class="card-title mb-2">Panduan Menggunakan Dashboard</h5>
+                    <h5 class="card-title mb-2">Panduan Pengiriman</h5>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>

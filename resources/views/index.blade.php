@@ -53,9 +53,9 @@
             {{-- <form class="d-flex rounded my-0">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                 <button class="btn btn-outline-success" type="submit">
-                    <i class="bi bi-search"></i>
+                    <i class="bi bi-search"></i> --}}
                 </button>
-            </form> --}}
+            </form>
             <div class="nav ">
 
                 @auth
@@ -72,7 +72,7 @@
                         <div class="dropdown">
                             <button class="btn text-success dropdown-toggle" type="button" id="pengguna"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <u>Hai, {{ Auth::user()->nama }}</u>
+                                All About, {{ Auth::user()->nama }} 👋
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="/dashboard">Dashboard</a>
@@ -143,7 +143,7 @@
     </nav>
     @if (session()->has('sukses'))
         <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-            Selamat Datang, <strong>{{ Auth::user()->nama }}!</strong> Anda berhasil login.
+            Selamat Datang, <strong>{{ Auth::user()->nama }}! 👋</strong> Anda berhasil login.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
