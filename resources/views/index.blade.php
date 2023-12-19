@@ -181,7 +181,12 @@
                         alt="Card image cap" style="aspect-ratio:1/1;" />
                     <div class="card-body">
                         <h5 class="card-title">{{ $produk->nama_produk }}</h5>
-                        <p class="text-success">Rp {{ $produk->harga }}</p>
+                        <b><p class="text-success">Rp {{ $produk->harga }}</p></b>
+                        @if ($produk->stok == 0)
+                            <span class="text-danger">Persedian Produk Habis</span>
+                        @else
+                        <span class="text-end">Stok : {{ $produk->stok }}</span>
+                        @endif
                     </div>
                 </div>
             @endforeach

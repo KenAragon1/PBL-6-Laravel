@@ -48,20 +48,24 @@
                         @csrf
                         <div class="form-outline mb-4">
                             <label class="form-label" for="nama">Nama Produk</label>
-                            <input type="text" id="nama" name="nama_produk" class="form-control" />
+                            <input type="text" id="nama" name="nama_produk" class="form-control" required />
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="kategori">Kategori</label>
-                            <input type="text" id="kategori" name="kategori" class="form-control" />
+                            <input type="text" id="kategori" name="kategori" class="form-control"  required/>
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="harga">Harga Produk</label>
-                            <input type="number" id="harga" name="harga" class="form-control" />
+                            <input type="number" id="harga" name="harga" class="form-control"  required/>
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="deskripsi">Deskripsi Produk</label>
-                            <textarea id="deskripsi" name="deskripsi" class="form-control"></textarea>
+                            <textarea id="deskripsi" name="deskripsi" class="form-control" required></textarea>
 
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="foto">Stok Produk</label>
+                            <input type="number" id="foto" name="stok" class="form-control" required />
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="foto">Foto Produk</label>

@@ -38,11 +38,18 @@ class cartController extends Controller
 
         $cekProdukCart = Cart::where('id_produk', $id_produk)
                                 ->where('id_pengguna', Auth::user()->id_pengguna)->first();
+
+        $stok = Produk::findOrFail($id_produk)->stok;
         if(!$cekProdukCart){
-            if (Cart::create($valid)) {
-                return redirect('/keranjang')->with('sukses', 'Berhasil Menambahkan Produk Ke Keranjang.');
+            if($request->jumlah_produk <= $stok){
+
+                if (Cart::create($valid)) {
+                    return redirect('/keranjang')->with('sukses', 'Berhasil Menambahkan Produk Ke Keranjang.');
+                } else {
+                    return back()->with('error', 'Gagal Menambahkan Produk Ke Keranjang.');
+                }
             } else {
-                return back()->with('error', 'Gagal Menambahkan Produk Ke Keranjang.');
+                return back()->with('error', 'Jumlah Produk Melebihi Stok Persedian.');
             }
         } else {
             $cekProdukCart->jumlah_produk += $valid['jumlah_produk'];

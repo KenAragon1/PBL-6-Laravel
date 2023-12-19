@@ -41,6 +41,7 @@ class produkController extends Controller
             'kategori' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required',
+            'stok' => 'required',
         ]);
 
         $image = $request->file('foto_produk');
@@ -71,6 +72,7 @@ class produkController extends Controller
             'kategori' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required',
+            'stok' => 'required',
         ]);
 
         $produk = Produk::findOrFail($id);
@@ -86,14 +88,16 @@ class produkController extends Controller
                 'nama_produk' => $request->nama_produk,
                 'kategori' => $request->kategori,
                 'harga' => $request->harga,
-                'deskripsi' => $request->deskripsi
+                'deskripsi' => $request->deskripsi,
+                'stok' => $request->stok,
             ]);
         } else {
             $produk->update([
                 'nama_produk' => $request->nama_produk,
                 'kategori' => $request->kategori,
                 'harga' => $request->harga,
-                'deskripsi' => $request->deskripsi
+                'deskripsi' => $request->deskripsi,
+                'stok' => $request->stok,
             ]);
         }
 

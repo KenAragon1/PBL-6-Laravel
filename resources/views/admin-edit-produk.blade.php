@@ -27,6 +27,10 @@
             <label class="form-label" for="deskripsi">Deskripsi Produk</label>
             <textarea id="deskripsi" name="deskripsi" class="form-control" required>{{$produk->deskripsi}}</textarea>
         </div>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="harga">Stok Produk</label>
+            <input type="number" id="stok" name="stok" class="form-control" value="{{$produk->stok}}" required/>
+        </div>
         <button class="btn btn-success">Edit</button>
     </form>
 </div>
