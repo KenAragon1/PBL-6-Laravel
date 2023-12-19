@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CC Store | Situs Jual Beli Terpercaya</title>
-    <link rel="shortcut icon" href="#">
+    <link rel="shortcut icon" href="{{ ('logo2.png') }}">
     {{-- fontawesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -46,8 +46,8 @@
                 <button class="btn btn-outline-success" id="js-menu-btn">
                     <i class="bi bi-list fs-5"></i>
                 </button>
-                <a href="/" class="navbar-brand text-success fs-4 mx-2">
-                    <strong>CC Store</strong>
+                <a href="" class="navbar-brand text-success mx-2 ms-auto">
+                     <img src="../assets/logo2.png" alt="Logo" height="45px" width="45px" style="margin-left: 30px;">
                 </a>
             </div>
             {{-- <form class="d-flex rounded my-0">
@@ -87,7 +87,7 @@
                         <div class="dropdown">
                             <button class="btn text-success dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <u>Hai, {{ Auth::user()->nama }}</u>
+                                <u>Hai, {{ Auth::user()->nama }} 👋</u>
                             </button>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

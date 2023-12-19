@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container bg-white w-50 my-5 p-5 shadow-sm">
+        <center><img src="../assets/logo2.png" alt="Logo" height="95px" width="95px"></center>
         <h1 class="text-success text-center mb-3">Password Recovery</h1>
         <form method="post">
             <!-- Email input -->
@@ -20,7 +21,7 @@
                 </div>
                 <div class="col-md-4 text-end">
                     <!-- Simple link -->
-                    <a href="/lupa-password">Ingat Password?</a>
+                    <a href="/login">Ingat Password?</a>
                 </div>
             </div>
             <!-- Submit button -->
