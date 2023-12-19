@@ -6,6 +6,7 @@ use App\Http\Controllers\sesiController;
 use App\Http\Controllers\produkController;
 use App\Http\Controllers\profilController;
 use App\Http\Controllers\checkoutController;
+use App\Http\Controllers\pesananPenjual;
 use App\Http\Controllers\transaksiController;
 use App\Models\transaksi;
 use GuzzleHttp\Middleware;
@@ -61,12 +62,9 @@ Route::get('/dashboard/produk/edit/{id}', [produkController::class, 'edit'])->Mi
 Route::put('/dashboard/produk/edit/{id}', [produkController::class, 'update'])->Middleware( 'jenisUser:Penjual');
 
 // Pesanan
-Route::get('/dashboard/pesanan/{id_pengguna}', function() {
-    return view('admin-pesanan');
-});
-Route::get('/dashboard/detail-pesanan', function() {
-    return view('admin-detail-pesanan');
-});
+Route::get('/dashboard/pesanan', [pesananPenjual::class, 'pesanan'])->middleware('jenisUser:Penjual');
+Route::get('/dashboard/detail_pesanan/{id}', [pesananPenjual::class, 'detail'])->middleware('jenisUser:Penjual');
+
 
 
 

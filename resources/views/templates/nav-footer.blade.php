@@ -22,7 +22,7 @@
             <div class="d-flex align-items-center">
                 <a href="/" class="navbar-brand text-success mx-2 ms-auto">
                     <a href="{{ url('/') }}" class="btn btn-outline-success"><i class="bi bi-house-door-fill"></i></a>
-                     <img src="../assets/logo2.png" alt="Logo" height="45px" width="45px" style="margin-left: 30px;">
+                    <img src="{{ asset('logo2.png') }}" alt="Logo" height="45px" width="45px" style="margin-left: 30px;">
                 </a>
             </div>
         </div>
