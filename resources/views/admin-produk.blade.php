@@ -52,7 +52,14 @@
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="kategori">Kategori</label>
-                            <input type="text" id="kategori" name="kategori" class="form-control" />
+                            <select name="kategori" id="kategori" class="form-control" aria-label="Default select example">
+                                <option selected disabled>-- Pilih Kategori --</option>
+                                <option value="Input Device">Input Device</option>
+                                <option value="Output Device">Output Device</option>
+                                <option value="Process Device">Process Device</option>
+                                <option value="Storage Device">Storage Device</option>
+                                <option value="Peripheral">Pheripheral</option>
+                            </select>
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="harga">Harga Produk</label>
