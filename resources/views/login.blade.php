@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container bg-white my-5 p-5 shadow rounded-5" style="width:30rem;">
+    <center><img src="{{ asset('logo2.png') }}" alt="Logo" height="95px" width="95px"></center>
         <h1 class="text-success text-center mb-3">Login</h1>
         @if(session()->has('error'))
             <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
@@ -20,17 +21,17 @@
         <form method="post" action="/login">
             @csrf
             <!-- Email input -->
-            <div class="form-outline mb-4">
+            <div class="form-outline mb-2">
                 <label class="form-label" for="username">Username</label>
                 <input type="text" id="username" name="username" class="form-control" required/>
             </div>
             <!-- Password input -->
-            <div class="form-outline mb-4">
+            <div class="form-outline mb-2">
                 <label class="form-label" for="password">Password</label>
                 <input type="password" id="password" name="password" class="form-control" required/>
             </div>
             <!-- 2 column grid layout for inline styling -->
-            <div class="row mb-4">
+            <div class="row mb-2">
                 <div class="col-md-8">
                     <!-- Checkbox -->
                     <div class="form-check">

@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>CC Store | Situs Jual Beli Terpercaya</title>
+    <link rel="shortcut icon" href="{{ ('logo2.png') }}">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <style>
         .nav-item:hover {
             background: rgba(0, 0, 0, 0.1)
         }
+
     </style>
 </head>
 
@@ -19,12 +21,12 @@
         <div class="container">
             <div class="d-flex align-items-center">
                 <a href="{{ url('/') }}" class="btn btn-outline-success"><i class="bi bi-house-door-fill"></i></a>
-                <a href="" class="navbar-brand text-success fs-4 mx-2">
-                    <strong>CC Store</strong>
+                <a href="" class="navbar-brand text-success mx-2 ms-auto">
+                    <img src="{{ asset('logo2.png') }}" alt="Logo" height="45px" width="45px" style="margin-left: 30px;">
                 </a>
             </div>
             <div class="d-flex justify-content-end text-success">
-                <strong>{{ Auth::user()->nama }}</strong>
+                <strong>Halo, {{ Auth::user()->nama }} 👋</strong>
             </div>
         </div>
     </nav>
