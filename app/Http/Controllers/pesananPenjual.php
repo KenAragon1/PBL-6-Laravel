@@ -45,12 +45,16 @@ class pesananPenjual extends Controller
         return back()->with('sukses', 'Mengirim Pesanan ke Pembeli. ');
     }
 
-    public function terima($id_pemesanan){
+    public function terima(Request $request, $id_pemesanan){
         $id = transaksi::findOrFail($id_pemesanan);
         $id->update([
             'status_pengiriman' => 'Pesanan Telah Sampai di Tangan Pembeli',
             'tgl_selesai' => Carbon::now(),
         ]);
         return back()->with('sukses', 'Terimakasih, ' . Auth::user()->nama . ' Sudah Membeli Produk Kita.');
+    }
+
+    public function riwayat(){
+        return view('/riwayat-pesanan');
     }
 }

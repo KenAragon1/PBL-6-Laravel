@@ -6,16 +6,16 @@
         <div class="row mb-3">
             <div class="col-4">
                 <h3 class="border-bottom py-2">Foto Produk</h3>
-                <img src="{{asset('images/foto-produk') }}/{{ $produk->foto_produk }}" alt="" class="img-fluid mb-5">
+                <img src="{{asset('images/foto-produk') }}/{{ $pesanan->produk->foto_produk }}" alt="" class="img-fluid mb-5">
                 @if ($pesanan->bukti_pembayaran=='' and $pesanan->jenis_pembayaran=='TransferBank')
                     <h3 class="border-bottom py-2">Bukti Pembayaran</h3>    
                     <strong><h4>Belum Mengupload Bukti Pembayaran</h4></strong><br>
-                    <a href="/pesanan/bukti_pembayaran/{{ $pesanan->id_pemesanan }}/{{ $produk->id_produk }}" class="btn btn-success">Upload Bukti</a>
+                    <a href="/pesanan/bukti_pembayaran/{{ $pesanan->id_pemesanan }}/{{ $pesanan->produk->id_produk }}" class="btn btn-success">Upload Bukti</a>
                     @elseif($pesanan->jenis_pembayaran=='COD')
                     
                     @else    
                     <h3 class="border-bottom py-2">Bukti Pembayaran</h3>    
-                    <a href="/pesanan/bukti_pembayaran/{{ $pesanan->id_pemesanan }}/{{ $produk->id_produk }}" class="btn btn-success mb-3 ">Ubah Bukti</a>
+                    <a href="/pesanan/bukti_pembayaran/{{ $pesanan->id_pemesanan }}/{{ $pesanan->produk->id_produk }}" class="btn btn-success mb-3 ">Ubah Bukti</a>
                     <img src="{{asset('images/bukti_pembayaran') }}/{{ $pesanan->bukti_pembayaran }}" alt="" 
                     class="img-fluid" style="width: 400px; height: auto">
                 @endif
@@ -26,23 +26,23 @@
                     <tr>
                         <td>ID Produk</td>
                         <td>:</td>
-                        <td>{{ $produk->id_produk }}</td>
+                        <td>{{ $pesanan->produk->id_produk }}</td>
                     </tr>
                     <tr>
                     <tr>
                         <td>Nama Produk</td>
                         <td>:</td>
-                        <td>{{ $produk->nama_produk }}</td>
+                        <td>{{ $pesanan->produk->nama_produk }}</td>
                     </tr>
                     <tr>
                         <td>Detail Produk</td>
                         <td>:</td>
-                        <td>{{ $produk->deskripsi }}</td>
+                        <td>{{ $pesanan->produk->deskripsi }}</td>
                     </tr>
                     <tr>
                         <td>Harga Satuan Produk</td>
                         <td>:</td>
-                        <td>Rp. {{ $produk->harga }},-</td>
+                        <td>Rp. {{ $pesanan->produk->harga }},-</td>
                     </tr>
                     <tr>
                         <td>Jumlah Produk Terbeli</td>
@@ -57,12 +57,12 @@
                     <tr>
                         <td>Nama Penjual</td>
                         <td>:</td>
-                        <td>{{ $produk->pengguna->nama }}</td>
+                        <td>{{ $pesanan->produk->pengguna->nama }}</td>
                     </tr>
                     <tr>
                         <td>No HP Penjual</td>
                         <td>:</td>
-                        <td>{{ $produk->pengguna->nohp }}</td>
+                        <td>{{ $pesanan->produk->pengguna->nohp }}</td>
                     </tr>
                     
                 </table>

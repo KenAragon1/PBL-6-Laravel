@@ -89,10 +89,12 @@ Route::get('/transaksi/pemesanan/bukti_pembayaran', function(){
 
 // kelola pemesanan pembeli
 Route::get('/pesanan', [transaksiController::class, 'daftarPesanan'])->middleware('auth');
-Route::get('/pesanan/bukti_pembayaran/{id}/{id_produk}', [transaksiController::class, 'buktiBayar'])->middleware('auth');
+Route::get('/pesanan/bukti_pembayaran/{id}', [transaksiController::class, 'buktiBayar'])->middleware('auth');
 Route::patch('/pesanan/uploadBukti/{id}', [transaksiController::class, 'uploadBukti'])->middleware('auth');
-Route::get('/detail_pesanan/{id_pemesanan}/{id_produk}', [transaksiController::class, 'detailPesanan'])->middleware('auth');
-Route::get('/pesananSiap/{id}', [pesananPenjual::class, 'terima'])->middleware('auth');
+Route::get('/detail_pesanan/{id_pemesanan}', [transaksiController::class, 'detailPesanan'])->middleware('auth');
+Route::post('/pesananSiap/{id}', [pesananPenjual::class, 'terima'])->middleware('auth');
+
+Route::get('/riwayat_pesanan', [pesananPenjual::class, 'riwayat'])->middleware('auth');
 
 
 

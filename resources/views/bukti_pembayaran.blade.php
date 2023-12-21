@@ -76,7 +76,7 @@
                       <p>Jenis Bank</p>
                   </div>
                   <div class="col-md  ">
-                    <label class="fs-5">(An. {{ $penjual->pengguna->nama }})</label>
+                    <label class="fs-5">(An. {{ $data->produk->pengguna->nama }})</label>
                     <select name="jenis_pembayaran" class="form-control mb-1" required>
                       <option value="BCA">-- Pilih Jenis Bank --</option>
                       <option value="BCA">BCA - 014 987345764</option>

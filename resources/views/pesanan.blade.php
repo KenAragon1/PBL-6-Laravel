@@ -30,6 +30,7 @@
             
             <tbody>
                 @foreach ($data as $d)
+                    
                     <tr>
                         <td>{{ $d->id_pemesanan }}</td>
                         <td>{{ $d->produk->nama_produk }}</td>
@@ -44,17 +45,30 @@
                         <td>{{ $d->status_pengiriman }}</td>
                         <td>
                             
-                            <a href="/detail_pesanan/{{ $d->id_pemesanan }}/{{ $d->produk->id_produk }}" class="text-light btn btn-primary"><i class="bi bi-eye"></i></a>
+                            <a href="/detail_pesanan/{{ $d->id_pemesanan }}" class="text-light btn btn-primary"><i class="bi bi-eye"></i></a>
                             @if ($d->jenis_pembayaran == 'TransferBank' and $d->bukti_pembayaran == '')
-                                <a href="/pesanan/bukti_pembayaran/{{ $d->id_pemesanan }}/{{ $d->produk->id_produk }}" class="text-light btn btn-warning">
+                                <a href="/pesanan/bukti_pembayaran/{{ $d->id_pemesanan }}" class="text-light btn btn-warning">
                                     <i class="bi bi-file-earmark-plus"></i>
                                 </a>
                                     
                             @elseif($d->status_pengiriman == 'Pesanan Sudah Dikirim oleh Penjual')
-                                <a href="/pesananSiap/{{ $d->id_pemesanan }}">Terima Pesanan</a>
-                            @elseif($d->status_pengiriman== 'Pesanan Telah Sampai di Tangan Pembeli')
-                                <button class="btn btn-success">Selesai <i class="bi bi-check2-square"></i></button>
-                            @else
+                            <form action="/pesananSiap/{{ $d->id_pemesanan }}" method="post">
+                                @csrf
+                                @method('PATCH')
+                                <input type="text" name="id_pesanan" id="" value="{{ $d->id_pemesanan }}">
+                                <input type="text" name="id_pesanan" id="" value="{{ $d->produk->nama_produk }}">
+                                <input type="text" name="id_pesanan" id="" value="{{ $d->cart->jumlah_produk }}">
+                                <input type="text" name="id_pesanan" id="" value="{{ $d->cart->total_harga }}">
+                                <input type="text" name="id_pesanan" id="" value="{{ $d->jenis_pembayaran}}">
+                                <input type="text" name="id_pesanan" id="" value="{{ $d->tgl_pemesanan}}">
+                                <input type="text" name="id_pesanan" id="" value="{{ Auth::user()->nama}}">
+                                <input type="text" name="id_pesanan" id="" value="{{ $d->produk->pengguna->nama}}">
+                                
+                                
+                                {{-- <input type="text" name="id_pesanan" id="" value="{{ $penjual->pengguna->nama}}"> --}}
+                                <a href="/pesananSiap/{{ $d->id_pemesanan }}" class="btn btn-success">Terima Pesanan</a>
+                            </form>
+                            
                             @endif
                         </td>
                     </tr>
