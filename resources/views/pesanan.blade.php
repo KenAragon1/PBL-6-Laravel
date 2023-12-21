@@ -44,14 +44,17 @@
                         <td>{{ $d->status_pengiriman }}</td>
                         <td>
                             
+                            <a href="/detail_pesanan/{{ $d->id_pemesanan }}/{{ $d->produk->id_produk }}" class="text-light btn btn-primary"><i class="bi bi-eye"></i></a>
                             @if ($d->jenis_pembayaran == 'TransferBank' and $d->bukti_pembayaran == '')
-                                <a href="/detail_pesanan/{{ $d->id_pemesanan }}/{{ $d->produk->id_produk }}" class="text-light btn btn-primary"><i class="bi bi-eye"></i></a>
                                 <a href="/pesanan/bukti_pembayaran/{{ $d->id_pemesanan }}/{{ $d->produk->id_produk }}" class="text-light btn btn-warning">
                                     <i class="bi bi-file-earmark-plus"></i>
                                 </a>
                                     
+                            @elseif($d->status_pengiriman == 'Pesanan Sudah Dikirim oleh Penjual')
+                                <a href="/pesananSiap/{{ $d->id_pemesanan }}">Terima Pesanan</a>
+                            @elseif($d->status_pengiriman== 'Pesanan Telah Sampai di Tangan Pembeli')
+                                <button class="btn btn-success">Selesai <i class="bi bi-check2-square"></i></button>
                             @else
-                                <a href="/detail_pesanan/{{ $d->id_pemesanan }}/{{ $d->produk->id_produk }}" class="text-light btn btn-primary"><i class="bi bi-eye"></i></a>
                             @endif
                         </td>
                     </tr>

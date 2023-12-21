@@ -6,6 +6,7 @@ use App\Models\produk;
 use App\Models\transaksi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class pesananPenjual extends Controller
@@ -30,5 +31,26 @@ class pesananPenjual extends Controller
 
         $trans = transaksi::find($id_pemesanan);
         return view('penjual.detail_pesanan', compact('trans'));
+    }
+
+    public function kirim($id_pemesanan){
+
+        $id = transaksi::findOrFail($id_pemesanan);
+
+        $id->update([
+            'status_pengiriman'=> 'Pesanan Sudah Dikirim oleh Penjual', 
+
+        ]);
+
+        return back()->with('sukses', 'Mengirim Pesanan ke Pembeli. ');
+    }
+
+    public function terima($id_pemesanan){
+        $id = transaksi::findOrFail($id_pemesanan);
+        $id->update([
+            'status_pengiriman' => 'Pesanan Telah Sampai di Tangan Pembeli',
+            'tgl_selesai' => Carbon::now(),
+        ]);
+        return back()->with('sukses', 'Terimakasih, ' . Auth::user()->nama . ' Sudah Membeli Produk Kita.');
     }
 }

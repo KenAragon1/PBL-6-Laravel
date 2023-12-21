@@ -123,12 +123,18 @@
                         <td>:</td>
                         <td>{{ $pesanan->tgl_pemesanan }}</td>
                     </tr>
+                    
                     <tr>
                         <td>Estimasi Waktu</td>
                         <td>:</td>
                         <td>{{ $pesanan->estimasi_waktu }} <br>
                             <span class="text-secondary "><i>Estimasi Waktu Dapat Berubah Sesuai Waktu Pemesanan dan Pembayaran dari Pihak Pembeli</i></span>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Diterima </td>
+                        <td>:</td>
+                        <td>{{ $pesanan->tgl_selesai }}</td>
                     </tr>
                 </table>
             </div>

@@ -64,6 +64,7 @@ Route::put('/dashboard/produk/edit/{id}', [produkController::class, 'update'])->
 // Pesanan
 Route::get('/dashboard/pesanan', [pesananPenjual::class, 'pesanan'])->middleware('jenisUser:Penjual');
 Route::get('/dashboard/detail_pesanan/{id}', [pesananPenjual::class, 'detail'])->middleware('jenisUser:Penjual');
+Route::get('/mengirimPesanan/{id}', [pesananPenjual::class, 'kirim'])->middleware('jenisUser:Penjual');
 
 
 
@@ -91,6 +92,7 @@ Route::get('/pesanan', [transaksiController::class, 'daftarPesanan'])->middlewar
 Route::get('/pesanan/bukti_pembayaran/{id}/{id_produk}', [transaksiController::class, 'buktiBayar'])->middleware('auth');
 Route::patch('/pesanan/uploadBukti/{id}', [transaksiController::class, 'uploadBukti'])->middleware('auth');
 Route::get('/detail_pesanan/{id_pemesanan}/{id_produk}', [transaksiController::class, 'detailPesanan'])->middleware('auth');
+Route::get('/pesananSiap/{id}', [pesananPenjual::class, 'terima'])->middleware('auth');
 
 
 
