@@ -52,23 +52,26 @@
                                 </a>
                                     
                             @elseif($d->status_pengiriman == 'Pesanan Sudah Dikirim oleh Penjual')
-                            <form action="/pesananSiap/{{ $d->id_pemesanan }}" method="post">
-                                @csrf
-                                @method('PATCH')
-                                <input type="text" name="id_pesanan" id="" value="{{ $d->id_pemesanan }}">
-                                <input type="text" name="id_pesanan" id="" value="{{ $d->produk->nama_produk }}">
-                                <input type="text" name="id_pesanan" id="" value="{{ $d->cart->jumlah_produk }}">
-                                <input type="text" name="id_pesanan" id="" value="{{ $d->cart->total_harga }}">
-                                <input type="text" name="id_pesanan" id="" value="{{ $d->jenis_pembayaran}}">
-                                <input type="text" name="id_pesanan" id="" value="{{ $d->tgl_pemesanan}}">
-                                <input type="text" name="id_pesanan" id="" value="{{ Auth::user()->nama}}">
-                                <input type="text" name="id_pesanan" id="" value="{{ $d->produk->pengguna->nama}}">
-                                
-                                
-                                {{-- <input type="text" name="id_pesanan" id="" value="{{ $penjual->pengguna->nama}}"> --}}
-                                <a href="/pesananSiap/{{ $d->id_pemesanan }}" class="btn btn-success">Terima Pesanan</a>
-                            </form>
                             
+                            <a href="/pesananSiap/{{ $d->id_pemesanan }}" class="btn btn-success mt-1">Terima Pesanan</a>
+                            
+                            @elseif($d->status_pengiriman == 'Pesanan Telah Sampai di Tangan Pembeli')
+                            <form action="/pesananSiap/selesai" method="post">
+                                @csrf
+                                {{-- @method('PATCH') --}}
+                                <input hidden type="text" name="id_pesanan"  value="{{ $d->id_pemesanan }}">
+                                <input hidden type="text" name="nama_produk"  value="{{ $d->produk->nama_produk }}">
+                                <input hidden type="text" name="jumlah_produk"  value="{{ $d->cart->jumlah_produk }}">
+                                <input hidden type="text" name="total_harga"  value="{{ $d->cart->total_harga }}">
+                                <input hidden type="text" name="jenis_pembayaran"  value="{{ $d->jenis_pembayaran}}">
+                                <input hidden type="text" name="waktu_pemesanan"  value="{{ $d->tgl_pemesanan}}">
+                                <input hidden type="text" name="waktu_diterima"  value="{{ $d->tgl_selesai}}">
+                                <input hidden type="text" name="pembeli"  value="{{ Auth::user()->nama}}">
+                                <input hidden type="text" name="penjual"  value="{{ $d->produk->pengguna->nama}}">
+                                
+                            <button type="submit"  class="btn btn-success mt-1">Simpan Riwayat</button>
+                                
+                            </form>
                             @endif
                         </td>
                     </tr>

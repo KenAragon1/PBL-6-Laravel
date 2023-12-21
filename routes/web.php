@@ -66,6 +66,8 @@ Route::get('/dashboard/pesanan', [pesananPenjual::class, 'pesanan'])->middleware
 Route::get('/dashboard/detail_pesanan/{id}', [pesananPenjual::class, 'detail'])->middleware('jenisUser:Penjual');
 Route::get('/mengirimPesanan/{id}', [pesananPenjual::class, 'kirim'])->middleware('jenisUser:Penjual');
 
+Route::get('/dashboard/riwayatPesanan', [pesananPenjual::class, 'riwayatPesanan'])->middleware('jenisUser:Penjual');
+
 
 
 
@@ -83,16 +85,15 @@ Route::post('/keranjang/editCart/{id}', [cartController::class, 'updateCart'])->
 Route::delete('/keranjang/{id_pengguna}/{id_produk}', [cartController::class, 'destroy'])->middleware('auth');
 
 Route::post('/transaksi/pemesanan', [transaksiController::class, 'store'])->middleware('auth');
-Route::get('/transaksi/pemesanan/bukti_pembayaran', function(){
-    echo "Silahkan Lengkapi Bukti Pembayaran";
-})->middleware('auth');
+
 
 // kelola pemesanan pembeli
 Route::get('/pesanan', [transaksiController::class, 'daftarPesanan'])->middleware('auth');
 Route::get('/pesanan/bukti_pembayaran/{id}', [transaksiController::class, 'buktiBayar'])->middleware('auth');
 Route::patch('/pesanan/uploadBukti/{id}', [transaksiController::class, 'uploadBukti'])->middleware('auth');
 Route::get('/detail_pesanan/{id_pemesanan}', [transaksiController::class, 'detailPesanan'])->middleware('auth');
-Route::post('/pesananSiap/{id}', [pesananPenjual::class, 'terima'])->middleware('auth');
+Route::get('/pesananSiap/{id}', [pesananPenjual::class, 'terima'])->middleware('auth');
+Route::post('/pesananSiap/selesai', [pesananPenjual::class, 'simpanRiwayat'])->middleware('auth');
 
 Route::get('/riwayat_pesanan', [pesananPenjual::class, 'riwayat'])->middleware('auth');
 

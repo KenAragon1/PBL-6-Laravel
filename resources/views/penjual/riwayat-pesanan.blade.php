@@ -14,7 +14,7 @@
                     <th scope="col">Jenis Pembayaran</th>
                     <th scope="col">Waktu Pemesanan</th>
                     <th scope="col">Waktu Diterima</th>
-                    <th scope="col">Penjual</th>
+                    <th scope="col">Pembeli</th>
                 </tr>
             </thead>
             
@@ -29,7 +29,7 @@
                         <td>{{ $d->jenis_pembayaran }}</td>
                         <td>{{ $d->waktu_pemesanan }}</td>
                         <td>{{ $d->waktu_diterima }}</td>
-                        <td>{{ $d->penjual }}</td>                        
+                        <td>{{ $d->pembeli }}</td>                        
                     </tr>
                 @endforeach
             </tbody>
