@@ -54,6 +54,54 @@ class transaksiController extends Controller
         
     }
 
+    public function buatPesanan(Request $request) {
+        $id_produk_values = $request->input('id_produk');
+        $id_pengguna_values = $request->input('id_pengguna');
+        $jumlah_produk_values = $request->input('jumlah_produk');
+        $total_transaksi_values = $request->input('total_transaksi');
+        $jenis_pembayaran = $request->input('jenis_pembayaran');
+        $tgl_pemesanan = Carbon::now()->format('l, d-F-Y , H:i:s');
+        $estimasi_waktu = Carbon::now()->addDays(5);
+        
+        if ($jenis_pembayaran == 'COD') {
+            $status_pengiriman = "Pesanan Akan Dikirim";
+            foreach ($id_produk_values as $key => $value) {
+                transaksi::create([
+                    'id_pemesanan' => rand(1, 100000000),
+                    'id_produk' => $value,
+                    'id_pengguna' => $id_pengguna_values[$key],
+                    'jumlah_produk' => $jumlah_produk_values[$key],
+                    'total_transaksi' => $total_transaksi_values[$key],
+                    'jenis_pembayaran' => $jenis_pembayaran,
+                    'tgl_pemesanan' => $tgl_pemesanan ,
+                    'estimasi_waktu' => $estimasi_waktu,
+                    'status_pengiriman' => $status_pengiriman
+                    
+                ]);
+            }
+        } else {
+            $status_pengiriman = "Menunggu Pembayaran";
+            foreach ($id_produk_values as $key => $value) {
+                transaksi::create([
+                    'id_pemesanan' => rand(1, 100000000),
+                    'id_produk' => $value,
+                    'id_pengguna' => $id_pengguna_values[$key],
+                    'jumlah_produk' => $jumlah_produk_values[$key],
+                    'total_transaksi' => $total_transaksi_values[$key],
+                    'jenis_pembayaran' => $jenis_pembayaran,
+                    'tgl_pemesanan' => $tgl_pemesanan ,
+                    'estimasi_waktu' => $estimasi_waktu,
+                    'status_pengiriman' => $status_pengiriman
+                    
+                ]);
+            }
+        }
+        
+        return redirect('/pesanan');
+
+        
+    }
+
     
 
     // ! DAFTAR PESANAN
@@ -101,7 +149,6 @@ class transaksiController extends Controller
         $pesanan = transaksi::find($id_pemesanan);
         $produk = produk::find($id_produk);
 
-        
         return view('detail-pesanan', compact('pesanan', 'produk'));
     }
 }

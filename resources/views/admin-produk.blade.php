@@ -20,7 +20,7 @@
             @foreach ($produks as $produk)
                 <div class="card p-2 m-2 shadow" style="width: 15rem">
                     <img class="card-img-top" src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}"
-                        alt="Card image cap" style="aspect-ratio: 1/1;" />
+                        alt="Card image cap" style="aspect-ratio: 1.4/1;" />
                     <div class="card-body">
                         <h5 class="card-title" style="width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ $produk->nama_produk }}</h5>
                         <p class="text-success">Rp {{ $produk->harga }}</p>

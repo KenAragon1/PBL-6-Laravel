@@ -27,6 +27,24 @@ class checkoutController extends Controller
         return view('/checkout', compact('items'));   
     }
 
+    public function test(Request $request, Produk $produk){
+        $request->validate([
+            'id_produk' => 'array',
+            'jumlah_produk' => 'array'
+        ]);
+    
+        $id_produk = $request->input('id_produk', []);
+        $jlh_produk = $request->input('jumlah_produk', []);
+
+
+        $produks = $produk->whereIn('id_produk', $id_produk)->get();
+
+        $produksArray = array_combine($id_produk, $jlh_produk);
+
+        return view('checkout', compact('produks', 'produksArray'));
+        
+    }
+
     
 
     public function alamat(Request $request, $id_pengguna){

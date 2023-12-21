@@ -5,13 +5,13 @@
 
     {{-- toggle modal alamat --}}
     <div class="d-flex justify-content-end mx-5 mb-3">
-        <a href="/keranjang/{{ Auth::user()->id_pengguna }}" class="btn btn-success ">Kembali</a> 
+        <a href="/keranjang/{{ Auth::user()->id_pengguna }}" class="btn btn-success ">Kembali</a>
         @if (session()->has('error'))
             <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
                 {{ session('error') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        @endif   
+        @endif
     </div>
     <div class="container mb-4 shadow card p-4">
         <div class="row align-items-center">
@@ -22,18 +22,18 @@
                 </div>
             @endif
             <div class=" col-10 text-start">
-                
+
                 <h3>Alamat Pengiriman</h3>
                 <p>
                     {{ Auth::user()->nama }}, ({{ Auth::user()->nohp }}) <br>
                     {{ Auth::user()->alamat }}
                 </p>
-                
+
                 <p></p>
                 <a href="" data-bs-toggle="modal" data-bs-target="#modal-alamat" class="stretched-link"></a>
             </div>
             <div class="col-2">
-                <button class="btn btn-success" >Ubah Alamat</button>
+                <button class="btn btn-success">Ubah Alamat</button>
             </div>
         </div>
     </div>
@@ -57,24 +57,43 @@
                 </div>
             </div>
             <!-- isi produk di pesan start -->
-            <div class="row text-center fs-6 d-flex align-items-center">
-                <div class="col-md-1 col-sm-1">
-                    <img src="{{ asset('images/foto-produk/'.$items[0]->foto_produk) }}" class="img-fluid rounded-3" alt="" />
+            @foreach ($produks as $produk)
+                <div class="row text-center fs-6 d-flex align-items-center mb-2">
+                    <div class="col-md-1 col-sm-1">
+                        <img src="{{ asset('images/foto-produk/' . $produk->foto_produk) }}" class="img-fluid rounded-3"
+                            alt="" />
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <p class="fw-normal mb-1">{{ $produk->nama_produk }}</p>
+                        {{-- <p><span class="text-muted">Warna: </span>Hitam</p> --}}
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <p>@php
+                            foreach ($produksArray as $key => $jumlah) {
+                                if ($produk->id_produk == $key) {
+                                    echo $jumlah;
+                                }
+                            }
+                        @endphp</p>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <h6>Rp {{ $produk->harga }} ,-</h6>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <h6 class="">Rp @php
+                            foreach ($produksArray as $key => $jumlah) {
+                                if ($produk->id_produk == $key) {
+                                    $totalHarga = $jumlah * $produk->harga;
+                                    echo $totalHarga;
+                                }
+                            }
+
+                        @endphp,-</h6>
+                    </div>
                 </div>
-                <div class="col-md-3 col-sm-3">
-                    <p class="fw-normal mb-1">{{ $items[0]->nama_produk }}</p>
-                    {{-- <p><span class="text-muted">Warna: </span>Hitam</p> --}}
-                </div>
-                <div class="col-md-2 col-sm-2">
-                    <p>{{ $items[0]->jumlah_produk }}</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                    <h6>Rp {{ $items[0]->harga }},-</h6>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                    <h6 class="">Rp {{ $items[0]->total_harga }},-</h6>
-                </div>
-            </div>
+            @endforeach
+
+
             <!-- isi produk di pesan end -->
         </div>
     </div>
@@ -84,24 +103,43 @@
         <div class="row">
             <h2>Pembayaran</h2>
             {{-- !FORM PEMESANAN --}}
-            <form action="/transaksi/pemesanan" method="post" >
+            <form action="{{ url('/anakanjing') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <div class="col-md-12">
-                        <input type="text" name="id_produk" value="{{ $items[0]->id_produk }}"hidden>
-                        <input type="text" name="id_pengguna" value="{{ Auth::user()->id_pengguna }}"hidden>
-                        <input type="text" name="id_keranjang" value="{{ $items[0]->id_keranjang }}"hidden>
-                        
+                        @foreach ($produks as $produk)
+                            <input type="text" name="id_produk[]" value="{{ $produk->id_produk }}"hidden>
+                            <input type="text" name="id_pengguna[]" value="{{ Auth::user()->id_pengguna }}"hidden>
+                            <input type="text" name="jumlah_produk[]"
+                                value="@php
+foreach ($produksArray as $key => $jumlah) {
+                                if ($produk->id_produk == $key) {
+                                    echo $jumlah;
+                                }
+                            } @endphp"hidden>
+                            <input type="number" name="total_transaksi[]"
+                                value="@php
+foreach ($produksArray as $key => $jumlah) {
+                                    if ($produk->id_produk == $key) {
+                                        $totalHarga = $jumlah * $produk->harga;
+                                        echo $totalHarga;
+                                    }
+                                } @endphp"
+                                hidden>
+                        @endforeach
+
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="jenis_pembayaran" value="COD" required id="flexRadioDefault1">
+                            <input class="form-check-input" type="radio" name="jenis_pembayaran" value="COD" required
+                                id="flexRadioDefault1">
                             <label class="form-check-label" for="flexRadioDefault1">
-                            COD
+                                COD
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="jenis_pembayaran" value="TransferBank" required id="flexRadioDefault2">
+                            <input class="form-check-input" type="radio" name="jenis_pembayaran" value="TransferBank"
+                                required id="flexRadioDefault2">
                             <label class="form-check-label" for="flexRadioDefault2">
-                            Transfer Bank
+                                Transfer Bank
                             </label>
                         </div>
                         <input type="date" name="estimasi_waktu" value="" id="" hidden>
@@ -111,7 +149,7 @@
                 </div>
                 <div class="row mb-3" id="js-pembayaran" style="max-width: 40rem"></div>
 
-                <button type="submit"  class="btn btn-success p-3 w-100">Buat Pesanan</button>
+                <button type="submit" class="btn btn-success p-3 w-100">Buat Pesanan</button>
             </form>
         </div>
     </div>
@@ -130,39 +168,39 @@
                                 <label for="">Provinsi </label>
                                 <select name="provinsi" id="" class="form-control">
                                     <option value="ACEH">ACEH</option>
-                                        <option value="SUMATERA UTARA">SUMATERA UTARA</option>
-                                        <option value="SUMATERA BARAT">SUMATERA BARAT</option>
-                                        <option value="RIAU">RIAU</option>
-                                        <option value="JAMBI">JAMBI</option>
-                                        <option value="SUMATERA SELATAN">SUMATERA SELATAN</option>
-                                        <option value="BENGKULU">BENGKULU</option>
-                                        <option value="LAMPUNG">LAMPUNG</option>
-                                        <option value="KEPULAUAN BANGKA BELITUNG">KEPULAUAN BANGKA BELITUNG</option>
-                                        <option value="KEPULAUAN RIAU">KEPULAUAN RIAU</option>
-                                        <option value="DKI JAKARTA">DKI JAKARTA</option>
-                                        <option value="JAWA BARAT">JAWA BARAT</option>
-                                        <option value="JAWA TENGAH">JAWA TENGAH</option>
-                                        <option value="DI YOGYAKARTA">DI YOGYAKARTA</option>
-                                        <option value="JAWA TIMUR">JAWA TIMUR</option>
-                                        <option value="BANTEN">BANTEN</option>
-                                        <option value="BALI">BALI</option>
-                                        <option value="NUSA TENGGARA BARAT">NUSA TENGGARA BARAT</option>
-                                        <option value="NUSA TENGGARA TIMUR">NUSA TENGGARA TIMUR</option>
-                                        <option value="KALIMANTAN BARAT">KALIMANTAN BARAT</option>
-                                        <option value="KALIMANTAN TENGAH">KALIMANTAN TENGAH</option>
-                                        <option value="KALIMANTAN SELATAN">KALIMANTAN SELATAN</option>
-                                        <option value="KALIMANTAN TIMUR">KALIMANTAN TIMUR</option>
-                                        <option value="SULAWESI UTARA">SULAWESI UTARA</option>
-                                        <option value="SULAWESI SELATAN">SULAWESI SELATAN</option>
-                                        <option value="SULAWESI TENGGARA">SULAWESI TENGGARA</option>
-                                        <option value="GORONTALO">GORONTALO</option>
-                                        <option value="SULAWESI BARAT">SULAWESI BARAT</option>
-                                        <option value="MALUKU">MALUKU</option>
-                                        <option value="MALUKU UTARA">MALUKU UTARA</option>
-                                        <option value="PAPUA">PAPUA</option>
-                                        <option value="PAPUA BARAT">PAPUA BARAT</option>
-                                        <option value="SULAWESI TENGAH">SULAWESI TENGAH</option>
-                                        <option value="KALIMANTAN UTARA">KALIMANTAN UTARA</option>
+                                    <option value="SUMATERA UTARA">SUMATERA UTARA</option>
+                                    <option value="SUMATERA BARAT">SUMATERA BARAT</option>
+                                    <option value="RIAU">RIAU</option>
+                                    <option value="JAMBI">JAMBI</option>
+                                    <option value="SUMATERA SELATAN">SUMATERA SELATAN</option>
+                                    <option value="BENGKULU">BENGKULU</option>
+                                    <option value="LAMPUNG">LAMPUNG</option>
+                                    <option value="KEPULAUAN BANGKA BELITUNG">KEPULAUAN BANGKA BELITUNG</option>
+                                    <option value="KEPULAUAN RIAU">KEPULAUAN RIAU</option>
+                                    <option value="DKI JAKARTA">DKI JAKARTA</option>
+                                    <option value="JAWA BARAT">JAWA BARAT</option>
+                                    <option value="JAWA TENGAH">JAWA TENGAH</option>
+                                    <option value="DI YOGYAKARTA">DI YOGYAKARTA</option>
+                                    <option value="JAWA TIMUR">JAWA TIMUR</option>
+                                    <option value="BANTEN">BANTEN</option>
+                                    <option value="BALI">BALI</option>
+                                    <option value="NUSA TENGGARA BARAT">NUSA TENGGARA BARAT</option>
+                                    <option value="NUSA TENGGARA TIMUR">NUSA TENGGARA TIMUR</option>
+                                    <option value="KALIMANTAN BARAT">KALIMANTAN BARAT</option>
+                                    <option value="KALIMANTAN TENGAH">KALIMANTAN TENGAH</option>
+                                    <option value="KALIMANTAN SELATAN">KALIMANTAN SELATAN</option>
+                                    <option value="KALIMANTAN TIMUR">KALIMANTAN TIMUR</option>
+                                    <option value="SULAWESI UTARA">SULAWESI UTARA</option>
+                                    <option value="SULAWESI SELATAN">SULAWESI SELATAN</option>
+                                    <option value="SULAWESI TENGGARA">SULAWESI TENGGARA</option>
+                                    <option value="GORONTALO">GORONTALO</option>
+                                    <option value="SULAWESI BARAT">SULAWESI BARAT</option>
+                                    <option value="MALUKU">MALUKU</option>
+                                    <option value="MALUKU UTARA">MALUKU UTARA</option>
+                                    <option value="PAPUA">PAPUA</option>
+                                    <option value="PAPUA BARAT">PAPUA BARAT</option>
+                                    <option value="SULAWESI TENGAH">SULAWESI TENGAH</option>
+                                    <option value="KALIMANTAN UTARA">KALIMANTAN UTARA</option>
                                 </select>
                             </div>
                             <div class="col-md-6">

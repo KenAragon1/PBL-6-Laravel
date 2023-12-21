@@ -47,12 +47,12 @@
                     <tr>
                         <td>Jumlah Produk Terbeli</td>
                         <td>:</td>
-                        <td>{{ $pesanan->cart->jumlah_produk }} Unit</td>
+                        <td>{{ $pesanan->jumlah_produk }} Unit</td>
                     </tr>
                     <tr>
                         <td>Total Harga</td>
                         <td>:</td>
-                        <td>Rp. {{ $pesanan->cart->total_harga }},-</td>
+                        <td>Rp. {{ $pesanan->total_transaksi }},-</td>
                     </tr>
                     <tr>
                         <td>Nama Penjual</td>
