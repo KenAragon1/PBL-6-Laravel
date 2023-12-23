@@ -120,4 +120,12 @@ class produkController extends Controller
         return view('produk-pembeli', compact('produks'));
     }
 
+    public function cariProduk(Request $request) 
+    {
+        $cari_produk = $request->input('cari_produk');
+
+        $produks = produk::where('nama_produk', 'like', "%$cari_produk%")->orWhere('kategori', 'like', "%$cari_produk%")->get();
+        return view('search-result' ,compact('produks', 'cari_produk'));
+    }
+
 }

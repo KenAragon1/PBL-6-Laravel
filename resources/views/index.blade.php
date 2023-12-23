@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CC Store | Situs Jual Beli Terpercaya</title>
-    <link rel="shortcut icon" href="{{ ('logo2.png') }}">
+    <link rel="shortcut icon" href="{{ 'logo2.png' }}">
     {{-- fontawesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -47,21 +47,22 @@
                     <i class="bi bi-list fs-5"></i>
                 </button>
                 <a href="" class="navbar-brand text-success mx-2 ms-auto">
-                     <img src="../assets/logo2.png" alt="Logo" height="45px" width="45px" style="margin-left: 30px;">
+                    <img src="../assets/logo2.png" alt="Logo" height="45px" width="45px"
+                        style="margin-left: 30px;">
                 </a>
             </div>
-            {{-- <form class="d-flex rounded my-0">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <form class="d-flex rounded my-0" action="/cari-produk" method="get">
+                <input class="form-control me-2" type="search" name="cari_produk" placeholder="Search" aria-label="Search" />
                 <button class="btn btn-outline-success" type="submit">
-                    <i class="bi bi-search"></i> --}}
+                    <i class="bi bi-search"></i>
                 </button>
             </form>
             <div class="nav ">
 
+
                 @auth
                     <!-- button keranjang -->
-                    <a href="/keranjang"
-                        class="btn btn-outline-success fs-5 mx-2">
+                    <a href="/keranjang" class="btn btn-outline-success fs-5 mx-2">
                         <i class="bi bi-cart-fill"></i>
                     </a>
                     <a href="/profil-user" class="text-success fs-5 mx-2">
@@ -93,7 +94,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item"
                                     href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
-                                <a class="dropdown-item" href="{{ url('/pesanan')}}">Pesanan</a>
+                                <a class="dropdown-item" href="{{ url('/pesanan') }}">Pesanan</a>
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </div>
@@ -123,12 +124,6 @@
                         <span class="fs-5 bold">Daftar Produk</span>
                     </a>
                 </li>
-                {{-- <li>
-                    <a href="#" class="nav-link link-dark">
-                        <span><i class="fa-solid fa-store fa-2xl me-3"></i></span>   
-                        <span class="fs-5 bold">Kelola Produk</span>
-                    </a>
-                </li> --}}
                 <li>
                     <a href="#" class="nav-link link-dark">
                         <span><i class="fa-solid fa-tags fa-2xl me-3"></i></span>
@@ -180,12 +175,16 @@
                     <img class="card-img-top" src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}"
                         alt="Card image cap" style="aspect-ratio:1.4/1;" />
                     <div class="card-body">
-                        <h5 class="card-title">{{ $produk->nama_produk }}</h5>
-                        <b><p class="text-success">Rp {{ $produk->harga }}</p></b>
+                        <h5 class="card-title"
+                            style="width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                            {{ $produk->nama_produk }}</h5>
+                        <b>
+                            <p class="text-success">Rp {{ $produk->harga }}</p>
+                        </b>
                         @if ($produk->stok == 0)
                             <span class="text-danger">Persedian Produk Habis</span>
                         @else
-                        <span class="text-end">Stok : {{ $produk->stok }}</span>
+                            <span class="text-end">Stok : {{ $produk->stok }}</span>
                         @endif
                     </div>
                 </div>

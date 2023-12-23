@@ -22,8 +22,8 @@
                     <td>{{ $data->id_pemesanan }}</td>
                     <td>{{ $data->pembeli->nama }}</td>
                     <td>{{ $data->produk->nama_produk }}</td>
-                    <td>{{ $data->cart->jumlah_produk }}</td>
-                    <td>{{ $data->cart->total_harga }}</td>
+                    <td>{{ $data->jumlah_produk }}</td>
+                    <td>{{ $data->total_transaksi }}</td>
                     <td>{{ $data->jenis_pembayaran }}</td>
                     <td>
                         <a href="/dashboard/detail_pesanan/{{ $data->id_pemesanan }}" class="btn btn-primary"><i class="bi bi-eye"></i></a>

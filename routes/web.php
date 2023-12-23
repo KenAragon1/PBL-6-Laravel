@@ -65,8 +65,9 @@ Route::put('/dashboard/produk/edit/{id}', [produkController::class, 'update'])->
 Route::get('/dashboard/pesanan', [pesananPenjual::class, 'pesanan'])->middleware('jenisUser:Penjual');
 Route::get('/dashboard/detail_pesanan/{id}', [pesananPenjual::class, 'detail'])->middleware('jenisUser:Penjual');
 
+// search
 
-
+Route::get('/cari-produk', [produkController::class, 'cariProduk']);
 
 
 // ! PEMBELI
