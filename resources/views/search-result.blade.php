@@ -31,11 +31,44 @@
                         style="margin-left: 30px;">
                 </a>
             </div>
+            <form class="d-flex rounded my-0" action="/cari-produk" method="get" style="">
+                <input class="form-control me-2" type="search" name="cari_produk" value="{{$cari_produk}}"
+                    aria-label="Search" />
+                <button class="btn btn-outline-success" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+            <div></div>
         </div>
 
     </nav>
-    @yield('content')
+    <div class="container" style="min-height: 100vh">
+        @if (count($produks) > 0)
+            @foreach ($produks as $produk)
+                <div class="card p-2 m-2 shadow" style="width: 15rem">
+                    <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="stretched-link"></a>
+                    <img class="card-img-top" src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}"
+                        alt="Card image cap" style="aspect-ratio:1.4/1;" />
+                    <div class="card-body">
+                        <h5 class="card-title"
+                            style="width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                            {{ $produk->nama_produk }}</h5>
+                        <b>
+                            <p class="text-success">Rp {{ $produk->harga }}</p>
+                        </b>
+                        @if ($produk->stok == 0)
+                            <span class="text-danger">Persedian Produk Habis</span>
+                        @else
+                            <span class="text-end">Stok : {{ $produk->stok }}</span>
+                        @endif
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <h2 class="text-center text-muted">Produk tidak ada</h2>
+        @endif
 
+    </div>
     <footer
         class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top bg-white shadow navbar navbar-fixed-bottom">
         <div class="col-md-4 d-flex align-items-center">

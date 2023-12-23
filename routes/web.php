@@ -70,17 +70,19 @@ Route::get('/mengirimPesanan/{id}', [pesananPenjual::class, 'kirim'])->middlewar
 
 Route::get('/dashboard/riwayatPesanan', [pesananPenjual::class, 'riwayatPesanan'])->middleware('jenisUser:Penjual');
 
+// search
 
 //kategori
 Route::post('/dashboard/tambahKategori', [KategoriController::class, 'tambah'])->middleware('auth');
 Route::get('/kategori', [KategoriController::class, 'tampil'])->middleware('auth');
 Route::get('/produk/kategori/{id}', [KategoriController::class, 'tampilKategori'])->middleware('auth');
+Route::get('/cari-produk', [produkController::class, 'cariProduk']);
 
 
 // ! PEMBELI
 
 Route::get('/produk-detail/{id}', [produkController::class, 'show'])->Middleware( 'auth');
-Route::get('/checkout/{id_keranjang}', [checkoutController::class, 'index'])->Middleware('auth');
+Route::get('/checkout', [checkoutController::class, 'test'])->Middleware('auth');
 Route::patch('/checkout/alamat/{id_pengguna}', [checkoutController::class, 'alamat'])->Middleware('auth');
 
 Route::get('/keranjang', [cartController::class, 'show'])->name('keranjang')->Middleware('auth');
@@ -90,7 +92,10 @@ Route::post('/keranjang/editCart/{id}', [cartController::class, 'updateCart'])->
 Route::delete('/keranjang/{id_pengguna}/{id_produk}', [cartController::class, 'destroy'])->middleware('auth');
 
 Route::post('/transaksi/pemesanan', [transaksiController::class, 'store'])->middleware('auth');
-
+Route::post('/anakanjing', [transaksiController::class, 'buatPesanan'])->middleware('auth');
+Route::get('/transaksi/pemesanan/bukti_pembayaran', function(){
+    echo "Silahkan Lengkapi Bukti Pembayaran";
+})->middleware('auth');
 
 // kelola pemesanan pembeli
 Route::get('/pesanan', [transaksiController::class, 'daftarPesanan'])->middleware('auth');

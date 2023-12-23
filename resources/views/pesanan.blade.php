@@ -34,7 +34,7 @@
                     <tr>
                         <td>{{ $d->id_pemesanan }}</td>
                         <td>{{ $d->produk->nama_produk }}</td>
-                        <td>{{ $d->cart->total_harga }}</td>
+                        <td>{{ $d->total_transaksi }}</td>
                         @if ($d->jenis_pembayaran == 'COD')
                         <td>Bayar Ditempat</td></td>
                         @elseif($d->jenis_pembayaran == 'TransferBank')

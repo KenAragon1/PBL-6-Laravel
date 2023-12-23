@@ -12,7 +12,7 @@
         <div class="row gx-4 gx-lg-5">
             <div class="col-md-5 d-flex h-100">
                 <img class="card-img-top mb-5 mb-md-0 align-self-start sticky-top"
-                    src="{{ asset('images/foto-produk/'.$produk->foto_produk) }}" alt="..." style="z-index: 0" />
+                    src="{{ asset('images/foto-produk/'.$produk->foto_produk) }}" alt="..." style="z-index: 0; aspect-ratio:1.4/1;" />
             </div>
             <div class="col-md-7">
                 <h2>{{ $produk->nama_produk }}</h2>
@@ -31,7 +31,10 @@
                                     @csrf
                                     <input type="text" name="id_produk" style="display: none" value="{{ $produk->id_produk }}">
                                     <input type="text" name="harga" style="display: none" value="{{ $produk->harga }}">
-                                    <input class="form-control w-25" type="number" name="jumlah_produk" value=1 min=1>
+                                    
+                                    <input class="form-control w-25" type="number" name="jumlah_produk" value=1 min=1 hidden>
+                                                                 
+                                                                     
                                     <button type="submit" class="btn btn-success p-3 mx-3">
                                         Tambahkan ke keranjang
                                     </button>

@@ -49,7 +49,7 @@
                     <p>Jumlah Produk</p>
                 </div>
                 <div class="col-md-9 border-bottom">
-                    <p>{{ $data->cart->jumlah_produk }}</p>
+                    <p>{{ $data->jumlah_produk }}</p>
                 </div>
             </div>
             <div class="row mt-3">
@@ -65,7 +65,7 @@
                     <p>Totak Harga</p>
                 </div>
                 <div class="col-md-9 border-bottom fs-5">
-                    <p>Rp. {{ $data->cart->total_harga }},-</p>
+                    <p>Rp. {{ $data->total_transaksi }},-</p>
                 </div>
             </div>
             <form action="/pesanan/uploadBukti/{{ $data->id_pemesanan }}" method="post" enctype="multipart/form-data">

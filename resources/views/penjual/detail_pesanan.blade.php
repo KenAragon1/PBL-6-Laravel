@@ -50,12 +50,12 @@
                     <tr>
                         <td>Jumlah Produk Terbeli</td>
                         <td>:</td>
-                        <td>{{ $trans->cart->jumlah_produk }} Unit</td>
+                        <td>{{ $trans->jumlah_produk }} Unit</td>
                     </tr>
                     <tr>
                         <td>Total Harga</td>
                         <td>:</td>
-                        <td>Rp. {{ $trans->cart->total_harga }},-</td>
+                        <td>Rp. {{ $trans->total_transaksi }},-</td>
                     </tr>
                     
                     
