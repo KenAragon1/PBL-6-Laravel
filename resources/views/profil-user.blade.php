@@ -96,7 +96,6 @@
 
         <div class="container">
             <a href="{{url('/')}}" class="btn btn-primary">Kembali</a>
-            <a href="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="">Password</a>
             <a href="/profil_user/" id="editProfil" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-edit">Edit Profil</a>
             <a href="/logout" class="btn btn-danger">Log Out</a>
         </div>

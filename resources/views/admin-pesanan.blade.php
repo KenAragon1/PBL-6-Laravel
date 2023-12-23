@@ -3,7 +3,7 @@
 @section('content')
    
         <div class="container col-9 bg-white my-3 shadow">
-            <h1 class="p-3 border-bottom text-muted text-center">Pesanan</h1>
+            <h1 class="p-3 border-bottom text-muted text-center">Data Penjualan Toko</h1>
             <table class="table">
                 <thead>
                     <tr>

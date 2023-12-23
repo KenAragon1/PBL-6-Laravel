@@ -48,19 +48,12 @@
                         Dashboard
                     </a>
                 </li>
-                <li class="nav-item">
-                <a href="{{ url('/profil') }}" class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#home"></use>
-                        </svg>
-                        Profil
-                    </a>
-                </li>
+                
                 <li class="nav-item">
                     <a href="/dashboard/pesanan" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                         </svg>
-                        Pesanan
+                        Barang Terjual
                     </a>
                 </li>
                 <li class="nav-item">
