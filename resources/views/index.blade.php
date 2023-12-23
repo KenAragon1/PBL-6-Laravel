@@ -119,7 +119,7 @@
                     </a>
                 </li> --}}
                 <li>
-                    <a href="#" class="nav-link link-dark">
+                    <a href="/kategori" class="nav-link link-dark">
                         <span><i class="fa-solid fa-tags fa-2xl me-3"></i></span>
                         <span class="fs-5 bold">Kategori</span>
                     </a>

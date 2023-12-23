@@ -6,10 +6,12 @@ use App\Http\Controllers\sesiController;
 use App\Http\Controllers\produkController;
 use App\Http\Controllers\profilController;
 use App\Http\Controllers\checkoutController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\pesananPenjual;
 use App\Http\Controllers\transaksiController;
 use App\Models\transaksi;
 use GuzzleHttp\Middleware;
+use Whoops\Run;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,7 +71,10 @@ Route::get('/mengirimPesanan/{id}', [pesananPenjual::class, 'kirim'])->middlewar
 Route::get('/dashboard/riwayatPesanan', [pesananPenjual::class, 'riwayatPesanan'])->middleware('jenisUser:Penjual');
 
 
-
+//kategori
+Route::post('/dashboard/tambahKategori', [KategoriController::class, 'tambah'])->middleware('auth');
+Route::get('/kategori', [KategoriController::class, 'tampil'])->middleware('auth');
+Route::get('/produk/kategori/{id}', [KategoriController::class, 'tampilKategori'])->middleware('auth');
 
 
 // ! PEMBELI

@@ -35,6 +35,11 @@
                         <td>{{ $pesanan->produk->nama_produk }}</td>
                     </tr>
                     <tr>
+                        <td>Kategori</td>
+                        <td>:</td>
+                        <td>{{ $pesanan->produk->kategori->kategori }}</td>
+                    </tr>
+                    <tr>
                         <td>Detail Produk</td>
                         <td>:</td>
                         <td>{{ $pesanan->produk->deskripsi }}</td>

@@ -45,7 +45,7 @@
                     <i class="bi bi-list fs-5"></i>
                 </button>
                 <a href="/" class="navbar-brand text-success mx-2 ms-auto">
-                     <img src="../assets/logo2.png" alt="Logo" height="45px" width="45px" style="margin-left: 30px;">
+                     <img src="{{ asset('logo2.png') }}" alt="Logo" height="45px" width="45px" style="margin-left: 30px;">
                 </a>
             </div>
             <form class="d-flex rounded my-0">
@@ -122,7 +122,7 @@
                     </a>
                 </li> --}}
                 <li>
-                    <a href="/kategori" class="nav-link link-dark">
+                    <a href="#" class="nav-link link-dark">
                         <span><i class="fa-solid fa-tags fa-2xl me-3"></i></span>   
                         <span class="fs-5 bold">Kategori</span>
                     </a>
@@ -142,19 +142,19 @@
   
 
     <div class="container border-top p-3">
-        <h1 class="text-center text-success">DAFTAR PRODUK</h1>
-        <div class="row justify-content-around">
-            @foreach ($produks as $produk)
-                <div class="card p-2 m-2 shadow" style="width: 15rem">
-                    <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="stretched-link"></a>
-                    <img class="card-img-top" src="{{ asset('images/foto-produk')}}/{{$produk->foto_produk}}" alt="Card image cap" />
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $produk->nama_produk }}</h5>
-                        <p class="text-success">Rp {{ $produk->harga }}</p>
-                    </div>
-                </div>
-            @endforeach
+        @foreach ($produk as $produk)
+        <h1 class="text-center text-success mb-5 mt-3">Produk Kategori {{ $produk->kategori->kategori }}</h1>
+        
+            
+        <div class="card p-2 m-2 shadow mt-4" style="width: 15rem">
+          <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="stretched-link"></a>
+          <img class="card-img-top" src="{{ asset('images/foto-produk')}}/{{$produk->foto_produk}}" alt="Card image cap" />
+          <div class="card-body">
+              <h5 class="card-title">{{ $produk->nama_produk }}</h5>
+              <p class="text-success">Rp {{ $produk->harga }}</p>
+          </div>
         </div>
+        @endforeach
     </div>
 
 
@@ -190,18 +190,5 @@
     </footer>
 </body>
 
-<script>
-    const menuBtn = document.querySelector("#js-menu-btn");
-    let menuBar = document.querySelector(".js-side-bar");
-
-    menuBtn.addEventListener("click", () => {
-        console.log('test')
-        if (!menuBar.classList.contains("active")) {
-            menuBar.classList.add("active");
-        } else {
-            menuBar.classList.remove("active");
-        }
-    });
-</script>
 
 </html>
