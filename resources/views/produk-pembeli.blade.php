@@ -55,42 +55,38 @@
                 </button>
             </form>
             <div class="nav ">
-                <!-- button keranjang -->
-                <a href="/keranjang" class="btn btn-outline-success fs-5 mx-2">
-                    <i class="bi bi-cart-fill"></i>
-                </a>
+                @auth
+                    <!-- button keranjang -->
+                    <a href="/keranjang"
+                        class="btn btn-outline-success fs-5 mx-2">
+                        <i class="bi bi-cart-fill"></i>
+                    </a>
                     <a href="/profil-user" class="text-success fs-5 mx-2">
                         <strong><u></u></strong>
                     </a>
                     {{-- icon profile --}}
-                    @if (Auth::user()->jenis_pengguna == 'Penjual')
-                        <div class="dropdown">
-                            <button class="btn text-success dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <u>Hai, {{ Auth::user()->nama }}</u>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown">
+                        <button class="btn text-success dropdown-toggle" type="button" id="pengguna"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        All About, {{ Auth::user()->nama }} 👋
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @if (Auth::user()->jenis_pengguna == 'Penjual')
                                 <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                                @endif
                                 <a class="dropdown-item" id="profilBtn"
                                     href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
+                                <a class="dropdown-item" href="{{ url('/pesanan') }}">Pesanan</a>
+                                <a class="dropdown-item" href="/riwayat_pesanan">Riwayat Pesanan</a>
+                                
+
+
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </div>
-                    @else
-                    <div class="dropdown">
-                        <button class="btn text-success dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <u>Hai, {{ Auth::user()->nama }} 👋</u>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="/profil-user">Profil</a>
-                            <a class="dropdown-item" href="/logout">Logout</a>
-                        </div>
-                    </div>
-                    @endif
                 @else
                     <!-- button login -->
-                    <a href="/login" class="btn btn-outline-success js-login-btn">
+                    <a href="/login" id="tombolLogin" class="btn btn-outline-success js-login-btn">
                         Login
                     </a>
                 @endauth
@@ -126,7 +122,7 @@
                     </a>
                 </li> --}}
                 <li>
-                    <a href="#" class="nav-link link-dark">
+                    <a href="/kategori" class="nav-link link-dark">
                         <span><i class="fa-solid fa-tags fa-2xl me-3"></i></span>   
                         <span class="fs-5 bold">Kategori</span>
                     </a>

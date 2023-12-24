@@ -10,7 +10,7 @@ class transaksi extends Model
     use HasFactory;
     protected $table = 'transaksi';
     protected $primaryKey = 'id_pemesanan';
-    protected $guarded = [''];
+    protected $guarded = ['id_keranjang'];
     public $timestamps = false;
 
     public function cart(){

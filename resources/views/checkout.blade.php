@@ -103,7 +103,7 @@
         <div class="row">
             <h2>Pembayaran</h2>
             {{-- !FORM PEMESANAN --}}
-            <form action="{{ url('/anakanjing') }}" method="POST">
+            <form action="{{ url('/pemesanan') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <div class="col-md-12">

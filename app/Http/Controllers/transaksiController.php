@@ -112,12 +112,11 @@ class transaksiController extends Controller
         return view('/pesanan', compact('data'));
     }
 
-    public function buktiBayar($id_pemesanan, $id_produk){
+    public function buktiBayar($id_pemesanan){
 
         $data = transaksi::find($id_pemesanan);
-        $penjual = produk::find($id_produk);
 // dd($data);
-        return view('bukti_pembayaran', compact('data', 'penjual'));
+        return view('bukti_pembayaran', compact('data'));
     }
 
     public function uploadBukti(Request $request, $id_pemesanan){
@@ -145,10 +144,10 @@ class transaksiController extends Controller
         }
     }
 
-    public function detailPesanan($id_pemesanan, $id_produk){
+    public function detailPesanan($id_pemesanan){
         $pesanan = transaksi::find($id_pemesanan);
-        $produk = produk::find($id_produk);
 
-        return view('detail-pesanan', compact('pesanan', 'produk'));
+        
+        return view('detail-pesanan', compact('pesanan'));
     }
 }

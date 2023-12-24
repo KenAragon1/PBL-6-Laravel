@@ -19,6 +19,8 @@
 
                 <h1 class="text-success ">Rp {{ $produk->harga }} ,-</h1>
 
+                <h5 >Kategori : {{ $produk->kategori->kategori }}</h5>
+
                 @if ($produk->stok == 0)
                             <span class="text-danger">Persedian Produk Habis</span>
                             @else

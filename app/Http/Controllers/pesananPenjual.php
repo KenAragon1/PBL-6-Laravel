@@ -6,6 +6,9 @@ use App\Models\produk;
 use App\Models\transaksi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
+use App\Models\riwayatPesanan;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class pesananPenjual extends Controller
@@ -30,5 +33,54 @@ class pesananPenjual extends Controller
 
         $trans = transaksi::find($id_pemesanan);
         return view('penjual.detail_pesanan', compact('trans'));
+    }
+
+    public function kirim($id_pemesanan){
+
+        $id = transaksi::findOrFail($id_pemesanan);
+
+        $id->update([
+            'status_pengiriman'=> 'Pesanan Sudah Dikirim oleh Penjual', 
+
+        ]);
+
+        return back()->with('sukses', 'Mengirim Pesanan ke Pembeli. ');
+    }
+
+    public function terima($id_pemesanan){
+
+        $id = transaksi::findOrFail($id_pemesanan);
+        $id->update([
+            'status_pengiriman' => 'Pesanan Telah Sampai di Tangan Pembeli',
+            'tgl_selesai' => Carbon::now(),
+        ]);
+
+        
+
+
+        return back()->with('sukses', 'Terimakasih, ' . Auth::user()->nama . ' Sudah Membeli Produk Kita.');
+    }
+
+    public function simpanRiwayat(Request $request){
+        $riwayat = $request->all();
+
+        riwayatPesanan::create($riwayat);
+        $pesanan = transaksi::findOrFail($riwayat['id_pesanan']);
+
+        //menghapus keranjang
+        $pesanan->delete();
+        // dd($id_cart);
+        
+        return back()->with('sukses', 'Berhasil Menyimpan Data Transaksi ke Riwayat pemesanan.' );
+    }
+
+    public function riwayat(){
+        $data = riwayatPesanan::all();
+        return view('/riwayat-pesanan', compact('data'));
+    }
+    public function riwayatPesanan(){
+        $data = riwayatPesanan::where('penjual', Auth::user()->nama)->get();
+        
+        return view('penjual.riwayat-pesanan', compact('data'));
     }
 }

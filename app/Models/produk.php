@@ -29,6 +29,9 @@ class produk extends Model
     {
     return $this->belongsTo(User::class, 'id_pengguna');
     }
+    public function kategori(){
+        return $this->belongsTo(kategori::class, 'id_kategori');
+    }
     
 
 }

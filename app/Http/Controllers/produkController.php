@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\kategori;
 use App\Models\produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,8 +19,7 @@ class produkController extends Controller
 
     public function show($id)
     {
-        $produk = produk::find($id);
-
+        $produk = produk::with('kategori')->find($id);
         return view('produk-detail', compact('produk'));
     }
 
@@ -27,9 +27,10 @@ class produkController extends Controller
     {
         
         $produk =produk::where('id_pengguna', $id_pengguna)->get();
-        
-        $produks = produk::find($produk);
-        return view('admin-produk', compact('produks'));
+        // $produks = produk::find($produk);
+        // dd($produks);
+        $kategori = kategori::all();
+        return view('admin-produk', compact('produk', 'kategori'));
 
     }
 
@@ -38,7 +39,7 @@ class produkController extends Controller
         $valid = $request->validate([
             'foto_produk' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'nama_produk' => 'required',
-            'kategori' => 'required',
+            'id_kategori' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required',
             'stok' => 'required',
@@ -61,7 +62,8 @@ class produkController extends Controller
     public function edit(produk $produk, $id)
     {
         $produk = produk::find($id);
-        return view('admin-edit-produk', compact('produk'));
+        $kategori = kategori::all();
+        return view('admin-edit-produk', compact('produk', 'kategori'));
     }
 
     public function update(Request $request, produk $produk, $id)
@@ -69,7 +71,7 @@ class produkController extends Controller
         $this->validate($request, [
             'foto_produk' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'nama_produk' => 'required',
-            'kategori' => 'required',
+            'id_kategori' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required',
             'stok' => 'required',
@@ -86,7 +88,7 @@ class produkController extends Controller
             $produk->update([
                 'foto_produk' => $image->hashName(),
                 'nama_produk' => $request->nama_produk,
-                'kategori' => $request->kategori,
+                'id_kategori' => $request->id_kategori,
                 'harga' => $request->harga,
                 'deskripsi' => $request->deskripsi,
                 'stok' => $request->stok,
@@ -94,7 +96,7 @@ class produkController extends Controller
         } else {
             $produk->update([
                 'nama_produk' => $request->nama_produk,
-                'kategori' => $request->kategori,
+                'id_kategori' => $request->id_kategori,
                 'harga' => $request->harga,
                 'deskripsi' => $request->deskripsi,
                 'stok' => $request->stok,

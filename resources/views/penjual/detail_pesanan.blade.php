@@ -33,6 +33,11 @@
                         <td>{{ $trans->produk->nama_produk }}</td>
                     </tr>
                     <tr>
+                        <td>Kategori</td>
+                        <td>:</td>
+                        <td>{{ $trans->produk->kategori->kategori }}</td>
+                    </tr>
+                    <tr>
                         <td>Detail Produk</td>
                         <td>:</td>
                         <td>{{ $trans->produk->deskripsi }}</td>
