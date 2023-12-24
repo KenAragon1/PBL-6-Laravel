@@ -7,7 +7,7 @@ driver = webdriver.Chrome()
 driver.maximize_window()
 
 try:
-    driver.get("http://127.0.0.1:8000/dashboard/produk/721436510")
+    driver.get("http://127.0.0.1:8000/login")
 
     # karna make auth maka wajib login terlebih dahulu
     # login element
@@ -70,7 +70,7 @@ try:
 
     edit = driver.find_element(
         By.XPATH, "//button[text()='Edit']")
-    edit.click()
+    driver.execute_script("arguments[0].click();", edit)
     time.sleep(5)
 
 except Exception as e:
