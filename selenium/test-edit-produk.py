@@ -52,7 +52,6 @@ try:
     input_nama_produk.send_keys('Edit Nama Produk')
     time.sleep(3)
 
-
     input_harga_produk.clear()
     time.sleep(3)
     input_harga_produk.send_keys('321000')
@@ -68,10 +67,14 @@ try:
     input_stok_produk.send_keys("8")
     time.sleep(3)
 
-    edit = driver.find_element(
-        By.XPATH, "//button[text()='Edit']")
+    edit = driver.find_element(By.XPATH, "//button[text()='Edit']")
     driver.execute_script("arguments[0].click();", edit)
     time.sleep(5)
+
+    if "dashboard/produk" in driver.current_url:
+        status = "Sukses Menambahkan Produk Baru.."
+    else:
+        status = "Gagal menambahkan Produk.."
 
 except Exception as e:
     status = "Gagal"
