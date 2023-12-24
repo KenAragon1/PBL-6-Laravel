@@ -72,9 +72,9 @@ try:
     time.sleep(5)
 
     if "dashboard/produk" in driver.current_url:
-        status = "Sukses Menambahkan Produk Baru.."
+        status = "Sukses Menambahkan Mengedit.."
     else:
-        status = "Gagal menambahkan Produk.."
+        status = "Gagal Mengedit Produk.."
 
 except Exception as e:
     status = "Gagal"
