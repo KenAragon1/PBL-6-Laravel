@@ -83,6 +83,7 @@ except Exception as e:
     status = "Gagal"
     print(f"Terjadi Kesalahan : {e}")
 finally:
-    with open("hasil-tambah-produk.txt", "a") as file:
+    with open("hasil/hasil-tambah-produk.txt", "a") as file:
         waktu_uji = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         file.write(f"{waktu_uji} - Fitur CRUD - Status : {status} \n ")
+        driver.quit()
