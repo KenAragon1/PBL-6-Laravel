@@ -78,7 +78,7 @@ except Exception as e:
     print(f"Terjadi Kesalahan : {e}")
 
 finally:
-    with open("hasil/hasil-edit-produk.txt", "a") as file:
+    with open("selenium/hasil/hasil-edit-produk.txt", "a") as file:
         waktu_uji = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         file.write(f"{waktu_uji} - Fitur CRUD - Status : {status} \n ")
         driver.quit()

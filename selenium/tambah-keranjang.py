@@ -32,7 +32,7 @@ if "keranjang" in driver.current_url:
 else:
     status = "Gagal menambahkan Produk.."
 
-with open("hasil/hasil-tambah-keranjang.txt", "a") as file:
+with open("selenium/hasil/hasil-tambah-keranjang.txt", "a") as file:
     waktu_uji = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     file.write(f"{waktu_uji} - Fitur CRUD - Status : {status} \n ")
     driver.quit()

@@ -34,7 +34,7 @@ else:
 
 waktu_skrg = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-with open('hasil/testing_login.txt', 'a') as file:
+with open('selenium/hasil/testing_login.txt', 'a') as file:
   if '<h1>Internal Server Error</h1>' in driver.page_source:
     file.write(f"Fitur Login - diuji pada : {waktu_skrg} - Status : Error - Internal Server Error\n")
   else:
