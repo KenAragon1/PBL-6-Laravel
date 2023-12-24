@@ -61,8 +61,8 @@
                                 {{-- @method('PATCH') --}}
                                 <input hidden type="text" name="id_pesanan"  value="{{ $d->id_pemesanan }}">
                                 <input hidden type="text" name="nama_produk"  value="{{ $d->produk->nama_produk }}">
-                                <input hidden type="text" name="jumlah_produk"  value="{{ $d->cart->jumlah_produk }}">
-                                <input hidden type="text" name="total_harga"  value="{{ $d->cart->total_harga }}">
+                                <input hidden type="text" name="jumlah_produk"  value="{{ $d->jumlah_produk }}">
+                                <input hidden type="text" name="total_harga"  value="{{ $d->total_transaksi }}">
                                 <input hidden type="text" name="jenis_pembayaran"  value="{{ $d->jenis_pembayaran}}">
                                 <input hidden type="text" name="waktu_pemesanan"  value="{{ $d->tgl_pemesanan}}">
                                 <input hidden type="text" name="waktu_diterima"  value="{{ $d->tgl_selesai}}">

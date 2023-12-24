@@ -66,11 +66,9 @@ class pesananPenjual extends Controller
 
         riwayatPesanan::create($riwayat);
         $pesanan = transaksi::findOrFail($riwayat['id_pesanan']);
-        $id_cart = $pesanan->cart->id_keranjang;
 
         //menghapus keranjang
-        $cart = Cart::find($id_cart);
-        $cart->delete();
+        $pesanan->delete();
         // dd($id_cart);
         
         return back()->with('sukses', 'Berhasil Menyimpan Data Transaksi ke Riwayat pemesanan.' );

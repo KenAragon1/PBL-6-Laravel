@@ -88,21 +88,7 @@
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </div>
-                    @else
-                        <div class="dropdown">
-                            <button class="btn text-success dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <u>Hai, {{ Auth::user()->nama }} 👋</u>
-                            </button>
-
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item"
-                                    href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
-                                <a class="dropdown-item" href="{{ url('/pesanan') }}">Pesanan</a>
-                                <a class="dropdown-item" href="/logout">Logout</a>
-                            </div>
-                        </div>
-                    @endif
+                    
                 @else
                     <!-- button login -->
                     <a href="/login" id="tombolLogin" class="btn btn-outline-success js-login-btn">
