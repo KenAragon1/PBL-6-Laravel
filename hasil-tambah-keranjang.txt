@@ -10,4 +10,6 @@
  2023-12-24 17:52:51 - Fitur CRUD - Status : Gagal 
  2023-12-24 17:59:59 - Fitur CRUD - Status : Gagal 
  2023-12-24 18:03:53 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 20:53:47 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 20:54:53 - Fitur CRUD - Status : Sukses Menambahkan Produk Baru.. 
  

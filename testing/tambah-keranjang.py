@@ -25,7 +25,7 @@ try:
     time.sleep(5)
 
     link_produk = driver.find_element(By.XPATH, "//a[@id='link-produk']")
-    link_produk.click()
+    driver.execute_script("arguments[0].click();", link_produk)
     time.sleep(5)
 
     tambah_keranjang_btn = driver.find_element(By.ID, "tambah-keranjang")
