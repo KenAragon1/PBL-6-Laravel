@@ -64,7 +64,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/dashboard/produk/'.Auth::user()->id_pengguna) }}" class="nav-link link-dark">
+                    <a href="{{ url('/dashboard/produk/'.Auth::user()->id_pengguna) }}" class="nav-link link-dark" id="penjual-produk">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#speedometer2"></use>
                         </svg>

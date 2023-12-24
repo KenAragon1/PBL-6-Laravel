@@ -30,10 +30,9 @@
                 </p>
 
                 <p></p>
-                <a href="" data-bs-toggle="modal" data-bs-target="#modal-alamat" class="stretched-link"></a>
             </div>
             <div class="col-2">
-                <button class="btn btn-success">Ubah Alamat</button>
+                <button class="btn btn-success" id="ubah-alamat" data-bs-toggle="modal" data-bs-target="#modal-alamat">Ubah Alamat</button>
             </div>
         </div>
     </div>
@@ -149,7 +148,7 @@ foreach ($produksArray as $key => $jumlah) {
                 </div>
                 <div class="row mb-3" id="js-pembayaran" style="max-width: 40rem"></div>
 
-                <button type="submit" class="btn btn-success p-3 w-100">Buat Pesanan</button>
+                <button type="submit" class="btn btn-success p-3 w-100" id="buat-pesanan">Buat Pesanan</button>
             </form>
         </div>
     </div>
@@ -205,34 +204,34 @@ foreach ($produksArray as $key => $jumlah) {
                             </div>
                             <div class="col-md-6">
                                 <label for="">kota</label>
-                                <input type="text" name="kota" id="" class="form-control" />
+                                <input type="text" name="kota" id="kota" class="form-control" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="">Kecamatan</label>
-                                <input type="text" name="kecamatan" id="" class="form-control" />
+                                <input type="text" name="kecamatan" id="kecamatan" class="form-control" />
                             </div>
                             <div class="col-md-6">
                                 <label for="">Kode Pos</label>
-                                <input type="number" name="kodepos" id="" class="form-control" />
+                                <input type="number" name="kodepos" id="kodepos" class="form-control" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Nama Jalan, Gedung, No.Rumah</label>
-                                <textarea name="detail1" id="" cols="30" rows="3" class="form-control"></textarea>
+                                <textarea name="detail1" id="detail1" cols="30" rows="3" class="form-control"></textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Detail lainnya</label>
-                                <textarea name="detail2" id="" cols="30" rows="3" class="form-control"></textarea>
+                                <textarea name="detail2" id="detail2" cols="30" rows="3" class="form-control"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success">Simpan</button>
+                        <button type="submit" class="btn btn-success" id="simpan-alamat">Simpan</button>
                     </div>
                 </div>
             </form>

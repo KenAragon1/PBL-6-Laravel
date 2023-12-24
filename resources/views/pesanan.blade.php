@@ -14,7 +14,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-        <h1 class="border-bottom text-muted text-center p-3">Pesanan</h1>
+        <h1 class="border-bottom text-muted text-center p-3">Pesanana</h1>
         <table class="table">
             <thead>
                 <tr>

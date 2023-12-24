@@ -1,0 +1,39 @@
+2023-12-24 12:17:33 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 12:35:22 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 12:35:40 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 12:40:14 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 12:45:50 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 12:46:47 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 12:48:31 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 12:51:39 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 12:54:56 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 13:02:51 - Fitur CRUD - Status : Gagal menambahkan Produk.. 
+ 2023-12-24 13:12:51 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 13:14:20 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 13:14:54 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 13:16:29 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 13:17:29 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 13:17:43 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 13:18:50 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 13:19:30 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 13:19:51 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 13:24:41 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 13:26:17 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 13:27:30 - Fitur CRUD - Status : Gagal menambahkan Produk.. 
+ 2023-12-24 13:29:44 - Fitur CRUD - Status : Gagal menambahkan Produk.. 
+ 2023-12-24 14:01:09 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 14:04:41 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 14:07:42 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 16:01:04 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 16:02:34 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 16:11:27 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 16:17:05 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 16:20:58 - Fitur CRUD - Status : Sukses Menambahkan Produk Baru.. 
+ 2023-12-24 16:22:18 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 16:32:12 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 18:26:24 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 18:27:41 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 18:36:34 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 18:37:46 - Fitur CRUD - Status : Gagal 
+ 2023-12-24 18:39:09 - Fitur CRUD - Status : Sukses Menambahkan Produk Baru.. 
+ 

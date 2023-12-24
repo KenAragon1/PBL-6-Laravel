@@ -52,7 +52,8 @@
                 </a>
             </div>
             <form class="d-flex rounded my-0" action="/cari-produk" method="get">
-                <input class="form-control me-2" type="search" name="cari_produk" placeholder="Search" aria-label="Search" />
+                <input class="form-control me-2" type="search" name="cari_produk" placeholder="Search"
+                    aria-label="Search" />
                 <button class="btn btn-outline-success" type="submit">
                     <i class="bi bi-search"></i>
                 </button>
@@ -62,7 +63,7 @@
 
                 @auth
                     <!-- button keranjang -->
-                    <a href="/keranjang" class="btn btn-outline-success fs-5 mx-2">
+                    <a href="/keranjang" class="btn btn-outline-success fs-5 mx-2" id="tombol-keranjang">
                         <i class="bi bi-cart-fill"></i>
                     </a>
                     <a href="/profil-user" class="text-success fs-5 mx-2">
@@ -76,7 +77,7 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 @if (Auth::user()->jenis_pengguna == 'Penjual')
-                                <a class="dropdown-item" href="/dashboard">Dashboard</a>
+                                <a class="dropdown-item" href="/dashboard" id="dashboard-btn">Dashboard</a>
                                 @endif
                                 <a class="dropdown-item" id="profilBtn"
                                     href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
@@ -160,14 +161,17 @@
         <h1 class="text-center text-success">REKOMENDASI</h1>
         <div class="row justify-content-center">
             @foreach ($produks as $produk)
-                <div class="card p-2 m-2 shadow" style="width: 15rem">
-                    <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="stretched-link"></a>
+                <div class="card p-2 m-2 shadow" style="width: 15rem" id="link-produk">
+
                     <img class="card-img-top" src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}"
                         alt="Card image cap" style="aspect-ratio:1.4/1;" />
                     <div class="card-body">
-                        <h5 class="card-title"
-                            style="width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
-                            {{ $produk->nama_produk }}</h5>
+                        <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="stretched-link" style="text-decoration: none" id="link-produk">
+                            <h5 class="card-title"
+                                style="width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-decoration: none; color:black">
+                                {{ $produk->nama_produk }}</h5>
+                        </a>
+
                         <b>
                             <p class="text-success">Rp {{ $produk->harga }}</p>
                         </b>

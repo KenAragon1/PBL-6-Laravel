@@ -25,7 +25,7 @@
                         <h5 class="card-title" style="width:100%;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ $produk->nama_produk }}</h5>
                         <p class="text-success">Rp {{ $produk->harga }}</p>
                         <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="btn btn-primary w-100 mb-2">Detail</a>
-                        <a href="{{ url('dashboard/produk/edit/' . $produk->id_produk) }}" class="btn btn-success w-100 mb-2">Edit</a>
+                        <a href="{{ url('dashboard/produk/edit/' . $produk->id_produk) }}" class="btn btn-success w-100 mb-2" id="editBtn">Edit</a>
                         <form action="{{url('/dashboard/produk/delete/'.$produk->id_produk)}}" method="post">
                             @csrf
                             @method('DELETE')
@@ -52,10 +52,10 @@
                             <input type="text" id="nama" name="nama_produk" class="form-control" required />
                         </div>
                         <div class="col-10 form-outline mb-4 ">
-                            <select name="id_kategori" class="form-control">
+                            <select name="id_kategori" id="kategori" class="form-control">
                                 <option disabled selected>-- Kategori --</option>
                                 @foreach ($kategori as $i)
-                                    <option value="{{ $i->id }}">{{ $i->kategori }}</option>
+                                    <option value="{{ $i->id }}" id="kategori-option">{{ $i->kategori }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -74,8 +74,8 @@
 
                         </div>
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="foto">Stok Produk</label>
-                            <input type="number" id="foto" name="stok" class="form-control" required />
+                            <label class="form-label" for="stok">Stok Produk</label>
+                            <input type="number" id="stok" name="stok" class="form-control" required />
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="foto">Foto Produk</label>

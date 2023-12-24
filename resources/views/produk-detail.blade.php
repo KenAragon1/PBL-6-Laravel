@@ -35,7 +35,7 @@
                                     <input class="form-control w-25" type="number" name="jumlah_produk" value=1 min=1 hidden>
                                                                  
                                                                      
-                                    <button type="submit" class="btn btn-success p-3 mx-3">
+                                    <button type="submit" class="btn btn-success p-3 mx-3" id="tambah-keranjang">
                                         Tambahkan ke keranjang
                                     </button>
                                 </form>

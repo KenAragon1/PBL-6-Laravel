@@ -47,7 +47,7 @@
                 </div>
             </div>
             <!-- Submit button -->
-            <button type="submit" class="btn btn-success btn-block mb-4" style="width: 100%">
+            <button type="submit" class="btn btn-success btn-block mb-4" id="login" style="width: 100%">
                 Login
             </button>
             <p>Belum Punya Akun? <a href="/register">Register</a></p>

@@ -55,7 +55,7 @@ class produkController extends Controller
         if (produk::create($valid)) {
             return redirect('/dashboard/produk/'.Auth::user()->id_pengguna)->with('sukses', 'Tambah produk Berhasil.');
         }
-        return redirect('/');
+        return redirect('/')->with('gagal', 'Tambah produk gagal.');
 
     }
 
@@ -126,7 +126,7 @@ class produkController extends Controller
     {
         $cari_produk = $request->input('cari_produk');
 
-        $produks = produk::where('nama_produk', 'like', "%$cari_produk%")->orWhere('kategori', 'like', "%$cari_produk%")->get();
+        $produks = produk::where('nama_produk', 'like', "%$cari_produk%")->orWhere('deskripsi', 'like', "%$cari_produk%")->get();
         return view('search-result' ,compact('produks', 'cari_produk'));
     }
 

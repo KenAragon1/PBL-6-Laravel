@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CC Store | Situs Jual Beli Terpercaya</title>
-    <link rel="shortcut icon" href="{{ ('logo2.png') }}">
+    <link rel="shortcut icon" href="{{ 'logo2.png' }}">
     {{-- fontawesome --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
@@ -30,7 +32,7 @@
         @media (max-width: 490px) {
             .card {
                 width: 10rem !important;
-                aspect-ratio: 1/1 ;
+                aspect-ratio: 1/1;
             }
         }
     </style>
@@ -45,7 +47,8 @@
                     <i class="bi bi-list fs-5"></i>
                 </button>
                 <a href="/" class="navbar-brand text-success mx-2 ms-auto">
-                     <img src="{{ asset('logo2.png') }}" alt="Logo" height="45px" width="45px" style="margin-left: 30px;">
+                    <img src="{{ asset('logo2.png') }}" alt="Logo" height="45px" width="45px"
+                        style="margin-left: 30px;">
                 </a>
             </div>
             <form class="d-flex rounded my-0">
@@ -57,8 +60,7 @@
             <div class="nav ">
                 @auth
                     <!-- button keranjang -->
-                    <a href="/keranjang"
-                        class="btn btn-outline-success fs-5 mx-2">
+                    <a href="/keranjang" class="btn btn-outline-success fs-5 mx-2">
                         <i class="bi bi-cart-fill"></i>
                     </a>
                     <a href="/profil-user" class="text-success fs-5 mx-2">
@@ -67,23 +69,23 @@
                     {{-- icon profile --}}
                     <div class="dropdown">
                         <button class="btn text-success dropdown-toggle" type="button" id="pengguna"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        All About, {{ Auth::user()->nama }} 👋
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                @if (Auth::user()->jenis_pengguna == 'Penjual')
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            All About, {{ Auth::user()->nama }} 👋
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            @if (Auth::user()->jenis_pengguna == 'Penjual')
                                 <a class="dropdown-item" href="/dashboard">Dashboard</a>
-                                @endif
-                                <a class="dropdown-item" id="profilBtn"
-                                    href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
-                                <a class="dropdown-item" href="{{ url('/pesanan') }}">Pesanan</a>
-                                <a class="dropdown-item" href="/riwayat_pesanan">Riwayat Pesanan</a>
-                                
+                            @endif
+                            <a class="dropdown-item" id="profilBtn"
+                                href="{{ url('/profil_user/' . Auth::user()->id_pengguna) }}">Profil</a>
+                            <a class="dropdown-item" href="{{ url('/pesanan') }}">Pesanan</a>
+                            <a class="dropdown-item" href="/riwayat_pesanan">Riwayat Pesanan</a>
 
 
-                                <a class="dropdown-item" href="/logout">Logout</a>
-                            </div>
+
+                            <a class="dropdown-item" href="/logout">Logout</a>
                         </div>
+                    </div>
                 @else
                     <!-- button login -->
                     <a href="/login" id="tombolLogin" class="btn btn-outline-success js-login-btn">
@@ -105,13 +107,13 @@
             <ul class="nav nav-pills flex-column">
                 <li>
                     <a href="/" class="nav-link link-dark">
-                        <span><i class="fa-solid fa-home fa-2xl me-3"></i></span>   
+                        <span><i class="fa-solid fa-home fa-2xl me-3"></i></span>
                         <span class="fs-5 bold">Dashboard</span>
                     </a>
                 </li>
                 <li>
                     <a href="/produk_pembeli" class="nav-link link-dark">
-                        <span><i class="fa-solid fa-gifts fa-2xl me-3"></i></span>   
+                        <span><i class="fa-solid fa-gifts fa-2xl me-3"></i></span>
                         <span class="fs-5 bold">Daftar Produk</span>
                     </a>
                 </li>
@@ -123,7 +125,7 @@
                 </li> --}}
                 <li>
                     <a href="#" class="nav-link link-dark">
-                        <span><i class="fa-solid fa-tags fa-2xl me-3"></i></span>   
+                        <span><i class="fa-solid fa-tags fa-2xl me-3"></i></span>
                         <span class="fs-5 bold">Kategori</span>
                     </a>
                 </li>
@@ -139,28 +141,33 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-  
+
 
     <div class="container border-top p-3">
-        <h1 class="text-center text-success mb-5 mt-3">KATEGORI PRODUK</h1>
-        <div class="w-10">
-            @foreach ($kategori as $kat)
-              <a href="/produk/kategori/{{ $kat->id }}" 
-                class="btn btn-info mb-3 me-2 text-center" style="width: 200px; height:100px; font-size:30px; ">
-                {{ $kat->kategori }}</a>
-            @endforeach
-        </div>
         
-        @foreach ($produk as $produk)
-        <div class="card p-2 m-2 shadow mt-4" style="width: 15rem">
-          <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="stretched-link"></a>
-          <img class="card-img-top" src="{{ asset('images/foto-produk')}}/{{$produk->foto_produk}}" alt="Card image cap" />
-          <div class="card-body">
-              <h5 class="card-title">{{ $produk->nama_produk }}</h5>
-              <p class="text-success">Rp {{ $produk->harga }}</p>
-          </div>
-        </div>
-        @endforeach
+            <div class="bg-white border row justify-content-center shadow mb-3 p-3 rounded">
+                <h1 class="text-center text-success mx-2">KATEGORI PRODUK</h1>
+                @foreach ($kategori as $kat)
+                    <a href="/produk/kategori/{{ $kat->id }}" class="btn btn-success mb-3 me-2 text-center p-3" style="width:10rem">
+                        {{ $kat->kategori }}</a>
+                @endforeach
+            </div>
+            <div class="row justify-content-center">
+                @foreach ($produk as $produk)
+                    <div class="card p-2 m-2 shadow mt-4" style="width: 12rem">
+                        <a href="{{ url('/produk-detail/' . $produk->id_produk) }}" class="stretched-link"></a>
+                        <img class="card-img-top" src="{{ asset('images/foto-produk') }}/{{ $produk->foto_produk }}"
+                            alt="Card image cap" style="aspect-ratio:1.4/1" />
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $produk->nama_produk }}</h5>
+                            <p class="text-success">Rp {{ $produk->harga }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+
+
     </div>
 
 
