@@ -15,9 +15,9 @@ try:
     input_password = driver.find_element(By.ID, "password")
 
     # otomasi login
-    input_username.send_keys('KenAragon')
+    input_username.send_keys('afdholdzikri')
     time.sleep(3)
-    input_password.send_keys('qwerty')
+    input_password.send_keys('afdhol')
     time.sleep(3)
     login_btn = driver.find_element(By.ID, "login")
     time.sleep(3)
@@ -49,7 +49,7 @@ try:
     tambah_produk_btn.click()
     time.sleep(5)
 
-    input_nama_produk.send_keys('biawak')
+    input_nama_produk.send_keys('Kerboard Gaming')
     time.sleep(3)
 
     input_kategori_produk.click()
@@ -58,13 +58,13 @@ try:
     kategori.click()
     time.sleep(3)
 
-    input_harga_produk.send_keys('1233213')
+    input_harga_produk.send_keys('150000')
     time.sleep(3)
 
-    input_deskripsi_produk.send_keys('contoh deskripsi')
+    input_deskripsi_produk.send_keys('Product Name: Keyboard Mouse Set, Manufacturing method: Semi mechanical,  Number of keys: 104, Material: ABS plastic,  Line length: 1.3 meters')
     time.sleep(3)
 
-    input_stok_produk.send_keys("12")
+    input_stok_produk.send_keys("90")
     time.sleep(3)
 
     input_foto_produk.send_keys(
@@ -72,7 +72,7 @@ try:
     tambah = driver.find_element(
         By.XPATH, "//button[text()='Tambahkan Produk']")
     tambah.click()
-    time.sleep(5)
+    time.sleep(3)
 
     if "dashboard/produk" in driver.current_url:
         status = "Sukses Menambahkan Produk Baru.."

@@ -1,0 +1,98 @@
+{% extends "layout.html" %} {% block kontenku %}
+
+<h2 class="display-6">Ubah Mata Kuliah</h2>
+<hr />
+<div class="row justify-content-center">
+  <div class="col-md-12">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/matakuliah">Data Mata Kuliah</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Ubah Mata Kuliah
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="col-md-8">
+    <div class="card card-body">
+      <form action="/matakuliah/update/{{contact.0}}" method="POST">
+        <div class="mb-3">
+          <label for="judul" class="form-label">Judul</label>
+          <input
+            type="text"
+            name="judul"
+            value="{{contact.1}}"
+            class="form-control"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="deskripsi" class="form-label">Deskripsi</label>
+          <input
+            type="text"
+            name="deskripsi"
+            value="{{contact.2}}"
+            class="form-control"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="sks" class="form-label">SKS</label>
+          <input
+            type="text"
+            name="sks"
+            value="{{contact.3}}"
+            class="form-control"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="programstudi" class="form-label">Program Studi</label>
+          <!-- <input
+            type="text"
+            name="programstudi"
+            value="{{contact.4}}"
+            class="form-control"
+          /> -->
+          <select name="programstudi" class="form-select" aria-label="Default select example">
+            <option selected disabled>-- Program Studi --</option>
+            <option value="Teknik Informatika" {{ 'selected' if contact.4 =='Teknik Informatika' else '' }}>Teknik Informatika</option>
+            <option value="Geomatika" {{ 'selected' if contact.4 =='Geomatika' else '' }}>Geomatika</option>
+            <option value="Teknik Rekayasa Multimedia" {{ 'selected' if contact.4 =='Teknik Rekayasa Multimedia' else '' }}>Teknik Rekayasa Multimedia</option>
+            <option value="Teknik Rekayasa Perangkat Lunak" {{ 'selected' if contact.4 =='Teknik Rekayasa Perangkat Lunak' else '' }}>Teknik Rekayasa Perangkat Lunak</option>
+            <option value="Teknik Rekayasa Keamanan Siber" {{ 'selected' if contact.4 =='Teknik Rekayasa Keamanan Siber' else '' }}>Teknik Rekayasa Keamanan Siber</option>
+            <option value="Animasi" {{ 'selected' if contact.4 =='Animasi' else '' }}>Animasi</option>
+        </select>
+        </div>
+        
+        <div class="mb-3">
+          <label for="semester" class="form-label">Semester</label>
+          <!-- <input
+            type="text"
+            name="programstudi"
+            value="{{contact.4}}"
+            class="form-control"
+          /> -->
+          <select name="semester" class="form-select" aria-label="Default select example">
+            <option selected disabled>-- Semester --</option>
+            <option value="1" {{ 'selected' if contact.5 ==1 else '' }}>Semester 1</option>
+            <option value="2" {{ 'selected' if contact.5 ==2 else '' }}>Semester 2</option>
+            <option value="3" {{ 'selected' if contact.5 ==3 else '' }}>Semester 3</option>
+            <option value="4" {{ 'selected' if contact.5 ==4 else '' }}>Semester 4</option>
+            <option value="5" {{ 'selected' if contact.5 ==5 else '' }}>Semester 5</option>
+            <option value="6" {{ 'selected' if contact.5 ==6 else '' }}>Semester 6</option>
+            <option value="7" {{ 'selected' if contact.5 ==7 else '' }}>Semester 7</option>
+            <option value="8" {{ 'selected' if contact.5 ==8 else ''}}>Semester 8</option>
+        </select>
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary btn-block">
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

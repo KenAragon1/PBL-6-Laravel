@@ -15,9 +15,9 @@ try:
     input_password = driver.find_element(By.ID, "password")
 
     # otomasi login
-    input_username.send_keys('KenAragon')
+    input_username.send_keys('afdholdzikri')
     time.sleep(3)
-    input_password.send_keys('qwerty')
+    input_password.send_keys('afdhol')
     time.sleep(3)
     login_btn = driver.find_element(By.ID, "login")
     time.sleep(3)
@@ -49,22 +49,22 @@ try:
 
     input_nama_produk.clear()
     time.sleep(3)
-    input_nama_produk.send_keys('Edit Nama Produk')
+    input_nama_produk.send_keys('Mouse Wireless')
     time.sleep(3)
 
     input_harga_produk.clear()
     time.sleep(3)
-    input_harga_produk.send_keys('321000')
+    input_harga_produk.send_keys('95000')
     time.sleep(3)
 
     input_deskripsi_produk.clear()
     time.sleep(3)
-    input_deskripsi_produk.send_keys('edit deskripsi')
+    input_deskripsi_produk.send_keys('Mouse Tanpa Kabel')
     time.sleep(3)
 
     input_stok_produk.clear()
     time.sleep(3)
-    input_stok_produk.send_keys("8")
+    input_stok_produk.send_keys("109")
     time.sleep(3)
 
     edit = driver.find_element(By.XPATH, "//button[text()='Edit']")

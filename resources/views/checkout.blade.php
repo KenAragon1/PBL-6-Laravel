@@ -165,7 +165,7 @@ foreach ($produksArray as $key => $jumlah) {
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="">Provinsi </label>
-                                <select name="provinsi" id="" class="form-control">
+                                <select name="provinsi" id="provinsi" class="form-control">
                                     <option value="ACEH">ACEH</option>
                                     <option value="SUMATERA UTARA">SUMATERA UTARA</option>
                                     <option value="SUMATERA BARAT">SUMATERA BARAT</option>

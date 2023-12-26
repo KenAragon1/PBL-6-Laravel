@@ -11,15 +11,15 @@ wait = WebDriverWait(driver,10)
 try:
     driver.get("http://127.0.0.1:8000/login")
 
-    # karna make auth maka wajib login terlebih dahulu
+    # karna menggunakan auth maka wajib login terlebih dahulu
     # login element
     input_username = driver.find_element(By.ID, "username")
     input_password = driver.find_element(By.ID, "password")
 
     # otomasi login
-    input_username.send_keys('KenAragon')
+    input_username.send_keys('afdholdzikri')
     time.sleep(3)
-    input_password.send_keys('qwerty')
+    input_password.send_keys('afdhol')
     time.sleep(3)
     login_btn = driver.find_element(By.ID, "login")
     time.sleep(3)
@@ -36,7 +36,7 @@ try:
 
     tombol_checkout = driver.find_element(By.ID, "js-checkout-btn")
     tombol_checkout.click()
-    time.sleep(5)
+    time.sleep(1)
 
     edit_alamat = driver.find_element(By.ID, "ubah-alamat")
     edit_alamat.click()
@@ -50,22 +50,22 @@ try:
     simpan_alamat = driver.find_element(By.ID, "simpan-alamat")
 
     input_kota.send_keys('Batam')
-    time.sleep(3)
+    time.sleep(2)
     
-    input_kecamatan.send_keys('Batu Aji')
-    time.sleep(3)
+    input_kecamatan.send_keys('Batam Center')
+    time.sleep(2)
 
-    input_kodepos.send_keys('21171')
-    time.sleep(3)
+    input_kodepos.send_keys('29439')
+    time.sleep(2)
 
-    input_detail1.send_keys('Taman Lestari Blok D5 No 5')
-    time.sleep(3)
+    input_detail1.send_keys('Jalan Politeknik Negeri Batam')
+    time.sleep(2)
 
-    input_detail2.send_keys("rumah warna putih")
-    time.sleep(3)
+    input_detail2.send_keys("Gedung Utama")
+    time.sleep(2)
 
     simpan_alamat.click()
-    time.sleep(5)
+    time.sleep(3)
 
     pembayaran_cod = driver.find_element(By.XPATH, "//input[@value='COD']")
     driver.execute_script("arguments[0].click();", pembayaran_cod)
@@ -81,9 +81,6 @@ try:
         status = "Gagal menambahkan checkout.."
 
     
-
-
-
 except Exception as e:
     status = "Gagal"
     print(f"Terjadi Kesalahan : {e}")

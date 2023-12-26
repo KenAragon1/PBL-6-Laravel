@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block kontenku %}
+
+  <h2 class="display-6">Manajemen Mata Kuliah</h2>
+  <hr>
+  <a href="/matakuliah/tambah" class="btn btn-custom mb-1 mt-2"><i class="fa-solid fa-plus"></i> Tambah </a>
+
+  <div class="d-flex justify-content-end mb-3">
+    <div class="dropdown ">
+      <button class="btn btn-info dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">Program Studi</button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="matakuliah/IF">IF</a></li>
+        <li><a class="dropdown-item" href="matakuliah/TRM">TRM</a></li>
+        <li><a class="dropdown-item" href="matakuliah/GM">GM</a></li>
+        <li><a class="dropdown-item" href="matakuliah/TRPL">TRPL</a></li>
+        <li><a class="dropdown-item" href="matakuliah/RKS">RKS</a></li>
+        <li><a class="dropdown-item" href="matakuliah/AN">AN</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+   
+    
+    <div class="col-md-12">
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ message }}
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
+      <table class="table table-striped text-center">
+        <thead>
+          <tr class="bg-secondary text-white" style="background: linear-gradient(
+    to left,
+    rgba(203, 109, 198, 0.854),
+    rgb(21, 153, 201)
+  );">
+            <td>Kode</td>
+            <td>Judul</td>
+            <td>Deskripsi </td>
+            <td>SKS</td>
+            <td>Program Studi</td>
+            <td>Semester</td>
+            <td>Aksi</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in matakuliah %}
+          <tr>
+            <td>{{item.0}}</td> 
+            <td>{{item.1}}</td>
+            <td>{{item.2}}</td>
+            <td>{{item.3}}</td>
+            <td>{{item.4}}</td>
+            <td>{{item.5}}</td>
+            <td>
+              <a href="/matakuliah/edit/{{item.0}}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Ubah</a>
+              <a href="/matakuliah/delete/{{item.0}}" class="btn btn-danger btn-delete" onclick="return confirm('Yakin???')"><i class="fa-solid fa-trash"></i> Hapus</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

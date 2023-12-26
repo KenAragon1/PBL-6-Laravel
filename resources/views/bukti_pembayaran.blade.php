@@ -62,7 +62,7 @@
             </div>
             <div class="row mt-3">
                 <div class="col-md-3 border-bottom">
-                    <p>Totak Harga</p>
+                    <p>Total Harga</p>
                 </div>
                 <div class="col-md-9 border-bottom fs-5">
                     <p>Rp. {{ $data->total_transaksi }},-</p>
@@ -90,7 +90,7 @@
               </div>
               <div class="row mt-3">
                 <div class="col-md-3 mt-3">
-                    <p>Totak Harga</p>
+                    <p>Total Harga</p>
                 </div>
                 <div class="col form-control border-0 ">
                   <input class="form-control form-control-lg" type="file" name="bukti_pembayaran" required>
