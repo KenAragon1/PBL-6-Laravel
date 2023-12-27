@@ -51,7 +51,7 @@
                                     </div>
                                     <button class="btn btn-success ms-2" type="button" id="js-btn-jlh"
                                         onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                        <i class="bi bi-plus"></i> </button>
+                                        <i class="bi bi-plus" id="js-btn-tambah"></i> </button>
                                 </div>
 
                             </div>

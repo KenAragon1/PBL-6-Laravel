@@ -45,10 +45,10 @@
                         <td>{{ $d->status_pengiriman }}</td>
                         <td>
                             
-                            <a href="/detail_pesanan/{{ $d->id_pemesanan }}" class="text-light btn btn-primary"><i class="bi bi-eye"></i></a>
+                            <a href="/detail_pesanan/{{ $d->id_pemesanan }}" class="text-light btn btn-primary"><i class="bi bi-eye" id="bukti-cod"></i></a>
                             @if ($d->jenis_pembayaran == 'TransferBank' and $d->bukti_pembayaran == '')
-                                <a href="/pesanan/bukti_pembayaran/{{ $d->id_pemesanan }}" class="text-light btn btn-warning">
-                                    <i class="bi bi-file-earmark-plus"></i>
+                                <a href="/pesanan/bukti_pembayaran/{{ $d->id_pemesanan }}" class="text-light btn btn-warning" id="bukti-pembayaran">
+                                    <i class="bi bi-file-earmark-plus" id="bukti-pembayaran"></i>
                                 </a>
                                     
                             @elseif($d->status_pengiriman == 'Pesanan Sudah Dikirim oleh Penjual')

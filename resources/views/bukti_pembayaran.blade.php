@@ -78,13 +78,13 @@
                   <div class="col-md  ">
                     <label class="fs-5">(An. {{ $data->produk->pengguna->nama }})</label>
                     <select name="jenis_pembayaran" class="form-control mb-1" required>
-                      <option value="BCA">-- Pilih Jenis Bank --</option>
-                      <option value="BCA">BCA - 014 987345764</option>
-                      <option value="Mandiri">Mandiri - 008 347567365</option>
-                      <option value="BRI">BRI - 002 756234875</option>
-                      <option value="BNI">BNI - 009 127349274</option>
-                      <option value="BTN">BTN - 200 731124345</option>
-                      <option value="Muamalat">Muamalat - 147 666772736</option>
+                      <option value="BCA" id="bank">-- Pilih Jenis Bank --</option>
+                      <option value="BCA" id="bank">BCA - 014 987345764</option>
+                      <option value="Mandiri" id="bank">Mandiri - 008 347567365</option>
+                      <option value="BRI" id="bank">BRI - 002 756234875</option>
+                      <option value="BNI" id="bank">BNI - 009 127349274</option>
+                      <option value="BTN" id="bank">BTN - 200 731124345</option>
+                      <option value="Muamalat" id="bank">Muamalat - 147 666772736</option>
                     </select>
                   </div>
               </div>
@@ -93,11 +93,11 @@
                     <p>Total Harga</p>
                 </div>
                 <div class="col form-control border-0 ">
-                  <input class="form-control form-control-lg" type="file" name="bukti_pembayaran" required>
+                  <input class="form-control form-control-lg" type="file" id="uploadBukti" name="bukti_pembayaran" required>
                 </div>
               </div>
               <div class="col-12 d-flex justify-content-end">
-                <button type="submit" class="btn btn-success btn-block">
+                <button type="submit" class="btn btn-success btn-block" id="btnUpload" >
                   Upload Bukti
                 </button>
               </div>

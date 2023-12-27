@@ -21,7 +21,7 @@ time.sleep(2)
 password.send_keys("afdhol")
 time.sleep(2)
 login_btn.click()
-time.sleep(3)
+time.sleep(4)
 
 current_url = driver.current_url
 

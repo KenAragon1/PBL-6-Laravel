@@ -203,7 +203,7 @@ foreach ($produksArray as $key => $jumlah) {
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label for="">kota</label>
+                                <label for="">Kota</label>
                                 <input type="text" name="kota" id="kota" class="form-control" />
                             </div>
                         </div>

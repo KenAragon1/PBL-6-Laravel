@@ -49,7 +49,7 @@ try:
     tambah_produk_btn.click()
     time.sleep(5)
 
-    input_nama_produk.send_keys('Kerboard Gaming')
+    input_nama_produk.send_keys('Keyboard Gaming')
     time.sleep(3)
 
     input_kategori_produk.click()
@@ -67,10 +67,9 @@ try:
     input_stok_produk.send_keys("90")
     time.sleep(3)
 
-    input_foto_produk.send_keys(
-        'C:\\Users\\THINKPAD\\pbl\\public\\images\\foto-produk\\contoh-produk.jpg')
-    tambah = driver.find_element(
-        By.XPATH, "//button[text()='Tambahkan Produk']")
+    input_foto_produk.send_keys('C:\\Users\\ASUS\\keyboard2.jpeg')
+    
+    tambah = driver.find_element(By.XPATH, "//button[text()='Tambahkan Produk']")
     tambah.click()
     time.sleep(3)
 

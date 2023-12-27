@@ -26,6 +26,9 @@ driver.execute_script("arguments[0].click();", link_produk)
 time.sleep(5)
 tambah_keranjang_btn = driver.find_element(By.ID, "tambah-keranjang")
 tambah_keranjang_btn.click()
+time.sleep(3)
+tambah_kuantitas = driver.find_element(By.ID, "js-btn-tambah")
+tambah_kuantitas.click()
 time.sleep(5)
 if "keranjang" in driver.current_url:
     status = "Sukses Menambahkan Produk Baru.."
