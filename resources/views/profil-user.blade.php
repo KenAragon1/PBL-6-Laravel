@@ -92,6 +92,14 @@
                     <p>{{ $data->alamat }}</p>
                 </div>
             </div>
+            <div class="row border-bottom">
+                <div class="col-md-3">
+                    <p>Pekerjaan</p>
+                </div>
+                <div class="col-md-9">
+                    <p>{{ $data->pekerjaan }}</p>
+                </div>
+            </div>
         </div>
 
         <div class="container">
@@ -133,6 +141,10 @@
                         <div class="form-outline mb-2">
                             <label class="form-label" for="noHP">No HP</label>
                             <input type="text" name="nohp" class="form-control" value="{{ $data->nohp }}">
+                        </div>
+                        <div class="form-outline mb-2">
+                            <label class="form-label" for="pekerjaan">Pekerjaan</label>
+                            <input type="text" name="pekerjaan" class="form-control" value="{{ $data->pekerjaan }}">
                         </div>
                         <div class="form-outline mb-2">
                             <label class="form-label" for="alamat">Alamat</label>

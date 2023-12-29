@@ -49,19 +49,19 @@ try:
     input_detail2 = driver.find_element(By.ID, "detail2")
     simpan_alamat = driver.find_element(By.ID, "simpan-alamat")
 
-    input_kota.send_keys('Batam')
+    input_kota.send_keys('Banda Aceh')
     time.sleep(1)
     
-    input_kecamatan.send_keys('Batam Center')
+    input_kecamatan.send_keys('Pango Deah')
     time.sleep(1)
 
     input_kodepos.send_keys('29439')
     time.sleep(1)
 
-    input_detail1.send_keys('Jalan Politeknik Negeri Batam')
+    input_detail1.send_keys('Gang Raflesia')
     time.sleep(1)
 
-    input_detail2.send_keys("Gedung Utama")
+    input_detail2.send_keys("Blok AA1 No 8")
     time.sleep(1)
 
     simpan_alamat.click()

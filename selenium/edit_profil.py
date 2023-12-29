@@ -11,7 +11,6 @@ driver = webdriver.Chrome()
 driver.get("http://127.0.0.1:8000/")
 
 login = driver.find_element(By.ID, 'tombolLogin')
-
 login.click()
 
 username = driver.find_element(By.NAME, 'username')
@@ -36,7 +35,6 @@ time.sleep(1)
 # edit profile
 
 editProfil = driver.find_element(By.ID, 'editProfil')
-
 driver.execute_script("arguments[0].click();", editProfil)
 time.sleep(5) 
 wait = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.ID, 'modal-edit')))
@@ -46,8 +44,8 @@ jk = Select(driver.find_element(By.NAME, 'jenis_kelamin'))
 alamat = driver.find_element(By.NAME, 'alamat')
 
 jk.select_by_value('Laki-laki')
-ttl.send_keys("10-10-2000")
-alamat.send_keys("Politeknik Negeri Batam, Batam Kota, Kepulauan Riau")
+ttl.send_keys("10-10-1995")
+alamat.send_keys("Banda Aceh, Pango Deah, Gang Raflesia, Blok AA1 No 8")
 time.sleep(3)
 
 ubahBtn = driver.find_element(By.ID, 'ubahBtn')

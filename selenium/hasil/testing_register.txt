@@ -1,3 +1,1 @@
-Fitur Registrasi - diuji pada : 2023-12-13 14:56:06 - Status : Registration Successful
-Fitur Registrasi - diuji pada : 2023-12-13 15:54:23 - Status : Registration Successful
-Fitur Registrasi - diuji pada : 2023-12-26 12:11:21 - Status : Registration Successful
+Fitur Registrasi - diuji pada : 2023-12-29 10:41:53 - Status : Registration Successful

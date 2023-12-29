@@ -80,6 +80,7 @@ class profilController extends Controller
             'jenis_kelamin' => 'required',       
             'ttl' => 'required',       
             'alamat' => 'required',
+            'pekerjaan' => 'required',
             'foto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
@@ -100,6 +101,7 @@ class profilController extends Controller
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'ttl' => $request->ttl,
                 'alamat' => $request->alamat,
+                'pekerjaan' => $request->pekerjaan,
                 'foto' => $image->hashName()
             ]);
             return back()->with('sukses', 'Berhasil Mengedit Data Profil.');  
@@ -111,7 +113,10 @@ class profilController extends Controller
                 'nohp' => $request->nohp,
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'ttl' => $request->ttl,
-                'alamat' => $request->alamat
+                'alamat' => $request->alamat,
+                'pekerjaan' => $request->pekerjaan,
+
+
             ]);
             return back()->with('sukses', 'Berhasil Mengedit Data Profil.');  
 

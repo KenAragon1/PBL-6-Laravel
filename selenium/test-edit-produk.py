@@ -49,22 +49,22 @@ try:
 
     input_nama_produk.clear()
     time.sleep(3)
-    input_nama_produk.send_keys('Mouse Wireless')
+    input_nama_produk.send_keys('Printer EPSON A312')
     time.sleep(3)
 
     input_harga_produk.clear()
     time.sleep(3)
-    input_harga_produk.send_keys('95000')
+    input_harga_produk.send_keys('2150000')
     time.sleep(3)
 
     input_deskripsi_produk.clear()
     time.sleep(3)
-    input_deskripsi_produk.send_keys('Mouse Tanpa Kabel')
+    input_deskripsi_produk.send_keys('Printer Bagus')
     time.sleep(3)
 
     input_stok_produk.clear()
     time.sleep(3)
-    input_stok_produk.send_keys("109")
+    input_stok_produk.send_keys("1118")
     time.sleep(3)
 
     edit = driver.find_element(By.XPATH, "//button[text()='Edit']")

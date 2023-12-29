@@ -90,7 +90,7 @@ try:
     time.sleep(3)
 
     upload_bukti = driver.find_element(By.ID, "uploadBukti")
-    upload_bukti.send_keys('C:\\Users\\ASUS\\Downloads\\tf.jpeg')
+    upload_bukti.send_keys('C:\\Users\\ASUS\\Downloads\\tf2.jpeg')
 
     upload = driver.find_element(By.XPATH, "//button[@id='btnUpload']")
     upload.click()

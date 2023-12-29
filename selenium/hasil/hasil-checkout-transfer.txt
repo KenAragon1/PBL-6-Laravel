@@ -1,8 +1,2 @@
-2023-12-27 08:13:45 - Fitur CRUD - Status : Gagal 
- 2023-12-27 08:20:52 - Fitur CRUD - Status : Gagal 
- 2023-12-27 11:09:50 - Fitur CRUD - Status : Gagal 
- 2023-12-27 11:11:58 - Fitur CRUD - Status : Gagal 
- 2023-12-27 11:14:31 - Fitur CRUD - Status : Gagal 
- 2023-12-27 14:00:14 - Fitur CRUD - Status : Gagal 
- 2023-12-27 21:06:44 - Fitur CRUD - Status : Sukses Menambahkan checkout.. 
+2023-12-29 10:54:48 - Fitur CRUD - Status : Sukses Menambahkan checkout.. 
  

@@ -49,7 +49,7 @@ try:
     tambah_produk_btn.click()
     time.sleep(5)
 
-    input_nama_produk.send_keys('Keyboard Gaming')
+    input_nama_produk.send_keys('Keyboard Gaming Backlight')
     time.sleep(3)
 
     input_kategori_produk.click()
@@ -58,7 +58,7 @@ try:
     kategori.click()
     time.sleep(3)
 
-    input_harga_produk.send_keys('150000')
+    input_harga_produk.send_keys('300000')
     time.sleep(3)
 
     input_deskripsi_produk.send_keys('Product Name: Keyboard Mouse Set, Manufacturing method: Semi mechanical,  Number of keys: 104, Material: ABS plastic,  Line length: 1.3 meters')
@@ -67,7 +67,7 @@ try:
     input_stok_produk.send_keys("90")
     time.sleep(3)
 
-    input_foto_produk.send_keys('C:\\Users\\ASUS\\keyboard2.jpeg')
+    input_foto_produk.send_keys('C:\\Users\\ASUS\\Downloads\\keyboard3.jpeg')
     
     tambah = driver.find_element(By.XPATH, "//button[text()='Tambahkan Produk']")
     tambah.click()
