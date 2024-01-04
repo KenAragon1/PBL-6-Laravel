@@ -76,7 +76,7 @@ class pesananPenjual extends Controller
 
     public function riwayat(){
         $data = riwayatPesanan::all();
-        return view('/riwayat-pesanan', compact('data'));
+        return view('riwayat-pesanan', compact('data'));
     }
     public function riwayatPesanan(){
         $data = riwayatPesanan::where('penjual', Auth::user()->nama)->get();

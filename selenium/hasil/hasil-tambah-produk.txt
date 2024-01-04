@@ -1,4 +1,16 @@
 2023-12-29 10:23:33 - Fitur CRUD - Status : Gagal 
  2023-12-29 10:25:03 - Fitur CRUD - Status : Gagal 
  2023-12-29 10:26:29 - Fitur CRUD - Status : Sukses Menambahkan Produk Baru.. 
+ 2023-12-27 11:22:03 - Fitur CRUD - Status : Gagal 
+ 2023-12-27 11:31:52 - Fitur CRUD - Status : Sukses Menambahkan Produk Baru.. 
+ 2023-12-27 18:46:37 - Fitur CRUD - Status : Sukses Menambahkan Produk Baru.. 
+ 2023-12-30 14:17:10 - Fitur CRUD - Status : Gagal 
+ 2023-12-30 14:18:52 - Fitur CRUD - Status : Gagal 
+ 2023-12-30 14:35:15 - Fitur CRUD - Status : Gagal 
+ 2023-12-30 14:38:36 - Fitur CRUD - Status : Sukses Menambahkan Produk Baru.. 
+ 2023-12-30 18:47:49 - Fitur CRUD - Status : Gagal 
+ 2023-12-30 19:10:27 - Fitur CRUD - Status : Gagal 
+ 2023-12-30 19:12:04 - Fitur CRUD - Status : Sukses Menambahkan Produk Baru.. 
+ 2023-12-30 19:14:08 - Fitur CRUD - Status : Sukses Menambahkan Produk Baru.. 
+ 2023-12-30 19:20:44 - Fitur CRUD - Status : Sukses Menambahkan Produk Baru.. 
  

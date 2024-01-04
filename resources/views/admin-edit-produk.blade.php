@@ -16,10 +16,10 @@
             <input type="text" id="nama" name="nama_produk" class="form-control" value="{{$produk->nama_produk}}" required/>
         </div>
         <div class="form-outline mb-4">
-            <select name="id_kategori" class="form-control">
+            <select name="id_kategori" id="kategori" class="form-control">
                 <option disabled selected>-- Kategori --</option>
                 @foreach ($kategori as $i)
-                    <option value="{{ $i->id }}" {{ $produk->id_kategori == $i->id ? 'selected' : ''}}>{{ $i->kategori }}</option>
+                    <option id="kategori-option" value="{{ $i->id }}" {{ $produk->id_kategori == $i->id ? 'selected' : ''}}>{{ $i->kategori }}</option>
                 @endforeach
             </select>
         </div>

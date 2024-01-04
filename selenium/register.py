@@ -7,10 +7,13 @@ from selenium.webdriver.support.ui import Select
 driver = webdriver.Chrome()
 driver.get("http://127.0.0.1:8000/")
 
+
 login = driver.find_element(By.ID, 'tombolLogin')
+
 
 login.click()
 time.sleep(3)
+
 
 register = driver.find_element(By.XPATH, '//a[@href="/register"]')
 register.click()
@@ -18,11 +21,11 @@ time.sleep(3)
 
 # jenisUser = driver.find_element(By.ID, 'jenis_pengguna' )
 jenisUser = Select(driver.find_element(By.ID, 'jenis_pengguna'))
-nama = driver.find_element(By.NAME, 'nama' )
-email = driver.find_element(By.NAME, 'email' )
-username = driver.find_element(By.NAME, 'username' )
-nohp = driver.find_element(By.NAME, 'nohp' )
-password = driver.find_element(By.NAME, 'password' )
+nama = driver.find_element(By.NAME, 'nama')
+email = driver.find_element(By.NAME, 'email')
+username = driver.find_element(By.NAME, 'username')
+nohp = driver.find_element(By.NAME, 'nohp')
+password = driver.find_element(By.NAME, 'password')
 
 jenisUser.select_by_value('Pembeli')
 time.sleep(2)
@@ -45,22 +48,20 @@ time.sleep(2)
 current_url = driver.current_url
 
 if '/login' in current_url:
-  status = "Registration Successful"
+    status = "Registration Successful"
 elif '/register' in current_url:
-  status = "Registration Failed!"
+    status = "Registration Failed!"
 else:
-  status = "Failed! Unknown Error!"
+    status = "Failed! Unknown Error!"
 
 waktu_skrg = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 with open('selenium/hasil/testing_register.txt', 'a') as file:
-  if '<h1>Internal Server Error</h1>' in driver.page_source:
-    file.write(f"Fitur Registerasi - diuji pada : {waktu_skrg} - Status : Error - Internal Server Error\n")
-  else:
-    file.write(f"Fitur Registrasi - diuji pada : {waktu_skrg} - Status : {status}\n")
+    if '<h1>Internal Server Error</h1>' in driver.page_source:
+        file.write(
+            f"Fitur Registerasi - diuji pada : {waktu_skrg} - Status : Error - Internal Server Error\n")
+    else:
+        file.write(
+            f"Fitur Registrasi - diuji pada : {waktu_skrg} - Status : {status}\n")
 
 driver.quit()
-
-
-
-

@@ -1,7 +1,7 @@
-@extends('templates.nav-footer')
+@extends('templates.dashboard')
 
 @section('content')
-    <div class="container bg-white my-3 border shadow" style="min-height: 100vh">
+    <div class="container col-9 bg-white my-3 border shadow" style="min-height: 100vh">
         
         <h1 class="border-bottom text-muted text-center p-3">Riwayat Pesanan</h1>
         <table class="table">
